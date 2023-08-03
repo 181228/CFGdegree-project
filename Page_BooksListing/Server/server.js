@@ -9,8 +9,15 @@ const db = new sqlite3.Database(dbPath);
 
 // Serve the static files from the Front-end folder
 app.use(express.static(path.join(__dirname, '../Front-end')));
+
 // Serve the Cover Images folder
-app.use('/CoverImages', express.static(path.join(__dirname, '../CoverImages')));
+app.use('/CoverImages', (req, res, next) => {
+  if (req.url.endsWith('.jpg')) {
+    res.type('image/jpeg');
+  }
+  next();
+}, express.static(path.join(__dirname, '../CoverImages')));
+
 
 app.get('/api/books', (req, res) => {
   // Query the database to get all books
