@@ -5,11 +5,12 @@ const app = express();
 const port = 3000;
 
 const dbPath = '../Database/books.db';
-
 const db = new sqlite3.Database(dbPath);
 
 // Serve the static files from the Front-end folder
 app.use(express.static(path.join(__dirname, '../Front-end')));
+// Serve the Cover Images folder
+app.use('/CoverImages', express.static(path.join(__dirname, '../CoverImages')));
 
 app.get('/api/books', (req, res) => {
   // Query the database to get all books
@@ -33,7 +34,8 @@ app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
 
-// To run the server:
+//STEPS FOR RUNNING THE SERVER:
+
 /// Go through the terminal to the directory where server.js is stored
 /// Run npm install express sqlite3
 /// Run node server.js
