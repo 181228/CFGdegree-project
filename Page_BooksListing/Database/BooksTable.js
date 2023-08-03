@@ -3,7 +3,7 @@ const path = require('path');
 
 // Paths to files
 const dbPath = './books.db'; // The path to the new .db file
-const imageBasePath = path.join(__dirname, '../CoverImages/'); // Adjust the image path
+const imageBasePath = '../CoverImages/'; // Adjust the image path
 
 // Book data
 const booksData = [
@@ -38,9 +38,11 @@ const booksDictionary = booksData.map((data, index) => {
         condition: data[3],
         trade_for: data[4],
         price: data[5],
-        image: imageBasePath + index + '.jpg'
+        image: `${imageBasePath}${index}.jpg`
     };
 });
+
+console.log(booksDictionary);
 
 // Create a connection to the database
 const db = new sqlite3.Database(dbPath, (err) => {
