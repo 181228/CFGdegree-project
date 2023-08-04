@@ -30,6 +30,8 @@ app.get('/api/books', (req, res) => {
   });
 });
 
+app.get('/api/books')
+
 // Handle requests to the root URL
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../Front-end/BooksListing.html'));
