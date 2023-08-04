@@ -32,7 +32,7 @@ app.get('/api/books', (req, res) => {
 
 // Handle requests to the root URL
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Front-end/index.html'));
+    res.sendFile(path.join(__dirname, '../Front-end/BooksListing.html'));
 });
 
 // Other API endpoints for more complex operations can be added here.
