@@ -1,0 +1,30 @@
+<!-- The payment details page -->
+<!DOCTYPE html>
+<html>
+<!-- ... Head and CSS styles ... -->
+<body>
+    <h1>Enter Payment Details</h1>
+    <form id="paymentForm" onsubmit="return processPayment(event)">
+        <!-- Payment details input fields -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required><br>
+
+        <label for="address">Address:</label>
+        <textarea id="address" required></textarea><br>
+
+        <!-- Payment details fields (e.g., credit card number, expiration date, etc.) -->
+        <label for="creditCardNumber">Credit Card Number:</label>
+        <input type="text" id="creditCardNumber" required><br>
+
+        <label for="expirationDate">Expiration Date:</label>
+        <input type="text" id="expirationDate" required><br>
+
+        <!-- Additional fields as needed -->
+
+        <button type="submit">Process Payment</button>
+    </form>
+</body>
+</html>
