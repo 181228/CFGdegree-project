@@ -5,6 +5,7 @@
 - Hanan
 - Jodie
 - Jasmine
+- Caitlyn
 - Amun
 - Aga
 
