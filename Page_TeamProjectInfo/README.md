@@ -17,8 +17,8 @@
 
 **The tools to be used:** The ReadSwap platform can be developed using various web development tools and technologies, such as HTML, CSS, JavaScript, and a back-end programming language like Node.js or Python. Additionally, a database system like MySQL may be employed to manage book listings and user information. User authentication and security features should also be implemented to ensure a safe and seamless experience for all users.
 
-**The tasks division:**  
-### Time Frame: 27 days
+**The tasks division:** 
+**Time Frame: 27 days**
 
 The task division is just the sample so that the section is not empty ---> we shall adjust it to reality
 
