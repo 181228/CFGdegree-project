@@ -7,19 +7,19 @@ function App() {
       {/* Person1 */}
       <div className='person-info'>
         <img className="img1" src="" alt="Person 1" width="100" height="100" style={{ margin: '20px' }} />    
-        <h3>Person1 name</h3>
+        <h3>Hanan</h3>
         <ul>
-          <li>Favourite hobby or activity you like to do (e.g., for downtime)</li>
-          <li> Why do you do it? Why do you enjoy it?</li>
+          <li>My favorite hobby is listening to music</li>
+          <li>It eases my mind from all the overthinkng, calms me down and lifts my mood when I am feeling low.</li>
         </ul>
       </div>
       {/* Person2 */}
       <div className='person-info'>
         <img className="img2" src="" alt="Person 2" width="100" height="100" style={{ margin: '20px' }} />    
-        <h3>Person2 name</h3>
+        <h3>Jodie</h3>
         <ul>
-          <li>Favourite hobby or activity you like to do (e.g., for downtime)</li>
-          <li> Why do you do it? Why do you enjoy it?</li>
+          <li>I really enjoy going to the Gym, running and watching Netflix</li>
+          <li>It keeps me fit, and my mind clear. I have more patience and feel happier</li>
         </ul>
       </div>
       {/* Person3 */}
