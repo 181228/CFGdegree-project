@@ -16,10 +16,10 @@ function App() {
       {/* Person2 */}
       <div className='person-info'>
         <img className="img2" src="" alt="Person 2" width="100" height="100" style={{ margin: '20px' }} />    
-        <h3>Person2 name</h3>
+        <h3>Jodie</h3>
         <ul>
-          <li>Favourite hobby or activity you like to do (e.g., for downtime)</li>
-          <li> Why do you do it? Why do you enjoy it?</li>
+          <li>I really enjoy going to the Gym, running and watching Netflix</li>
+          <li>It keeps me fit, and my mind clear. I have more patience and feel happier</li>
         </ul>
       </div>
       {/* Person3 */}
