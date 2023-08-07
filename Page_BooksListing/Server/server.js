@@ -30,9 +30,26 @@ app.get('/api/books', (req, res) => {
   });
 });
 
+// Add the route for individual book details
+app.get('/api/books/:id', (req, res) => {
+  const bookId = req.params.id;
+  // Query the database to get the book details with the specified bookId
+  db.get('SELECT * FROM books WHERE id = ?', [bookId], (err, row) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+    } else if (!row) {
+      res.status(404).json({ error: 'Book not found' });
+    } else {
+      res.json(row); // Send the data as a JSON response
+    }
+  });
+});
+
+app.get('/api/books')
+
 // Handle requests to the root URL
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Front-end/index.html'));
+    res.sendFile(path.join(__dirname, '../Front-end/BooksListing.html'));
 });
 
 // Other API endpoints for more complex operations can be added here.
