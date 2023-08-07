@@ -1,4 +1,4 @@
-// Fetching BooksListing from the backend and display them on the page
+// Fetching BooksListing from the backend and display them on the page --- WORKING
 function fetchAndDisplayBooks() {
   console.log('fetchAndDisplayBooks executed');
   fetch('http://localhost:3000/api/books')
@@ -20,19 +20,21 @@ function fetchAndDisplayBooks() {
         `;
         bookListElement.appendChild(bookElement);
       });
-      // Click event listener to book titles and images
+
+      // Click event listener for book titles and images --- WORKING
       const bookElements = document.querySelectorAll('.book');
       bookElements.forEach(bookElement => {
         bookElement.addEventListener('click', () => {
+          // alert('Book clicked!'); // Testing
           const bookId = bookElement.dataset.bookId;
-          displayBookDetails(bookId);
+          redirectToBookDetails(bookId);
         });
       });
     })
     .catch(error => console.error('Error fetching data:', error));
 }
 
-// Fetch books and display them on page load
+// Fetch books and display them on page load --- WORKING
 document.addEventListener('DOMContentLoaded', fetchAndDisplayBooks);
 
 // Function to get the book ID from the URL
@@ -41,12 +43,14 @@ function getBookIdFromURL() {
   return urlParams.get('id');
 }
 
-// Function to redirect to BookDetails.html with the book ID
-function viewBookDetails(bookId) {
-  window.location.href = `BookDetails.html?id=${bookId}`;
+// Function to redirect to BookDetails.html with the book ID --- WORKING
+function redirectToBookDetails(bookId) {
+  const bookDetailsUrl = `BookDetails.html?id=${bookId}`;
+  window.location.href = bookDetailsUrl;
 }
 
-// Function to fetch book details from the backend
+
+// Function to fetch book details from the backend --- WORKING
 function fetchBookDetails(bookId) {
   fetch(`/api/books/${bookId}`)
     .then(response => {
@@ -55,12 +59,12 @@ function fetchBookDetails(bookId) {
       }
       return response.json();
     })
-    .then(book => displayBookDetails(book))
+    .then(book => displayBookDetailsOnPage(book))
     .catch(error => console.error('Error fetching book details:', error));
 }
 
-// Function to display the book details on the page
-function displayBookDetails(book) {
+// Function to display the book details on the page --- WORKING
+function displayBookDetailsOnPage(book) {
   const bookDetailsContainer = document.getElementById('bookDetails');
   bookDetailsContainer.innerHTML = `
     <h2>${book.title}</h2>
@@ -73,28 +77,28 @@ function displayBookDetails(book) {
     <p>Description: ${book.description}</p>
   `;
 
-  // Click event listener to the "Add to Cart" button
+  // Click event listener to the "Add to Cart" button --- WORKING
   const addToCartButton = document.getElementById('addToCartButton');
   addToCartButton.addEventListener('click', addToCartHandler);
 
-  // Click event listener to the "Buy" button
+  // Click event listener to the "payByCardButton" button
   const buyButton = document.getElementById('payByCardButton');
   buyButton.addEventListener('click', () => {
     window.location.href = 'PaymentGateway.html';
   });
 }
 
-// Function to handle the "Add to Cart" button click
+// Function to handle the "Add to Cart" button click --- WORKING
 function addToCartHandler() {
   alert('Book added to cart!');
 }
 
-// Function to direct user to PaymentGateway to handle the "Buy" button click
+// Function to direct user to PaymentGateway to handle the "PayByCard" button click
 function buyHandler() {
   window.location.href = 'PaymentGateway.html';
 }
 
-// Fetch book details and display them on BookDetails.html page on page load
+// Fetch book details and display them on BookDetails.html page on page load --- WORKING
 document.addEventListener('DOMContentLoaded', () => {
   const bookId = getBookIdFromURL();
   fetchBookDetails(bookId);
