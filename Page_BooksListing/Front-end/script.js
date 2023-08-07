@@ -1,4 +1,4 @@
-// Fetching BooksListing from the backend and display them on the page --- WORKING
+// Fetch BooksListing from the backend and display them on the page --- WORKING
 function fetchAndDisplayBooks() {
   console.log('fetchAndDisplayBooks executed');
   fetch('http://localhost:3000/api/books')
@@ -37,7 +37,7 @@ function fetchAndDisplayBooks() {
 // Fetch books and display them on page load --- WORKING
 document.addEventListener('DOMContentLoaded', fetchAndDisplayBooks);
 
-// Function to get the book ID from the URL
+// Function to get the book ID from the URL --- WORKING
 function getBookIdFromURL() {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get('id');
@@ -72,7 +72,7 @@ function displayBookDetailsOnPage(book) {
     <p>Genre: ${book.genre}</p>
     <p>Condition: ${book.condition}</p>
     <p>Trade For: ${book.trade_for}</p>
-    <p>Price: $${book.price}</p>
+    <p>Price: £ ${book.price}</p>
     <img src="${book.image}" alt="${book.title} cover" width="200">
     <p>Description: ${book.description}</p>
   `;
@@ -81,7 +81,7 @@ function displayBookDetailsOnPage(book) {
   const addToCartButton = document.getElementById('addToCartButton');
   addToCartButton.addEventListener('click', addToCartHandler);
 
-  // Click event listener to the "payByCardButton" button
+  // Click event listener to the "submitPaymentDetails" button --- WORKING
   const buyButton = document.getElementById('payByCardButton');
   buyButton.addEventListener('click', () => {
     window.location.href = 'PaymentGateway.html';
@@ -93,7 +93,7 @@ function addToCartHandler() {
   alert('Book added to cart!');
 }
 
-// Function to direct user to PaymentGateway to handle the "PayByCard" button click
+// Function to direct user to PaymentGateway to handle the "submitPaymentDetails" button click --- WORKING
 function buyHandler() {
   window.location.href = 'PaymentGateway.html';
 }
@@ -103,6 +103,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const bookId = getBookIdFromURL();
   fetchBookDetails(bookId);
 
+  // Function to show payment processing message
+  function showPaymentProcessing() {
+    const paymentResult = document.getElementById("paymentResult");
+    if (paymentResult) {
+      paymentResult.innerText = "Processing payment...";
+    }
+  }
+
+  // Attach event listener to the "PsubmitPaymentDetails" button
+  const submitPaymentDetails = document.getElementById('submitPaymentDetails');
+  if (submitPaymentDetails) {
+    submitPaymentDetails.addEventListener('click', processPayment);
+  }
+
+  // Function to redirect to PaymentConfirmation.html
+  function redirectToConfirmation() {
+    window.location.href = 'PaymentConfirmation.html';
+  }
+  
   // Function to simulate processing payment and redirect to PaymentConfirmation.html
   function processPayment(event) {
     event.preventDefault();
@@ -116,11 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2000);
 
     return false;
-  }
-
-  // Function to redirect to PaymentConfirmation.html
-  function redirectToConfirmation() {
-    window.location.href = 'PaymentConfirmation.html';
   }
 
   // Function to render the PayPal button
@@ -162,31 +176,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }, '#paypal-button');
   }
 
-  // Function to show payment processing message
-  function showPaymentProcessing() {
-    const paymentResult = document.getElementById("paymentResult");
-    paymentResult.innerText = "Processing payment...";
-  }
-
   // Function to show payment success message and order summary
-  function showPaymentSuccess(name, creditCardNumber) {
+  function showPaymentSuccess() {
     const paymentResult = document.getElementById("paymentResult");
     const orderSummary = `
       Payment successful. Thank you for your purchase!
-
-      Order Summary:
-      Name: ${name}
-      Credit Card Number: ${creditCardNumber}
     `;
 
     paymentResult.innerText = orderSummary;
   }
 
   showPaymentSuccess();
-
-  // Attach the processPayment function to the "Pay by Card" button click event
-  const payByCardButton = document.getElementById('payByCardButton');
-  payByCardButton.addEventListener('click', buyHandler);
 
   // Call the function to render the PayPal button
   document.addEventListener('DOMContentLoaded', renderPayPalButton);
