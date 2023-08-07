@@ -81,7 +81,7 @@ function App() {
             My favourite hobby is surfing 
           </li>
           <li> I really enjoy swimming so wanted to try something new and thought surfing would
-            combine my like for swimming and skateboarding. </li>
+            combine my like for swimming and skateboarding.  </li>
         </ul>
       </div>
       {/* Person5 */}
