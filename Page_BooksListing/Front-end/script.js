@@ -176,6 +176,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }, '#paypal-button');
   }
 
+  // Call the function to render the PayPal button
+  renderPayPalButton();
+
   // Function to show payment success message and order summary
   function showPaymentSuccess() {
     const paymentResult = document.getElementById("paymentResult");
@@ -188,8 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   showPaymentSuccess();
 
-  // Call the function to render the PayPal button
-  document.addEventListener('DOMContentLoaded', renderPayPalButton);
 });
 
 
