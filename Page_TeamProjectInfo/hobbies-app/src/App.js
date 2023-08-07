@@ -69,18 +69,19 @@ function App() {
       <div className="person-info">
         <img
           className="img4"
-          src=""
+          src="./documents/github/misc/Caitlyn"
           alt="Person 4"
           width="100"
           height="100"
           style={{ margin: "20px" }}
         />
-        <h3>Person4 name</h3>
+        <h3>Caitlyn</h3>
         <ul>
           <li>
-            Favourite hobby or activity you like to do (e.g., for downtime)
+            My favourite hobby is surfing 
           </li>
-          <li> Why do you do it? Why do you enjoy it?</li>
+          <li> I really enjoy swimming so wanted to try something new and thought surfing would
+            combine my like for swimming and skateboarding. </li>
         </ul>
       </div>
       {/* Person5 */}
