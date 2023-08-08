@@ -1,9 +1,9 @@
 # CFGdegree - ReadSwap Project
 
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./HW2_Screenshots/Logo_small_BW.png">
-    <source media="(prefers-color-scheme: light)" srcset="./HW2_Screenshots/Logo_small.png">
-    <img alt="Logo" src="./HW2_Screenshots/Logo_small.png">
+    <source media="(prefers-color-scheme: dark)" srcset="./HW2_Screenshots/Logo_small_BW">
+    <source media="(prefers-color-scheme: light)" srcset="./HW2_Screenshots/Logo_small">
+    <img alt="Logo" src="./HW2_Screenshots/Logo_small">
   </picture>
 
 ## Problem Definition:
