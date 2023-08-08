@@ -64,7 +64,7 @@ This section will be adjusted as the project progresses.
 - Book Gifting: Users can gift their books to others, spreading the joy of reading and promoting a culture of sharing.
 - Rare Book Search: The platform offers a search feature to help users find rare and out-of-print books that may not be easily available elsewhere.
 
-**Design Justification**
+**Design Justification:**
 Our aim was to ensure that users could navigate from page to page effortlessly, and that the arrangement of elements would not impede the overall readability of the page. We applied fundamental principles of digital graphics when selecting media:
 
 - Keeping things simple ('Less is more')
