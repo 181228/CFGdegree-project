@@ -21,6 +21,7 @@ function App() {
             It eases my mind from all the overthinkng, calms me down and lifts
             my mood when I am feeling low.
           </li>
+          <br />
         </ul>
       </div>
       {/* Person2 */}
@@ -40,6 +41,7 @@ function App() {
             It keeps me fit, and my mind clear. I have more patience and feel
             happier
           </li>
+          <br />
         </ul>
       </div>
       {/* Person3 */}
@@ -82,6 +84,7 @@ function App() {
           </li>
           <li> I really enjoy swimming so wanted to try something new and thought surfing would
             combine my like for swimming and skateboarding.  </li>
+          <br />  
         </ul>
       </div>
       {/* Person5 */}
@@ -100,6 +103,7 @@ function App() {
             Favourite hobby or activity you like to do (e.g., for downtime)
           </li>
           <li> Why do you do it? Why do you enjoy it?</li>
+          <br />
         </ul>
       </div>
       {/* Person6 */}
