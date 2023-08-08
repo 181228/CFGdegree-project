@@ -76,12 +76,7 @@ Our aim was to ensure that users could navigate from page to page effortlessly, 
 
 The color palette we have chosen is warm and neutral, consisting of earthy tones, predominantly bronzes, oranges, and greens. We aimed to select colors that evoke the feeling of old book covers. The chosen colors are bright and subdued, providing the site with a soft appearance that, hopefully, will allow users to browse comfortably without overwhelming their eyes with excessive contrast. We approached the site as a canvas for the books—the most essential elements of the site, without which it could not exist.
 
-```html
-<script src="https://coolors.co/palette-widget/widget.js"></script>
-<script data-id="017727877834967554">
-  new CoolorsPaletteWidget("017727877834967554", ["606c38", "283618", "fefae0", "dda15e", "bc6c25"]);
-</script>
-```
+![ColorPalette](./HW2_Screenshots/ColorPalette.png)
 
 The only contrasting elements we used were variations in the background, navigation bar, and buttons. This contrast makes it easier for users to navigate the site and understand the nature of the displayed content.
 
