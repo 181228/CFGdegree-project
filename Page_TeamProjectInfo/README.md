@@ -65,7 +65,7 @@ This section will be adjusted as the project progresses.
 - Rare Book Search: The platform offers a search feature to help users find rare and out-of-print books that may not be easily available elsewhere.
 
 **Design Justification:**
-Our aim was to ensure that users could navigate from page to page effortlessly, and that the arrangement of elements would not impede the overall readability of the page. We applied fundamental principles of digital graphics when selecting media:
+Our aim is to ensure that users can navigate from page to page effortlessly, and that the arrangement of elements does not impede the overall readability of the page. We are applying fundamental principles of digital graphics when selecting media:
 
 - Keeping things simple ('Less is more')
 - Using a cohesive color palette and design elements
@@ -74,11 +74,11 @@ Our aim was to ensure that users could navigate from page to page effortlessly, 
 - Incorporating white space and spacing
 - Taking psychology of color into account
 
-The color palette we have chosen is warm and neutral, consisting of earthy tones, predominantly bronzes, oranges, and greens. We aimed to select colors that evoke the feeling of old book covers. The chosen colors are bright and subdued, providing the site with a soft appearance that, hopefully, will allow users to browse comfortably without overwhelming their eyes with excessive contrast. We approached the site as a canvas for the books—the most essential elements of the site, without which it could not exist.
+The color palette we have chosen is warm and neutral, consisting of earthy tones, predominantly bronzes, oranges, and greens. Our goal is to select colors that evoke the feeling of old book covers. The chosen colors are bright and subdued, providing the site with a soft appearance that, hopefully, allows users to browse comfortably without overwhelming their eyes with excessive contrast. We are approaching the site as a canvas for the books—the most essential elements of the site, without which it could not exist.
 
 ![ColorPalette](./HW2_Screenshots/ColorPalette.png)
 
-The only contrasting elements we used were variations in the background, navigation bar, and buttons. This contrast makes it easier for users to navigate the site and understand the nature of the displayed content.
+The only contrasting elements we are using are variations in the background, navigation bar, and buttons. We believe this contrast makes it easier for users to navigate the site and understand the nature of the displayed content.
 
 Examples of our wireframes can be found below.
 
