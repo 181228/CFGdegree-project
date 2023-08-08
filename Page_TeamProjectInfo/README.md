@@ -74,7 +74,7 @@ Our aim is to ensure that users can navigate from page to page effortlessly, and
 - Incorporating white space and spacing
 - Taking psychology of color into account
 
-The color palette we have chosen is warm and neutral, consisting of earthy tones, predominantly bronzes, oranges, and greens. Our goal is to select colors that evoke the feeling of old book covers. The chosen colors are bright and subdued, providing the site with a soft appearance that, hopefully, allows users to browse comfortably without overwhelming their eyes with excessive contrast. We are approaching the site as a canvas for the books—the most essential elements of the site, without which it could not exist.
+The color palette we have chosen is warm and neutral, consisting of earthy tones, predominantly bronzes and greens. Our goal is to select colors that evoke the feeling of old book covers. The chosen colors are bright and subdued, providing the site with a soft appearance that, hopefully, allows users to browse comfortably without overwhelming their eyes with excessive contrast. We are approaching the site as a canvas for the books—the most essential elements of the site, without which it could not exist.
 
 ![ColorPalette](./HW2_Screenshots/ColorPalette.png)
 
