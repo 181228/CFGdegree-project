@@ -1,8 +1,10 @@
 # CFGdegree - ReadSwap Project
 
+<!-- ![Logo](./Page_TeamProjectInfo/HW2_Screenshots/Logo_small.png) -->
+
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./HW2_Screenshots/Logo_small_BW.png">
-    <source media="(prefers-color-scheme: light)" srcset="./HW2_Screenshots/Logo_small.png">
+    <source media="(prefers-color-scheme: dark)" srcset="./Page_TeamProjectInfo/HW2_Screenshots/Logo_small_BW.png">
+    <source media="(prefers-color-scheme: light)" srcset="./Page_TeamProjectInfo/HW2_Screenshots/Logo_small.png">
     <img alt="Logo_small" src="./HW2_Screenshots/Logo_small.png">
   </picture>
 
