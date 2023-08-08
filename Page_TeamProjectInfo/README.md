@@ -20,7 +20,7 @@
 **The tasks division:** 
 **Time Frame: 27 days**
 
-The task division is just the sample so that the section is not empty ---> we shall adjust it to reality
+This section will be adjusted as the project progresses.
 
 1. Hanan:
    - Front-end Development: Implementing the user interface using HTML, CSS, and JavaScript. (5 days)
@@ -30,7 +30,6 @@ The task division is just the sample so that the section is not empty ---> we sh
 
 2. Jodie:
    - Front-end Development: Implementing the user interface using HTML, CSS, and JavaScript. (5 days)
-   - Design and Branding: Creating a visually appealing design and consistent branding for the platform. (3 days)
    - Home Page: Designing the main page to display information. (3 days)
    - User Authentication: Adding user registration and login functionality to secure user accounts. (4 days)
    - Database Integration: Implementing the database system (e.g., MySQL) to manage user information. (5 days)
@@ -51,14 +50,13 @@ The task division is just the sample so that the section is not empty ---> we sh
    - Book Exchange Feature: Developing the feature that allows users to trade books with others. (6 days)
    - Book Gifting Feature: Creating the feature that enables users to gift their books to others. (4 days)
    - Performance Optimization: Optimizing the website's performance to ensure fast loading times. (3 days)
-   - Responsive Design: Ensuring that the website is responsive and accessible across various devices. (3 days)
+   - Book Upload Page: Ensuring that users can upload book they'd like to swap. (3 days)
 
 6. Aga:
    - Back-end Development: Setting up the server using Node.js and Express. (2 days)
    - API Integration: Connecting the front-end with the back-end through API calls. (4 days)
    - Database Integration: Creating the database to manage book listings. (2 days)
-   - Book Listing Page: Creating the page where users can browse and search for available books. (2 days)
-   - Book Detail Page: Creating the page to display detailed information about each book. (3 days)
+   - Creating Book Listing, Book Detail, Payment Gateway and Payment Confirmation pages so that users can choose books and buy some (sandbox environment). (7 days)
 
 **Main features:**
 - Book Exchange: Users can easily trade books with others, helping them discover new literary treasures while giving their own books a new life.
@@ -66,11 +64,27 @@ The task division is just the sample so that the section is not empty ---> we sh
 - Book Gifting: Users can gift their books to others, spreading the joy of reading and promoting a culture of sharing.
 - Rare Book Search: The platform offers a search feature to help users find rare and out-of-print books that may not be easily available elsewhere.
 
-<!-- Requirements: 
-1. Come up with a project idea you will all like to work on.
-2. Submit a document that contains details of your project such as:
-- What is the concept/ what are you building? Think exactly about what needs to be built.
-- Who will this help? Who’s your target audience?
-- How will you be working? What tools will help with that?
-- How are you going to organise the workload? Who does what and when?
-- What are the main features of your project? -->
+**Design Justification**
+Our aim was to ensure that users could navigate from page to page effortlessly, and that the arrangement of elements would not impede the overall readability of the page. We applied fundamental principles of digital graphics when selecting media:
+
+- Keeping things simple ('Less is more')
+- Using a cohesive color palette and design elements
+- Maintaining control over typography
+- Considering visual hierarchy
+- Incorporating white space and spacing
+- Taking psychology of color into account
+
+The color palette we have chosen is warm and neutral, consisting of earthy tones, predominantly bronzes, oranges, and greens. We aimed to select colors that evoke the feeling of old book covers. The chosen colors are bright and subdued, providing the site with a soft appearance that, hopefully, will allow users to browse comfortably without overwhelming their eyes with excessive contrast. We approached the site as a canvas for the books—the most essential elements of the site, without which it could not exist.
+
+```html
+<script src="https://coolors.co/palette-widget/widget.js"></script>
+<script data-id="017727877834967554">
+  new CoolorsPaletteWidget("017727877834967554", ["606c38", "283618", "fefae0", "dda15e", "bc6c25"]);
+</script>
+```
+
+The only contrasting elements we used were variations in the background, navigation bar, and buttons. This contrast makes it easier for users to navigate the site and understand the nature of the displayed content.
+
+Examples of our wireframes can be found below.
+
+
