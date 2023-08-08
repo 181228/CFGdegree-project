@@ -1,6 +1,10 @@
 # CFGdegree - ReadSwap Project
 
-![Logo](./Page_TeamProjectInfo/HW2_Screenshots/Logo_small.png)
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./HW2_Screenshots/Logo_small_BW.png">
+    <source media="(prefers-color-scheme: light)" srcset="./HW2_Screenshots/Logo_small.png">
+    <img alt="Logo" src="./HW2_Screenshots/Logo_small.png">
+  </picture>
 
 ## Problem Definition:
 >In an era of increasing digital book readers, many individuals still treasure the tactile experience of flipping through the pages of beloved paper books. However, numerous books, despite being in good condition, remain idle, occupying valuable space after being read. Purchasing new books is not always environmentally friendly or economically feasible. This untapped potential for book exchange, sale, or donation creates a significant challenge for book enthusiasts.
