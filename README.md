@@ -3,9 +3,9 @@
 <!-- ![Logo](./Page_TeamProjectInfo/HW2_Screenshots/Logo_small.png) -->
 
 <picture>
-    <source width="80" height="80" media="(prefers-color-scheme: dark)" srcset="./Page_TeamProjectInfo/HW2_Screenshots/Logo_small_BW.png">
-    <source width="80" height="80" media="(prefers-color-scheme: light)" srcset="./Page_TeamProjectInfo/HW2_Screenshots/Logo_small.png">
-    <img width="80" height="80" alt="Logo_small" src="./HW2_Screenshots/Logo_small.png">
+    <source width="160" height="160" media="(prefers-color-scheme: dark)" srcset="./Page_TeamProjectInfo/HW2_Screenshots/Logo_small_BW.png">
+    <source width="160" height="160" media="(prefers-color-scheme: light)" srcset="./Page_TeamProjectInfo/HW2_Screenshots/Logo_small.png">
+    <img width="160" height="160" alt="Logo_small" src="./HW2_Screenshots/Logo_small.png">
 </picture>
 
 ## Problem Definition:
