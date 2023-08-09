@@ -5,7 +5,7 @@
 <picture>
     <source width="80" height="80" media="(prefers-color-scheme: dark)" srcset="./Page_TeamProjectInfo/HW2_Screenshots/Logo_small_BW.png">
     <source width="80" height="80" media="(prefers-color-scheme: light)" srcset="./Page_TeamProjectInfo/HW2_Screenshots/Logo_small.png">
-    <img width="80" height="80" alt="Logo_small" src="./HW2_Screenshots/Logo_small.png" style="width: 2.5cm; max-width: 100%;">
+    <img width="80" height="80" alt="Logo_small" src="./HW2_Screenshots/Logo_small.png">
 </picture>
 
 ## Problem Definition:
