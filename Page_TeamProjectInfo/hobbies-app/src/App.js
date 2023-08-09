@@ -8,7 +8,7 @@ function App() {
       <div className="person-info">
         <img
           className="img1"
-          src=""
+          src="/images/img1.png"
           alt="Person 1"
           width="100"
           height="100"
@@ -28,7 +28,7 @@ function App() {
       <div className="person-info">
         <img
           className="img2"
-          src=""
+          src="/images/img2.png"
           alt="Person 2"
           width="100"
           height="100"
@@ -71,7 +71,7 @@ function App() {
       <div className="person-info">
         <img
           className="img4"
-          src="./documents/github/misc/Caitlyn"
+          src="/images/img4.png"
           alt="Person 4"
           width="100"
           height="100"
@@ -89,15 +89,15 @@ function App() {
       </div>
       {/* Person5 */}
       <div className="person-info">
-        <img
+      <img
           className="img5"
-          src=""
+          src="/images/img5.png"
           alt="Person 5"
           width="100"
           height="100"
           style={{ margin: "20px" }}
         />
-        <h3>Person5 name</h3>
+        <h3>Amun</h3>
         <ul>
           <li>
             Favourite hobby or activity you like to do (e.g., for downtime)
