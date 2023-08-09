@@ -143,7 +143,7 @@ Examples of our website wireframes can be found below.
 <p align="center">
   <picture>
     <source width="552" height="320" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/BookDetails_BW.png">
-    <source width="552" height="320" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/BookDetails_BW.png">
+    <source width="552" height="320" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/BookDetails.png">
     <img width="552" height="320" alt="Logo_small" src="./WireframesDesign/PNG/BookDetails.png">
   </picture>
 </p> 
