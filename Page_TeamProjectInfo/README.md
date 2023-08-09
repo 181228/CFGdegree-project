@@ -84,9 +84,9 @@ When it comes to typography, for similar clarity and cohesiveness reasons as wit
 
 <p align="center">
   <picture>
-    <source width="320" height="320" media="(prefers-color-scheme: dark)" srcset="./HW2_Screenshots/Fonts_BW.png">
-    <source width="320" height="320" media="(prefers-color-scheme: light)" srcset="./HW2_Screenshots/Fonts.png">
-    <img width="320" height="320" alt="Logo_small" src="./HW2_Screenshots/Fonts.png">
+    <source width="640" height="640" media="(prefers-color-scheme: dark)" srcset="./HW2_Screenshots/Fonts_BW.png">
+    <source width="640" height="640" media="(prefers-color-scheme: light)" srcset="./HW2_Screenshots/Fonts.png">
+    <img width="640" height="640" alt="Logo_small" src="./HW2_Screenshots/Fonts.png">
   </picture>
 </p>  
 
