@@ -1,17 +1,22 @@
 # CFGdegree - ReadSwap Project
 
-<div style="text-align: center;">
-  <table style="display: inline-block;">
-    <tr>
-      <td>
-        <picture>
-          <source width="160" height="160" media="(prefers-color-scheme: dark)" srcset="./Page_TeamProjectInfo/HW2_Screenshots/Logo_small_BW.png">
-          <source width="160" height="160" media="(prefers-color-scheme: light)" srcset="./Page_TeamProjectInfo/HW2_Screenshots/Logo_small.png">
-          <img width="160" height="160" alt="Logo_small" src="./HW2_Screenshots/Logo_small.png">
-        </picture>
-      </td>
-    </tr>
-  </table>
+<style>
+.center-container {
+  text-align: center;
+}
+.resized-image {
+  width: 2.5cm;
+  max-width: 100%;
+  height: auto;
+}
+</style>
+
+<div class="center-container">
+  <picture>
+    <source width="160" height="160" media="(prefers-color-scheme: dark)" srcset="./Page_TeamProjectInfo/HW2_Screenshots/Logo_small_BW.png">
+    <source width="160" height="160" media="(prefers-color-scheme: light)" srcset="./Page_TeamProjectInfo/HW2_Screenshots/Logo_small.png">
+    <img width="160" height="160" alt="Logo_small" src="./HW2_Screenshots/Logo_small.png" class="resized-image">
+  </picture>
 </div>
 
 ## Problem Definition:
