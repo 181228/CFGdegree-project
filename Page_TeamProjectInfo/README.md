@@ -20,7 +20,7 @@
 **The tasks division:** 
 **Time Frame: 27 days**
 
-The task division is just the sample so that the section is not empty ---> we shall adjust it to reality
+This section will be adjusted as the project progresses.
 
 1. Hanan:
    - Front-end Development: Implementing the user interface using HTML, CSS, and JavaScript. (5 days)
@@ -30,7 +30,6 @@ The task division is just the sample so that the section is not empty ---> we sh
 
 2. Jodie:
    - Front-end Development: Implementing the user interface using HTML, CSS, and JavaScript. (5 days)
-   - Design and Branding: Creating a visually appealing design and consistent branding for the platform. (3 days)
    - Home Page: Designing the main page to display information. (3 days)
    - User Authentication: Adding user registration and login functionality to secure user accounts. (4 days)
    - Database Integration: Implementing the database system (e.g., MySQL) to manage user information. (5 days)
@@ -51,14 +50,13 @@ The task division is just the sample so that the section is not empty ---> we sh
    - Book Exchange Feature: Developing the feature that allows users to trade books with others. (6 days)
    - Book Gifting Feature: Creating the feature that enables users to gift their books to others. (4 days)
    - Performance Optimization: Optimizing the website's performance to ensure fast loading times. (3 days)
-   - Responsive Design: Ensuring that the website is responsive and accessible across various devices. (3 days)
+   - Book Upload Page: Ensuring that users can upload book they'd like to swap. (3 days)
 
 6. Aga:
    - Back-end Development: Setting up the server using Node.js and Express. (2 days)
    - API Integration: Connecting the front-end with the back-end through API calls. (4 days)
    - Database Integration: Creating the database to manage book listings. (2 days)
-   - Book Listing Page: Creating the page where users can browse and search for available books. (2 days)
-   - Book Detail Page: Creating the page to display detailed information about each book. (3 days)
+   - Creating Book Listing, Book Detail, Payment Gateway and Payment Confirmation pages so that users can choose books and buy some (sandbox environment). (7 days)
 
 **Main features:**
 - Book Exchange: Users can easily trade books with others, helping them discover new literary treasures while giving their own books a new life.
@@ -66,11 +64,120 @@ The task division is just the sample so that the section is not empty ---> we sh
 - Book Gifting: Users can gift their books to others, spreading the joy of reading and promoting a culture of sharing.
 - Rare Book Search: The platform offers a search feature to help users find rare and out-of-print books that may not be easily available elsewhere.
 
-<!-- Requirements: 
-1. Come up with a project idea you will all like to work on.
-2. Submit a document that contains details of your project such as:
-- What is the concept/ what are you building? Think exactly about what needs to be built.
-- Who will this help? Who’s your target audience?
-- How will you be working? What tools will help with that?
-- How are you going to organise the workload? Who does what and when?
-- What are the main features of your project? -->
+**Design Justification:**
+Our aim is to ensure that users can navigate from page to page effortlessly, and that the arrangement of elements does not impede the overall readability of the page. We are applying fundamental principles of digital graphics when selecting media:
+
+- Keeping things simple ('Less is more')
+- Using a cohesive color palette and design elements
+- Maintaining control over typography
+- Considering visual hierarchy
+- Incorporating white space and spacing
+- Taking psychology of color into account
+
+The color palette we have chosen is warm and neutral, consisting of earthy tones, predominantly bronzes and greens. Our goal is to select colors that evoke the feeling of old book covers. The chosen colors are bright and subdued, providing the site with a soft appearance that, hopefully, allows users to browse comfortably without overwhelming their eyes with excessive contrast. We are approaching the site as a canvas for the books—the most essential elements of the site, without which it could not exist.
+
+![ColorPalette](./HW2_Screenshots/ColorPalette.png)
+
+The only contrasting elements we are using are variations in the background, navigation bar, and buttons. We believe this contrast makes it easier for users to navigate the site and understand the nature of the displayed content.
+
+When it comes to typography, for similar clarity and cohesiveness reasons as with the color palette, we would like to keep the number of fonts used to a minimum (considering two as plenty, and one as sufficient). We will utilize simple, standard fonts such as Google Web Fonts or Typekit to ensure the website displays correctly regardless of circumstances and does not distract the user from reading the content. Therefore, the chosen font should have easily distinguishable letters and be suitable for various sizes. Currently, we are considering Roboto, DejaVu Sans, Consolas, or Montserrat.
+
+<p align="center">
+  <picture>
+    <source width="640" height="640" media="(prefers-color-scheme: dark)" srcset="./HW2_Screenshots/Fonts_BW.png">
+    <source width="640" height="640" media="(prefers-color-scheme: light)" srcset="./HW2_Screenshots/Fonts.png">
+    <img width="640" height="640" alt="Logo_small" src="./HW2_Screenshots/Fonts.png">
+  </picture>
+</p>  
+
+Examples of our website wireframes can be found below.
+
+<p align="center">
+  <picture>
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/LandingPage_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/LandingPage.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/LandingPage.png">
+  </picture>
+</p>  
+
+<p align="center">
+  <picture>
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/Registration-Login_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/Registration-Login.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/Registration-Login.png">
+  </picture>
+</p>  
+
+<p align="center">
+  <picture>
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/UserProfile_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/UserProfile.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/UserProfile.png">
+  </picture>
+</p>  
+
+<p align="center">
+  <picture>
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/UserProfileSettings_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/UserProfileSettings.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/UserProfileSettings.png">
+  </picture>
+</p>  
+
+<p align="center">
+  <picture>
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/BookUpload_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/BookUpload.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/BookUpload.png">
+  </picture>
+</p> 
+
+<p align="center">
+  <picture>
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/BooksListing_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/BooksListing.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/BooksListing.png">
+  </picture>
+</p> 
+
+<p align="center">
+  <picture>
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/BookDetails_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/BookDetails.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/BookDetails.png">
+  </picture>
+</p> 
+
+<p align="center">
+  <picture>
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/BookCart_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/BookCart.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/BookCart.png">
+  </picture>
+</p> 
+
+<p align="center">
+  <picture>
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/Shipping_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/Shipping.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/Shipping.png">
+  </picture>
+</p> 
+
+<p align="center">
+  <picture>
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/PaymentGateway_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/PaymentGateway.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/PaymentGateway.png">
+  </picture>
+</p> 
+
+<p align="center">
+  <picture>
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/RareBookSearch_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/RareBookSearch.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/RareBookSearch.png">
+  </picture>
+</p> 
+
+
