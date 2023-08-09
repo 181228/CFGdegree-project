@@ -17,6 +17,7 @@ function App() {
         <h3>Hanan</h3>
         <ul>
           <li>My favorite hobby is listening to music</li>
+          <br />
           <li>
             It eases my mind from all the overthinkng, calms me down and lifts
             my mood when I am feeling low.
@@ -37,6 +38,7 @@ function App() {
         <h3>Jodie</h3>
         <ul>
           <li>I really enjoy going to the Gym, running and watching Netflix</li>
+          <br />
           <li>
             It keeps me fit, and my mind clear. I have more patience and feel
             happier
@@ -82,6 +84,7 @@ function App() {
           <li>
             My favourite hobby is surfing 
           </li>
+          <br />
           <li> I really enjoy swimming so wanted to try something new and thought surfing would
             combine my like for swimming and skateboarding.  </li>
           <br />  
@@ -102,6 +105,7 @@ function App() {
           <li>
             Favourite hobby or activity you like to do (e.g., for downtime)
           </li>
+          <br />
           <li> Why do you do it? Why do you enjoy it?</li>
           <br />
         </ul>
