@@ -82,11 +82,13 @@ The only contrasting elements we are using are variations in the background, nav
 
 When it comes to typography, for similar clarity and cohesiveness reasons as with the color palette, we would like to keep the number of fonts used to a minimum (considering two as plenty, and one as sufficient). We will utilize simple, standard fonts such as Google Web Fonts or Typekit to ensure the website displays correctly regardless of circumstances and does not distract the user from reading the content. Therefore, the chosen font should have easily distinguishable letters and be suitable for various sizes. Currently, we are considering Roboto, DejaVu Sans, Consolas, or Montserrat.
 
+<p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./HW2_Screenshots/Fonts_BW.png">
-    <source media="(prefers-color-scheme: light)" srcset="./HW2_Screenshots/Fonts.png">
-    <img alt="Fonts" src="./HW2_Screenshots/Fonts.png">
+    <source width="320" height="320" media="(prefers-color-scheme: dark)" srcset="./HW2_Screenshots/Fonts_BW.png">
+    <source width="320" height="320" media="(prefers-color-scheme: light)" srcset="./HW2_Screenshots/Fonts.png">
+    <img width="320" height="320" alt="Logo_small" src="./HW2_Screenshots/Fonts.png">
   </picture>
+</p>  
 
 Examples of our website wireframes can be found below.
 
