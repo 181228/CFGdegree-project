@@ -94,89 +94,89 @@ Examples of our website wireframes can be found below.
 
 <p align="center">
   <picture>
-    <source width="552" height="320" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/LandingPage_BW.png">
-    <source width="552" height="320" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/LandingPage.png">
-    <img width="552" height="320" alt="Logo_small" src="./WireframesDesign/PNG/LandingPage.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/LandingPage_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/LandingPage.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/LandingPage.png">
   </picture>
 </p>  
 
 <p align="center">
   <picture>
-    <source width="552" height="320" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/Registration-Login_BW.png">
-    <source width="552" height="320" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/Registration-Login.png">
-    <img width="552" height="320" alt="Logo_small" src="./WireframesDesign/PNG/Registration-Login.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/Registration-Login_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/Registration-Login.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/Registration-Login.png">
   </picture>
 </p>  
 
 <p align="center">
   <picture>
-    <source width="552" height="320" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/UserProfile_BW.png">
-    <source width="552" height="320" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/UserProfile.png">
-    <img width="552" height="320" alt="Logo_small" src="./WireframesDesign/PNG/UserProfile.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/UserProfile_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/UserProfile.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/UserProfile.png">
   </picture>
 </p>  
 
 <p align="center">
   <picture>
-    <source width="552" height="320" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/UserProfileSettings_BW.png">
-    <source width="552" height="320" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/UserProfileSettings.png">
-    <img width="552" height="320" alt="Logo_small" src="./WireframesDesign/PNG/UserProfileSettings.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/UserProfileSettings_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/UserProfileSettings.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/UserProfileSettings.png">
   </picture>
 </p>  
 
 <p align="center">
   <picture>
-    <source width="552" height="320" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/BookUpload_BW.png">
-    <source width="552" height="320" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/BookUpload.png">
-    <img width="552" height="320" alt="Logo_small" src="./WireframesDesign/PNG/BookUpload.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/BookUpload_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/BookUpload.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/BookUpload.png">
   </picture>
 </p> 
 
 <p align="center">
   <picture>
-    <source width="552" height="320" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/BooksListing_BW.png">
-    <source width="552" height="320" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/BooksListing.png">
-    <img width="552" height="320" alt="Logo_small" src="./WireframesDesign/PNG/BooksListing.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/BooksListing_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/BooksListing.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/BooksListing.png">
   </picture>
 </p> 
 
 <p align="center">
   <picture>
-    <source width="552" height="320" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/BookDetails_BW.png">
-    <source width="552" height="320" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/BookDetails.png">
-    <img width="552" height="320" alt="Logo_small" src="./WireframesDesign/PNG/BookDetails.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/BookDetails_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/BookDetails.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/BookDetails.png">
   </picture>
 </p> 
 
 <p align="center">
   <picture>
-    <source width="552" height="320" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/BookCart_BW.png">
-    <source width="552" height="320" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/BookCart.png">
-    <img width="552" height="320" alt="Logo_small" src="./WireframesDesign/PNG/BookCart.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/BookCart_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/BookCart.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/BookCart.png">
   </picture>
 </p> 
 
 <p align="center">
   <picture>
-    <source width="552" height="320" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/Shipping_BW.png">
-    <source width="552" height="320" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/Shipping.png">
-    <img width="552" height="320" alt="Logo_small" src="./WireframesDesign/PNG/Shipping.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/Shipping_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/Shipping.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/Shipping.png">
   </picture>
 </p> 
 
 <p align="center">
   <picture>
-    <source width="552" height="320" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/PaymentGateway_BW.png">
-    <source width="552" height="320" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/PaymentGateway.png">
-    <img width="552" height="320" alt="Logo_small" src="./WireframesDesign/PNG/PaymentGateway.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/PaymentGateway_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/PaymentGateway.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/PaymentGateway.png">
   </picture>
 </p> 
 
 <p align="center">
   <picture>
-    <source width="552" height="320" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/RareBookSearch_BW.png">
-    <source width="552" height="320" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/RareBookSearch.png">
-    <img width="552" height="320" alt="Logo_small" src="./WireframesDesign/PNG/RareBookSearch.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: dark)" srcset="./WireframesDesign/PNG/RareBookSearch_BW.png">
+    <source width="1104" height="640" media="(prefers-color-scheme: light)" srcset="./WireframesDesign/PNG/RareBookSearch.png">
+    <img width="1104" height="640" alt="Logo_small" src="./WireframesDesign/PNG/RareBookSearch.png">
   </picture>
 </p> 
 
