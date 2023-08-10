@@ -2,34 +2,14 @@
 <html>
 <head>
   <title>Book Listing</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Book Listing</h1>
-  <div id="bookList"></div>
-
-  <script>
-    fetch('http://localhost:3000/api/books')
-      .then(response => response.json())
-      .then(data => {
-        const bookListElement = document.getElementById('bookList');
-        data.forEach(book => {
-          const bookElement = document.createElement('div');
-          bookElement.innerHTML = `
-            <h3>${book.title}</h3>
-            <p>Author: ${book.author}</p>
-            <p>Genre: ${book.genre}</p>
-            <p>Condition: ${book.condition}</p>
-            <p>Price: £ ${book.price}</p>
-            <img src="../CoverImages/${book.image}" alt="Book Cover" width="150" height="200">
-            <hr>
-          `;
-          bookListElement.appendChild(bookElement);
-        });
-      })
-      .catch(error => console.error('Error fetching data:', error));
-  </script>
+  <div class="container">
+    <h1>Book Listing</h1>
+    <div id="bookList"></div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-<!-- To see the book listing api visit http://localhost:3000/api/books when the server is running -->
