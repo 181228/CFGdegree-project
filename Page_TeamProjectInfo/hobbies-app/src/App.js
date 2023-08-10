@@ -103,10 +103,13 @@ function App() {
         <h3>Amun</h3>
         <ul>
           <li>
-            Favourite hobby or activity you like to do (e.g., for downtime)
+            My favourite hobbies are crocheting and gaming.
           </li>
           <br />
-          <li> Why do you do it? Why do you enjoy it?</li>
+          <li> I first learnt how to crochet over the lockdown and haven't stopped since. 
+            It's very relaxing and enjoyable, especially when listening to an audio book. Gaming wise,
+            I enjoy story driven games, it's almost like watching a movie with the added satisfication of downing
+            the baddies yourself. </li>
           <br />
         </ul>
       </div>
