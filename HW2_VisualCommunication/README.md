@@ -92,17 +92,17 @@ When it comes to typography, for similar clarity and cohesiveness reasons as wit
 
 Our website wireframes can be found below. We've organized them with a first-time user in mind, ensuring a smooth flow as follows:
 
-  -> Landing Page               | Ann opens the page using the URL
-  -> Registration/Login Page    | She decides to create an account
-  -> User Profile               | Ann checks how her profile appears to the public audience
-  -> User Profile Settings      | She decides to update some information about herself
-  -> Book Upload                | With a book to swap, Ann visits the Book Upload page and fills in the book data
-  -> Books Listing              | She explores books listed by others, looking for ones she's interested in buying/swapping
-  -> Book Details               | Ann finds 2 books intriguing but is unsure which to choose; she adds both to the Cart 
-  -> Book Cart                  | Ann reviews the Cart, makes a final book selection, clicks to mark it, and proceeds to check shipping options
-  -> Shipping                   | She fills in her address, webiste calculates shipping cost, and Ann proceeds to the Payment Gateway
-  -> Payment Gateway            | She enters her payment details and receives payment confirmation
-  -> Rare Book Search           | A particular book crosses Ann's mind; she has been searching for it tirelessly. She decides to inquire about it on the Rare Book Search forum, in case someone is willing to give it away, swap, or sell.
+  -> Landing Page               | Ann opens the page using the URL <br /> 
+  -> Registration/Login Page    | She decides to create an account <br /> 
+  -> User Profile               | Ann checks how her profile appears to the public audience <br /> 
+  -> User Profile Settings      | She decides to update some information about herself <br /> 
+  -> Book Upload                | With a book to swap, Ann visits the Book Upload page and fills in the book data <br /> 
+  -> Books Listing              | She explores books listed by others, looking for ones she's interested in buying/swapping <br /> 
+  -> Book Details               | Ann finds 2 books intriguing but is unsure which to choose; she adds both to the Cart <br /> 
+  -> Book Cart                  | Ann reviews the Cart, makes a final book selection, clicks to mark it, and proceeds to check shipping options <br /> 
+  -> Shipping                   | She fills in her address, webiste calculates shipping cost, and Ann proceeds to the Payment Gateway <br /> 
+  -> Payment Gateway            | She enters her payment details and receives payment confirmation <br /> 
+  -> Rare Book Search           | A particular book crosses Ann's mind; she has been searching for it tirelessly. She decides to inquire about it on the Rare Book Search forum, in case someone is willing to give it away, swap, or sell. <br /> 
 
 <p align="center">
   <picture>
