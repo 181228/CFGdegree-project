@@ -3,40 +3,59 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta charset="utf-8"/>
-  <title>Login</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Login/Register</title>
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-<div class="container">
-        <button class="logout">Logout</button>
-        <h1 class="greeting"></h1>
-</div>
+  <header>
+    <div class="header">
+        <img class="logo" src="">
+        <input type="text" placeholder="Search..">
+    <nav class="nav">
+        <ul>
+            <li><a id="homeLink" href="#">Home</a></li>
+            <li><a href="">My Books</a></li>
+            <li><a href="">Forums</a></li>
+            <li><a href="">About Us</a></li>
+          </ul>
+    </nav>
+    <button id="contactButton" type="button">Contact Us</button>
+    <button id="loginButton" type="button">Login</button>
+    </div>
+</header>
 
+<!-- Alert Box - Displays box with "Please fill out required fields" if no details entered in to forms -->
 <div class="alert-box">
   <p class="alert"></p>
 </div>
 
-<div class="form">
-  <h1 class="heading">login</h1>
+
+<form action="">
+  <fieldset>
+    <h1 class="heading">login</h1>
     <input type="email" placeholder="email" autocomplete="off" class="email" required>
     <input type="password" placeholder="password" autocomplete="off" class="password" required>
-     <button class="submit-btn">log in</button>
-     <a href="" class="link">Don't have an account? Register now</a>
-</div>
+    <button class="submit-btn">log in</button>
+    <a href="" class="link">Don't have an account? Register now</a>
+  </fieldset>
+</form>
 
 <div class="alert-box">
   <p class="alert"></p>
 </div>
 
-<div class="form">
-  <h1 class="heading">Register</h1>
-  <input type="text" placeholder="name" autocomplete="off" class="name" required>
-  <input type="email" placeholder="email" autocomplete="off" class="email" required>
-  <input type="password" placeholder="password" autocomplete="off" class="password" required>
-  <button class="submit-btn">register</button>
-   <a href="" class="link">already have an account ? log in here</a>
-</div>
+<form action="">
+  <fieldset>
+    <h1 class="heading">Register</h1>
+    <input type="text" placeholder="name" autocomplete="off" class="name" required>
+    <input type="email" placeholder="email" autocomplete="off" class="email" required>
+    <input type="password" placeholder="password" autocomplete="off" class="password" required>
+    <button class="submit-btn">register</button>
+    <a href="" class="link">already have an account ? log in here</a>
+  </fieldset>
+</form>
+
     
-<script src="./index.js"></script>
+<script src="form.js"></script>
 </body>
 </html>

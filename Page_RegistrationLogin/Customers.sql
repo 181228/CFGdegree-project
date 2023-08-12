@@ -25,3 +25,4 @@ INSERT INTO Users(account_holder_first_name, account_holder_last_name,user_name,
     ('Amun', 'Omar','amunnnnn','', 'amun.omar@email.com', 'Bristol', 'sUnfl0w3rs4d@yz', 1997),
     ('Caitlyn', 'Larnyoh', 'caitlynnnnn', '', 'caitlyn.larnyoh@email.com', 'Basingstoke', '@l13ngrL!', 1998),
     ('Isabella', 'Miller', 'izzymiller','','jellybelly45@email.com ','Edinburgh', '3ddi3m!ill3r65', 1999);
+
