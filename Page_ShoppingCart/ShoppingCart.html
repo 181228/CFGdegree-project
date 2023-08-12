@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8"/>
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header>
+    <div class="header">
+        <img class="logo" src="">
+        <input type="text" placeholder="Search..">
+    <nav class="nav">
+        <ul>
+            <li><a id="homeLink" href="#">Home</a></li>
+            <li><a href="">My Books</a></li>
+            <li><a href="">Forums</a></li>
+            <li><a href="">About Us</a></li>
+          </ul>
+    </nav>
+    <button id="contactButton" type="button">Contact Us</button>
+    <button id="loginButton" type="button">Login</button>
+    </div>
+</header>
+<h1>Shopping Cart</h1>
+<div class="shopping-cart">
+  <div class="column-labels">
+    <label class="book-image">Image</label>
+    <label class="book-name">Book</label>
+    <label class="book-price">Price</label>
+    <label class="book-quantity">Quantity</label>
+    <label class="book-removal">Remove</label>
+    <label class="total-line-price">Total</label>
+  </div>
+  <div class="totals">
+    <div class="totals-item">
+      <label>Subtotal</label>
+      <div class="totals-value" id="cart-subtotal"></div>
+    </div>
+    <div class="totals-item">
+      <label>Shipping</label>
+      <div class="totals-value" id="cart-shipping"></div>
+    </div>
+    <div class="totals-item totals-item-total">
+      <label>Total</label>
+      <div class="totals-value" id="cart-total"></div>
+    </div>
+    <button class="checkout">Checkout</button>
+  </div>
+</body>
+</html>

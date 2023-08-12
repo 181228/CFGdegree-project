@@ -57,7 +57,6 @@
 // // Call the function to display 3 random books on landing page
 // displayRandomBooks();
 
-
 //navigate to login page when clicked
 document.addEventListener('DOMContentLoaded', () => {
   const loginButton = document.getElementById('loginButton');
