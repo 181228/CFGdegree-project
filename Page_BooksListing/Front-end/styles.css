@@ -1,52 +1,56 @@
-/* Add some basic styling to the form */
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-  }
+  background-color: #F7ECE1;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+.nav {
+  border-radius: 15%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+  background-color: #F7ECE1;
+  padding: 10px;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 10%;
+  left: 50%;
+}
+
+.nav li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li a {
+  color: #BC6C25;
+  text-decoration: none;
+  padding: 14px 16px;
+}
+
+.nav li a:hover {
+  color: #606C38;
+  font-weight: 600;
+}
   
-  .container {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  h1 {
-    margin-bottom: 30px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-  }
-  
-  input:read-only {
-    color: #999;
-  }
-  
-  /* Custom styles to indicate invalid input */
-  input:invalid {
-    border-color: rgb(43, 0, 255);
-  }
-  
-  input:invalid + span {
-    display: block;
-    color: rgb(43, 0, 255);
-    font-size: 12px;
-  }
-  
-  /* Styling for the buttons container */
-  .buttons-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-  }
+.aboutWrapper{
+  padding: left 20px;
+  display: inline-block;
+  margin-top: 20px;
+  width: 940px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 130%;
+  left: 50%;
+}
+button{
+  position: fixed;
+  background-color:#BC6C25;
+  color: #F7ECE1;
+}
+button :hover{
+color: #ba875b;
+}
