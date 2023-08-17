@@ -1,0 +1,38 @@
+.header {
+    padding: 20px;
+    text-align: center;
+    background: lightgrey;
+    color: #2f4f4f;
+    font-size: 30px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: lightgrey;
+}
+  
+li {
+    float: left;
+}
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+li a:hover {
+    background-color: darkslategrey;
+}
+
+fieldset {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 2rem 0;
+    border-bottom: 3px solid #3b3b4f;
+}
