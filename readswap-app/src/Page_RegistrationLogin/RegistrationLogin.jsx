@@ -5,12 +5,12 @@ function RegistrationLogin() {
     <>
       <header>
         <div className="header">
-          <img className="logo" src="" />
+          <img className="logo" alt="description" src="" />
           <input type="text" placeholder="Search.." />
           <nav className="nav">
             <ul>
               <li>
-                <a id="homeLink" href="#">
+                <a id="homeLink" href="">
                   Home
                 </a>
               </li>
