@@ -1,39 +1,13 @@
 import React from "react";
 import "./landingpage.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import Header from '../Header';
+import Footer from '../Footer';
 
 function LandingPage() {
   return (
-    <>
-      <header>
-        <div className="header">
-        <img className="logo" alt="Logo" src={require('../utils/Logo_small.png')} />
-        <div className="headText">
-          <h1 >ReadSwap</h1>
-          <h2>Why buy when you can Swap!</h2>
-        </div>
-        <div className="navButtonContainer">
-        <button className="navBut" id="loginButton" type="button">USER</button>
-        </div>
-        <input className="search-bar" type="text" placeholder="Search.." />
-        <nav className="nav">
-          <ul>
-            <li>
-              <Link to="/">HOME</Link>
-            </li>
-            <li>
-              <Link to="/mybooks">BOOKS</Link>
-            </li>
-            <li>
-              <Link to="/forum">FORUM</Link>
-            </li>
-            <li>
-              <Link to="/aboutus">ABOUT US</Link>
-            </li>
-          </ul>
-        </nav>
-        </div>
-      </header>
+    <div>
+      <Header />
       <div className="pageContent">
         <h1>ReadSwap</h1>
         <h2>Why buy when you can Swap!</h2>
@@ -50,12 +24,8 @@ function LandingPage() {
         </div>
         <div id="bookList" />
       </div>
-      <footer>
-        <div className="footer-container">
-          <button className="footBut" id="contactButton" type="button">CONTACT</button>
-        </div>
-      </footer>
-    </>
+      <Footer />
+    </div>
   );
 }
 

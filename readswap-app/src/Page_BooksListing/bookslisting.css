@@ -1,0 +1,150 @@
+.header {
+    padding: 20px;
+    text-align: left;
+    background: #dda15e;
+    color: black;
+    font-size: 30px;
+}
+
+.headText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+    margin-top: 40px;
+}
+
+.headText h1 {
+    font-size: 30px;
+    margin: 0;
+}
+
+.headText h2 {
+    font-size: 15px;
+    margin: 0;
+}
+
+@media screen and (min-width: 600px){
+    .pageContent {
+        padding: 20px;
+        min-height: calc(100vh - 200px);
+    }
+}
+
+.logo {
+    margin-top: 10px;
+    float: left;
+    margin-left: 40px;
+    width: 150px;
+    height: auto;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #dda15e;
+}
+
+li {
+    float: center;
+}
+
+li a {
+    display: block;
+    color: black !important;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: -15px;
+}
+
+li a:hover {
+    color: rgb(21, 21, 21);
+    background-color: rgb(255, 255, 255, 0.1);
+}
+
+fieldset {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 2rem 0;
+    border-bottom: 3px solid #3b3b4f;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.nav-item {
+    margin: 0 10px;
+}
+
+.nav-item a {
+    font-size: 5%;
+    text-decoration: none;
+    width: 50px;
+    height: 20px;
+    line-height: 20px;
+    text-decoration: none;
+}  
+
+.search-bar {
+    margin-top: 20px;
+    width: 50vw;
+    height: 0.1vw;
+    padding: 1vw;
+    border: 1px solid #ccc;
+    border-radius: 0.5vw;
+}
+
+.navButtonsContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-top: -100px;
+}
+
+.navBut {
+    margin-top: -100px;
+}
+
+button,
+.navBut {
+    color: black !important;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.searchBut
+.navBut {
+    background-color: #fefae0;
+    margin-right: 20px;
+}
+
+.footBut {
+    background: none !important;
+    color: rgb(0, 0, 0) !important;
+    text-decoration: underline !important;
+    text-align: left;
+    float: left !important;
+}
+
+.footer-container {
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+    background: #dda15e;
+    color: #2f4f4f;
+    font-size: 30px;
+}
