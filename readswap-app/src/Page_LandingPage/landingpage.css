@@ -1,9 +1,24 @@
 .header {
     padding: 20px;
     text-align: center;
-    background: lightgrey;
+    background: #dda15e;
     color: #2f4f4f;
     font-size: 30px;
+}
+
+@media screen and (min-width: 600px){
+    .pageContent {
+        padding: 20px;
+        min-height: calc(100vh - 200px);
+    }
+}
+
+.logo {
+    margin-top: 10px;
+    float: left;
+    margin-left: 40px;
+    width: 150px;
+    height: auto;
 }
 
 ul {
@@ -11,58 +26,103 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: lightgrey;
+    background-color: #dda15e;
 }
-  
+
 li {
-    float: left;
+    float: center;
 }
-  
+
 li a {
     display: block;
-    color: white;
+    color: black !important;
     text-align: center;
     padding: 14px 16px;
+    font-size: 20px;
     text-decoration: none;
+    font-weight: bold;
+    margin-left: -15px;
 }
-  
+
 li a:hover {
-    background-color: darkslategrey;
+    color: rgb(21, 21, 21);
+    background-color: rgb(255, 255, 255, 0.1);
 }
 
-h1 {
-    text-align: center;
-}
-h2 {
-    text-align: center;
-}
-p {
-    text-align: center;
-}
-#contactButton, #loginButton {
-    float: right;
+fieldset {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 2rem 0;
+    border-bottom: 3px solid #3b3b4f;
 }
 
-.buttonContainer {
+.nav {
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
-#bestsellersButton, #genresButton {
-    justify-content: auto;
-    text-align: center;
-    padding: 8px 8px 8px 8px;
-    width: 240px;
-    height: 50px;
-    border-radius: 16px 16px 16px 16px;
-    font-size: 16px;
+.nav-item {
+    margin: 0 10px;
 }
 
-.book-card {
+.nav-item a {
+    font-size: 5%;
+    text-decoration: none;
+    width: 50px;
+    height: 20px;
+    line-height: 20px;
+    text-decoration: none;
+}  
+
+.search-bar {
+    margin-top: 20px;
+    width: 50vw;
+    height: 0.1vw;
+    padding: 1vw;
     border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    width: 300px;
+    border-radius: 0.5vw;
+}
+
+.navButtonsContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-top: -100px;
+}
+
+button,
+.navBut {
+    color: black !important;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.searchBut
+.navBut {
+    background-color: #fefae0;
+    margin-right: 20px;
+}
+
+.footBut {
+    background: none !important;
+    color: rgb(0, 0, 0) !important;
+    text-decoration: underline !important;
+    text-align: left;
+    margin-left: 1000px !important;
+}
+
+.footer-container {
+    margin-top: auto;
+    padding: 20px;
     text-align: center;
-    display: inline-block;
-  }
+    background: #dda15e;
+    color: #2f4f4f;
+    font-size: 30px;
+}
