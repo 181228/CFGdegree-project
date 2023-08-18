@@ -1,9 +1,27 @@
 .header {
     padding: 20px;
-    text-align: center;
+    text-align: left;
     background: #dda15e;
-    color: #2f4f4f;
+    color: black;
     font-size: 30px;
+}
+
+.headText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Wyrównanie pionowe do lewej */
+    margin-left: 20px; /* Przesunięcie w lewo */
+    margin-top: 40px;
+}
+
+.headText h1 {
+    font-size: 30px; /* Zmniejszenie rozmiaru czcionki */
+    margin: 0; /* Usunięcie marginesów */
+}
+
+.headText h2 {
+    font-size: 15px; /* Zmniejszenie rozmiaru czcionki */
+    margin: 0; /* Usunięcie marginesów */
 }
 
 @media screen and (min-width: 600px){
@@ -92,6 +110,10 @@ fieldset {
     margin-top: -100px;
 }
 
+.navBut {
+    margin-top: -100px;
+}
+
 button,
 .navBut {
     color: black !important;
@@ -115,7 +137,7 @@ button,
     color: rgb(0, 0, 0) !important;
     text-decoration: underline !important;
     text-align: left;
-    margin-left: 1000px !important;
+    float: left !important;
 }
 
 .footer-container {
