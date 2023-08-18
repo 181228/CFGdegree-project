@@ -9,19 +9,19 @@
 .headText {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Wyrównanie pionowe do lewej */
-    margin-left: 20px; /* Przesunięcie w lewo */
+    align-items: flex-start;
+    margin-left: 20px;
     margin-top: 40px;
 }
 
 .headText h1 {
-    font-size: 30px; /* Zmniejszenie rozmiaru czcionki */
-    margin: 0; /* Usunięcie marginesów */
+    font-size: 30px;
+    margin: 0;
 }
 
 .headText h2 {
-    font-size: 15px; /* Zmniejszenie rozmiaru czcionki */
-    margin: 0; /* Usunięcie marginesów */
+    font-size: 15px;
+    margin: 0;
 }
 
 @media screen and (min-width: 600px){
