@@ -48,7 +48,7 @@
 
 ul {
   list-style-type: none;
-  margin: 0;
+  margin-left: 50px;
   padding: 0;
   overflow: hidden;
   background-color: #dda15e;
@@ -108,6 +108,7 @@ fieldset {
   padding: 1vw;
   border: 1px solid #ccc;
   border-radius: 0.5vw;
+  margin-right: 170px;
 }
 
 .navButtonsContainer {
@@ -129,10 +130,13 @@ button,
   font-size: 20px;
 }
 
-.searchBut
 .navBut {
   background-color: #fefae0;
   margin-right: 20px;
+}
+
+.searchBut {
+  background-color: #fefae0;
 }
 
 .footer-container {
