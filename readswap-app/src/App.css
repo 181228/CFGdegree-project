@@ -1,9 +1,16 @@
-.header {
-  padding: 20px;
-  text-align: left;
+/* THIS FILE CONTAINS STYLING FOR HEADER.JSX AND FOOTER.JSX, PLEASE DON'T DELETE IT */
+
+.header-container {
   background: #dda15e;
+}
+
+.header-inner {
+  background-color: #dda15e;
   color: black;
   font-size: 30px;
+  padding: 20px;
+  border: 4px solid rgb(0, 0, 0);
+  border-radius: 20px;
 }
 
 .headText {
@@ -110,10 +117,6 @@ fieldset {
   margin-top: -100px;
 }
 
-.navBut {
-  margin-top: -100px;
-}
-
 button,
 .navBut {
   color: black !important;
@@ -132,19 +135,25 @@ button,
   margin-right: 20px;
 }
 
-.footBut {
-  background: none !important;
-  color: rgb(0, 0, 0) !important;
-  text-decoration: underline !important;
-  text-align: left;
-  float: left !important;
+.footer-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  background: #dda15e;
+  color: #000000;
+  font-size: 30px;
 }
 
-.footer-container {
-  margin-top: auto;
-  padding: 20px;
-  text-align: center;
-  background: #dda15e;
-  color: #2f4f4f;
-  font-size: 30px;
+.footBut {
+  background: none;
+  color: #000;
+  text-decoration: underline;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+footer {
+  background-color: #dda15e;
 }
