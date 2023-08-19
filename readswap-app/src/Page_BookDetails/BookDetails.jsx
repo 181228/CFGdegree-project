@@ -1,39 +1,56 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import "./bookdetails.css";
 import Header from '../Header';
 import Footer from '../Footer';
 
 function BookDetails() {
-    const { id } = useParams();
+
     const [book, setBook] = useState(null);
+    const { id } = useParams();
 
     useEffect(() => {
-    fetch(`/api/books/${id}`)
-        .then(response => response.json())
-        .then(data => setBook(data))
-        .catch(error => console.error('Error fetching book details:', error));
-    }, [id]);
-
-    if (!book) {
-    return <div>Loading...</div>;
-    }
+        fetch(`http://localhost:3000/api/books/${id}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Fetched data:", data);
+                setBook(data);
+            })
+            .catch(error => {
+                console.error('Error fetching book details:', error);
+                // Możesz ustawić stan lub w jakiś sposób obsłużyć błąd
+            });
+    }, [id]);    
 
     return (
         <div>
             <Header />
-            <h1>Book Listing</h1>
-                <div id="bookDetails">
-                    <h2>{book.title}</h2>
-                    <p>Author: {book.author}</p>
-                    <p>Genre: {book.genre}</p>
-                    <p>Condition: {book.condition}</p>
-                    <p>Trade For: {book.trade_for}</p>
-                    <p>Price: £ {book.price}</p>
-                    <img src={book.image} alt={book.title + " cover"} width="200" />
-                    <p>Description: {book.description}</p>
-                    <button onClick={() => alert('Book added to cart!')}>Add to Cart</button>
-                    <button onClick={() => window.location.href = 'PaymentGateway.html'}>Buy</button>
+                <h1>Book Details</h1>
+                <div className='book-layout'>
+                    <div className="book-container">
+                        {book ? (
+                            <div className="book-details">
+                                <h2>{book.title}</h2>
+                                <img src={`http://localhost:3000/CoverImages/${book.image}`} alt={book.title + " cover"} width="200" />
+                                <p><b>Author:</b> {book.author}</p>
+                                <p><b>Genre:</b> {book.genre}</p>
+                                <p><b>Condition:</b> {book.condition}</p>
+                                <p><b>Trade For:</b> {book.trade_for}</p>
+                                <p><b>Price:</b> £ {book.price}</p>
+                                <p><b>Description:</b> {book.description}</p>
+                                <button onClick={() => alert('Book added to cart!')}>Add to Cart</button>
+                                <button><Link to="/payment">Buy</Link></button>
+                            </div>
+                        ) : (
+                            <div>Loading...</div>
+                        )}
+                    </div>
                 </div>
             <Footer />
         </ div>
