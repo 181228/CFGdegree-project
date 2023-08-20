@@ -6,16 +6,16 @@ const dbPath = './customers.db';
 
 // Cust data
 const custData = [
-    ['Emma', 'Smith', 'esmith92','','emmajohnson.smith@email.com', 'Birmingham', 'b1lly3!l!5h', 1990],
-    ['Lucas', 'Anderson', 'lucaaaaaas', '', 'lucas.anderson@email.com', 'Leeds', 'M!d5umM3r', 1991],
-    ['Olivia', 'Taylor', 'livvytay21', '', 'olivia.brown.taylor@email.com', 'Manchester', 'M@nn1eg!rL', 1992],
-    ['Agnieszka', 'Thiel', 'aginsideout','', 'a.thiel@email.com', 'Glasgow', '0404789', 1993],
-    ['Hanan', 'Bayiga', 'Hanana', '', 'Hananbayiga@email.com', 'Manchester', 'by3by3b!rd13', 1994],
-    ['Jodie', 'Coleman', 'jodiebear', '', 'colemanj@email.com', 'London', 'w!nt3rDr3@m', 1995],
-    ['Jasmine', 'Allen', 'nellaj', '', 'jallen@email.com', 'London', 'l0nD0n!23', 1996],
-    ['Amun', 'Omar','amunnnnn','', 'amun.omar@email.com', 'Bristol', 'sUnfl0w3rs4d@yz', 1997],
-    ['Caitlyn', 'Larnyoh', 'caitlynnnnn', '', 'caitlyn.larnyoh@email.com', 'Basingstoke', '@l13ngrL!', 1998],
-    ['Isabella', 'Miller', 'izzymiller','','jellybelly45@email.com ','Edinburgh', '3ddi3m!ill3r65', 1999],
+    ['Emma', 'Smith', 'esmith92',[1, 3],'emmajohnson.smith@email.com', 'Birmingham', 'b1lly3!l!5h', 1990],
+    ['Lucas', 'Anderson', 'lucaaaaaas', [4, 8], 'lucas.anderson@email.com', 'Leeds', 'M!d5umM3r', 1991],
+    ['Olivia', 'Taylor', 'livvytay21', [10, 15], 'olivia.brown.taylor@email.com', 'Manchester', 'M@nn1eg!rL', 1992],
+    ['Agnieszka', 'Thiel', 'aginsideout',[11, 12], 'a.thiel@email.com', 'Glasgow', '0404789', 1993],
+    ['Hanan', 'Bayiga', 'Hanana', [2, 5], 'Hananbayiga@email.com', 'Manchester', 'by3by3b!rd13', 1994],
+    ['Jodie', 'Coleman', 'jodiebear', [6, 7], 'colemanj@email.com', 'London', 'w!nt3rDr3@m', 1995],
+    ['Jasmine', 'Allen', 'nellaj', [9, 13], 'jallen@email.com', 'London', 'l0nD0n!23', 1996],
+    ['Amun', 'Omar','amunnnnn',[14, 16], 'amun.omar@email.com', 'Bristol', 'sUnfl0w3rs4d@yz', 1997],
+    ['Caitlyn', 'Larnyoh', 'caitlynnnnn', [17, 18], 'caitlyn.larnyoh@email.com', 'Basingstoke', '@l13ngrL!', 1998],
+    ['Isabella', 'Miller', 'izzymiller',[19, 20],'jellybelly45@email.com ','Edinburgh', '3ddi3m!ill3r65', 1999],
 ];
 
 const custDictionary = custData.map((data, index) => {
@@ -96,5 +96,3 @@ function createTableAndInsertData() {
 ///Through the terminal navigate to the directory where you have saved the customers.db
 ///Run sqlite3 customers.db
 ///Run SELECT * FROM customers;
-       
-       
