@@ -24,7 +24,6 @@ function BookDetails() {
             })
             .catch(error => {
                 console.error('Error fetching book details:', error);
-                // Możesz ustawić stan lub w jakiś sposób obsłużyć błąd
             });
     }, [id]);    
 
