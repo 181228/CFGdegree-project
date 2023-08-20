@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./paymentgateway.css";
 import Header from '../Header';
 import Footer from '../Footer';
-import { PayPalButton } from "react-paypal-button-v2";
+// import { PayPalButton } from "react-paypal-button-v2";
 import { Navigate } from 'react-router-dom';
 
 function PaymentGateway() {
@@ -29,23 +29,23 @@ function PaymentGateway() {
         setPaymentSuccess(true);
     };
 
-    const renderPayPalButton = () => (
-        <PayPalButton
-        amount="0.01"
-        // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
-        onSuccess={(details, data) => {
-            alert("Transaction completed by " + details.payer.name.given_name);
+    // const renderPayPalButton = () => (
+    //     <PayPalButton
+    //     amount="0.01"
+    //     // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+    //     onSuccess={(details, data) => {
+    //         alert("Transaction completed by " + details.payer.name.given_name);
 
-          // OPTIONAL: Call your server to save the transaction
-            return fetch("/paypal-transaction-complete", {
-                method: "post",
-                body: JSON.stringify({
-                    orderID: data.orderID
-                    })
-            });
-        }}
-        />
-    );
+    //       // OPTIONAL: Call your server to save the transaction
+    //         return fetch("/paypal-transaction-complete", {
+    //             method: "post",
+    //             body: JSON.stringify({
+    //                 orderID: data.orderID
+    //                 })
+    //         });
+    //     }}
+    //     />
+    // );
 
     return (
         <div>
@@ -65,9 +65,9 @@ function PaymentGateway() {
 
                             <div className="buttons-container">
                                 <button className="subBut" type="button" id="submitPaymentDetails" onClick={handlePaymentSubmit}>Submit</button>
-                                <div id="paypal-button-container">
+                                {/* <div id="paypal-button-container">
                                     {renderPayPalButton()}
-                            </div>
+                            </div> */}
                             <div id="paymentResult">
                                 {paymentSuccess && <Navigate to="/confirmation" />}
                             </div>
