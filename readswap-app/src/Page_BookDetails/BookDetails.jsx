@@ -4,13 +4,16 @@ import { Link } from 'react-router-dom';
 import "./bookdetails.css";
 import Header from '../Header';
 import Footer from '../Footer';
+import axios from 'axios';
+import { BOOK_FINDER_API_KEY, BOOK_FINDER_API_HOST } from '../utils/apiConfig.js';
 
 function BookDetails() {
-
     const [book, setBook] = useState(null);
     const { id } = useParams();
+    const [bookOwner, setBookOwner] = useState('');
 
     useEffect(() => {
+        // SENDING REQUESTS TO LOCAL API, TO GET BOOK DATA
         fetch(`http://localhost:3000/api/books/${id}`)
             .then(response => {
                 if (!response.ok) {
@@ -21,10 +24,49 @@ function BookDetails() {
             .then(data => {
                 console.log("Fetched data:", data);
                 setBook(data);
+                
+                const bookTitle = data.title;
+
+                // SEND REQUEST TO LOCAL API, TO GET BOOK OWNERSHIP DATA
+                axios.get(`http://localhost:3000/api/books/${id}/owner`)
+                    .then(response => {
+                        setBookOwner(response.data.owner);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching additional book info:', error);
+                        console.log('Response:', error.response);
+                        console.log('Message:', error.message);
+                    });
+                
+                // SENDING REQUESTS TO BOOK FINDER API AND ASKING FOR ADDITIONAL DATA
+                const bookFinderOptions = {
+                    method: 'GET',
+                    url: 'https://book-finder1.p.rapidapi.com/api/search',
+                    params: {
+                        title: bookTitle,
+                    },
+                    headers: {
+                        'X-RapidAPI-Key': BOOK_FINDER_API_KEY,
+                        'X-RapidAPI-Host': BOOK_FINDER_API_HOST
+                    }
+                };
+    
+                axios.request(bookFinderOptions)
+                    .then(response => {
+                        const bookDataFromAPI = response.data;
+                        setBook(prevBook => ({
+                            ...prevBook,
+                            additionalInfoFromAPI: bookDataFromAPI,
+                        }));
+                    })
+                    .catch(error => {
+                        console.error('Error fetching additional book info:', error);
+                    });
             })
             .catch(error => {
                 console.error('Error fetching book details:', error);
             });
+    
     }, [id]);    
 
     return (
@@ -41,14 +83,20 @@ function BookDetails() {
                                     <p><b>Author:</b> {book.author}</p>
                                     <p><b>Genre:</b> {book.genre}</p>
                                     <p><b>Condition:</b> {book.condition}</p>
-                                    <p><b>Trade For:</b> {book.trade_for}</p>
                                     <p><b>Price:</b> £ {book.price}</p>
-                                    <button onClick={() => alert('Book added to cart!')}>Add to Cart</button>
-                                    <button><Link to="/payment">Buy</Link></button>
                                 </div>
                                 <div className="book-details-02">
-                                    <p><b>Goodreads Description:</b> {book.description}</p>
-                                    <p><b>Trade for:</b> {book.trade_for}</p>
+                                    <p><b>Description:</b></p>
+                                    {book.additionalInfoFromAPI && book.additionalInfoFromAPI.results && book.additionalInfoFromAPI.results.length > 0 ? (
+                                        <div dangerouslySetInnerHTML={{ __html: book.additionalInfoFromAPI.results[0].summary }} />
+                                    ) : (
+                                        <p>Description not found.</p>
+                                    )}
+                                    <p>
+                                        <b>Ready to swap with:</b> {bookOwner} 
+                                    </p>
+                                    <button onClick={() => alert('Book added to cart!')}>Add to Cart</button>
+                                    <button><Link to="/payment">Buy</Link></button>
                                 </div>
                             </div>
                         ) : (

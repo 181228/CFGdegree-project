@@ -87,16 +87,24 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../src/Page_RegistrationLogin/RegistrationLogin.jsx'));
 });
 
-// Other API endpoints for more complex operations can be added here.
+app.get('/api/books/:id/owner', (req, res) => {
+    const bookId = req.params.id;
+
+    // HANDLE REQUEST OF BOOKS OWNER USERNAME DATA BASED ON BOOK_ID FROM CUSTOMERS.DB
+    booksDb.get('SELECT c.u_name AS owner FROM books b JOIN customers c ON b.book_owner_id = c.id WHERE b.id = ?', [bookId], (err, row) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else if (!row) {
+            res.status(404).json({ error: 'Owner not found' });
+        } else {
+            res.json(row); // SEND INFO AS JSON RESPONSE
+        }
+    });
+});
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
 
-//STEPS FOR RUNNING THE SERVER FIRST TIME, WHEN WORKING ON DB ON NEW PROJ.:
-
-/// Go through the terminal to the directory where server.js is stored
-/// Run npm install express
-/// Run npm install express sqlite3
-/// Run npm install cors
+//STEPS FOR RUNNING THE SERVER :
 /// Run node server.js

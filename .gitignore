@@ -1,2 +1,4 @@
 .DS_Store
 .DS_Store
+readswap-app/src/utils/apiConfig.js
+readswap-app/server/draft.js
