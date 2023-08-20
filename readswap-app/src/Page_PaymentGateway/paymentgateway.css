@@ -55,12 +55,12 @@ input:read-only {
 
 /* Custom styles to indicate invalid input */
 input:invalid {
-  border-color: rgb(43, 0, 255);
+  border-color: #283618;
 }
 
 input:invalid + span {
   display: block;
-  color: rgb(43, 0, 255);
+  color: #606c38;
   font-size: 12px;
 }
 

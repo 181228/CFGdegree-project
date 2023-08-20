@@ -35,17 +35,22 @@ function BookDetails() {
                 <div className='book-layout'>
                     <div className="book-container">
                         {book ? (
-                            <div className="book-details">
-                                <h2>{book.title}</h2>
-                                <img src={`http://localhost:3000/CoverImages/${book.image}`} alt={book.title + " cover"} width="200" />
-                                <p><b>Author:</b> {book.author}</p>
-                                <p><b>Genre:</b> {book.genre}</p>
-                                <p><b>Condition:</b> {book.condition}</p>
-                                <p><b>Trade For:</b> {book.trade_for}</p>
-                                <p><b>Price:</b> £ {book.price}</p>
-                                <p><b>Description:</b> {book.description}</p>
-                                <button onClick={() => alert('Book added to cart!')}>Add to Cart</button>
-                                <button><Link to="/payment">Buy</Link></button>
+                            <div>
+                                <div className="book-details-01">
+                                    <h2>{book.title}</h2>
+                                    <img src={`http://localhost:3000/CoverImages/${book.image}`} alt={book.title + " cover"} width="200" />
+                                    <p><b>Author:</b> {book.author}</p>
+                                    <p><b>Genre:</b> {book.genre}</p>
+                                    <p><b>Condition:</b> {book.condition}</p>
+                                    <p><b>Trade For:</b> {book.trade_for}</p>
+                                    <p><b>Price:</b> £ {book.price}</p>
+                                    <button onClick={() => alert('Book added to cart!')}>Add to Cart</button>
+                                    <button><Link to="/payment">Buy</Link></button>
+                                </div>
+                                <div className="book-details-02">
+                                    <p><b>Goodreads Description:</b> {book.description}</p>
+                                    <p><b>Trade for:</b> {book.trade_for}</p>
+                                </div>
                             </div>
                         ) : (
                             <div>Loading...</div>

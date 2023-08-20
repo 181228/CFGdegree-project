@@ -1,47 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./paymentgateway.css";
 import Header from '../Header';
 import Footer from '../Footer';
 import { PayPalButton } from "react-paypal-button-v2";
+import { Navigate } from 'react-router-dom';
 
 function PaymentGateway() {
-    const onSuccess = (details, data) => {
-        console.log("Transaction completed by " + details.payer.name.given_name);
-        showPaymentSuccess();
+    const [paymentSuccess, setPaymentSuccess] = useState(false);
+
+    const onSuccess = () => {
+        setPaymentSuccess(true);
     };
 
-    const onError = (err) => {
-        console.error(err);
+
+    const handlePaymentSubmit = () => {
+        
+        const nameInput = document.getElementById("name");
+        const cardNumberInput = document.getElementById("cardNumber");
+        const expiryDateInput = document.getElementById("expiryDate");
+        const cvvInput = document.getElementById("cvv");
+
+        if (!nameInput.value || !cardNumberInput.value || !expiryDateInput.value || !cvvInput.value) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        onSuccess();
+        setPaymentSuccess(true);
     };
 
     const renderPayPalButton = () => (
         <PayPalButton
-            createOrder={(data, actions) => {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: '0.01',
-                        },
-                    }],
-                });
-            }}
-            onApprove={(data, actions) => {
-                return actions.order.capture().then(function (details) {
-                    onSuccess(details, data);
-                });
-            }}
-            onError={onError}
+        amount="0.01"
+        // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+        onSuccess={(details, data) => {
+            alert("Transaction completed by " + details.payer.name.given_name);
+
+          // OPTIONAL: Call your server to save the transaction
+            return fetch("/paypal-transaction-complete", {
+                method: "post",
+                body: JSON.stringify({
+                    orderID: data.orderID
+                    })
+            });
+        }}
         />
     );
-
-    const showPaymentSuccess = () => {
-        const paymentResult = document.getElementById("paymentResult");
-        const orderSummary = `
-            Payment successful. Thank you for your purchase!
-        `;
-
-        paymentResult.innerText = orderSummary;
-    };
 
     return (
         <div>
@@ -60,9 +64,12 @@ function PaymentGateway() {
                             <input type="text" id="cvv" name="cvv" pattern="^\d{3}$" required placeholder="123" />
 
                             <div className="buttons-container">
-                            <button className="subBut" type="button" id="submitPaymentDetails">Submit</button>
-                            <div id="paypal-button-container">
-                                {renderPayPalButton()}
+                                <button className="subBut" type="button" id="submitPaymentDetails" onClick={handlePaymentSubmit}>Submit</button>
+                                <div id="paypal-button-container">
+                                    {renderPayPalButton()}
+                            </div>
+                            <div id="paymentResult">
+                                {paymentSuccess && <Navigate to="/confirmation" />}
                             </div>
                             </div>
                         </form>
