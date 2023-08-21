@@ -1,0 +1,77 @@
+/* Basic styling to the form */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+.pay-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  padding: 10px;
+}
+
+.pay-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: center;
+  max-width: 600px;
+  margin: 10px;
+  padding: 20px;
+}
+
+.pay-details {
+  background-color: #ffffff;
+  padding: 10px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  margin-bottom: 30px;
+  width: auto;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+input:read-only {
+  color: #999;
+}
+
+/* Custom styles to indicate invalid input */
+input:invalid {
+  border-color: #283618;
+}
+
+input:invalid + span {
+  display: block;
+  color: #606c38;
+  font-size: 12px;
+}
+
+/* Styling for the buttons container */
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.subBut {
+  margin-bottom: 10px;
+}

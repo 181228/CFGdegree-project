@@ -7,8 +7,12 @@ const cors = require('cors'); //cuz front-end is running on other port
 const app = express();
 app.use(cors()); // middleware CORS
 
-const dbPath = './books.db';
-const db = new sqlite3.Database(dbPath);
+const booksDbPath = './books.db';
+const customersDbPath = './customers.db';
+
+const booksDb = new sqlite3.Database(booksDbPath);
+const customersDb = new sqlite3.Database(customersDbPath);
+
 
 // Serve the static files from the Page_BooksListing folder
 app.use(express.static(path.join(__dirname, '../src/Page_BooksListing')));
@@ -23,7 +27,7 @@ app.use('/CoverImages', (req, res, next) => {
 
 app.get('/api/books', (req, res) => {
   // Query the database to get all books
-  db.all('SELECT * FROM books', (err, rows) => {
+  booksDb.all('SELECT * FROM books', (err, rows) => {
     if (err) {
         res.status(500).json({ error: err.message });
     } else {
@@ -32,11 +36,11 @@ app.get('/api/books', (req, res) => {
     });
 });
 
-// Add the route for individual book details
+// The route for individual book details
 app.get('/api/books/:id', (req, res) => {
     const bookId = req.params.id;
     // Query the database to get the book details with the specified bookId
-    db.get('SELECT * FROM books WHERE id = ?', [bookId], (err, row) => {
+    booksDb.get('SELECT * FROM books WHERE id = ?', [bookId], (err, row) => {
     if (err) {
         res.status(500).json({ error: err.message });
     } else if (!row) {
@@ -49,21 +53,58 @@ app.get('/api/books/:id', (req, res) => {
 
 app.get('/api/books')
 
+// API endpoint for retrieving all customers
+app.get('/api/customers', (req, res) => {
+    customersDb.all('SELECT * FROM customers', (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+// API endpoint for retrieving individual customer details
+app.get('/api/customers/:u_name', (req, res) => {
+    const u_name = req.params.u_name;
+    customersDb.get('SELECT * FROM customers WHERE u_name = ?', [u_name], (err, row) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else if (!row) {
+            res.status(404).json({ error: 'User not found' });
+        } else {
+            res.json(row);
+        }
+    });
+});
+
 // Handle requests to the root URL
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../src/Page_BooksListing/BooksListing.jsx'));
 });
 
-// Other API endpoints for more complex operations can be added here.
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../src/Page_RegistrationLogin/RegistrationLogin.jsx'));
+});
+
+app.get('/api/books/:id/owner', (req, res) => {
+    const bookId = req.params.id;
+
+    // HANDLE REQUEST OF BOOKS OWNER USERNAME DATA BASED ON BOOK_ID FROM CUSTOMERS.DB
+    booksDb.get('SELECT c.u_name AS owner FROM books b JOIN customers c ON b.book_owner_id = c.id WHERE b.id = ?', [bookId], (err, row) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else if (!row) {
+            res.status(404).json({ error: 'Owner not found' });
+        } else {
+            res.json(row); // SEND INFO AS JSON RESPONSE
+        }
+    });
+});
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
 
-//STEPS FOR RUNNING THE SERVER:
-
-/// Go through the terminal to the directory where server.js is stored
-/// Run npm install express
-/// Run npm install express sqlite3
-/// Run npm install cors
+//STEPS FOR RUNNING THE SERVER :
 /// Run node server.js

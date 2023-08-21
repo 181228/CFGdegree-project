@@ -11,8 +11,8 @@ h1 {
     column-span: all;
 }
 
-.layout {
-    column-count: 4;
+.book-layout {
+    column-count: 2;
     column-gap: 100px;
     margin-top: 100px;
     padding: 10px;
@@ -20,14 +20,8 @@ h1 {
     margin-right: 150px;
 }
 
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 10px;
-}
-
-.book {
+.book-details-01,
+.book-details-02 {
     background-color: #ffffff;
     color: black;
     text-overflow: ellipsis;
@@ -39,9 +33,30 @@ h1 {
     width: auto;
 }
 
-.book a {
+
+.book-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 10px;
+}
+
+.book-details-01 a,
+.book-details-02 a {
     text-decoration: none;
     color: inherit;
+}
+
+button {
+    color: black !important;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 20px;
 }
 
 
