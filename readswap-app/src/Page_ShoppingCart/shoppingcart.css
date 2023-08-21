@@ -13,11 +13,11 @@ ul {
     overflow: hidden;
     background-color: lightgrey;
 }
-  
+
 li {
     float: left;
 }
-  
+
 li a {
     display: block;
     color: white;
@@ -25,7 +25,7 @@ li a {
     padding: 14px 16px;
     text-decoration: none;
 }
-  
+
 li a:hover {
     background-color: darkslategrey;
 }
@@ -64,17 +64,17 @@ li a:hover {
     color: #fff;
     font-size: 12px;
     border-radius: 3px;
-  }
-  
-  .remove-product:hover {
+}
+
+.remove-product:hover {
     background-color: #a44;
-  }
+}
 
 .totals {
     float: right;
     text-align: right;
 }
-  
+
 .checkout {
     float: right;
     border: 0;
