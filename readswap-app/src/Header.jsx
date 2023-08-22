@@ -14,7 +14,9 @@ function Header() {
                         <h2>Why buy when you can Swap!</h2>
                     </div>
                     <div className="navButtonContainer">
-                    <button className="navBut" id="loginButton" type="button">USER</button>
+                    <Link to="/registrationlogin">
+                        <button className="navBut" id="loginButton" type="button">USER</button>
+                    </Link>
                     </div>
                     <input className="search-bar" type="text" placeholder="Search.." />
                     <nav className="nav">
