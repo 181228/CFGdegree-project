@@ -113,9 +113,18 @@ fieldset {
 
 .navButtonsContainer {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-end;
-  margin-top: -100px;
+  margin-top: 40px;
+  margin-right: 20px;
+}
+
+.navCart {
+  color: black !important;
+  cursor: pointer;
+  margin-right: 20px !important;
+  margin-top: 10px  !important;
+  justify-content: flex-end;
 }
 
 button,
@@ -133,6 +142,7 @@ button,
 .navBut {
   background-color: #fefae0;
   margin-right: 20px;
+  margin-top: 10px !important;
 }
 
 .searchBut {

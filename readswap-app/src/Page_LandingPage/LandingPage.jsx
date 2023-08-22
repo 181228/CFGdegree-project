@@ -39,19 +39,24 @@ return (
         <button className="searchBut" id="bestsellersButton">BESTSELLERS</button>
         <button className="searchBut" id="genresButton">GENRES</button>
       </div>
+      <br></br>
 
-      <div id="bookList">
-        {booksToDisplay.map(book => (
-          <div key={book.id} className="bookItem">
-            <img src={book.image} alt={book.title} width="150" height="200" />
-            <h3>{book.title}</h3>
-            <p>Author: {book.author}</p> 
-            <p>Genre: {book.genre}</p>
-            
-            {/* Additional book details */}
+      <div className='layout-books-landing'>
+          <div className="container-books-landing">
+            <div id="bookList-landing">
+              {booksToDisplay.map(book => (
+                <div key={book.id} className="book-landing">
+                  <img src={`http://localhost:3000/CoverImages/${book.image}`} alt={book.title} width="150" height="200" />
+                  <h3>{book.title}</h3>
+                  <p>Author: {book.author}</p> 
+                  <p>Genre: {book.genre}</p>
+                  
+                  {/* Additional book details */}
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
+        </div>
     </div>
 
     <Footer />
