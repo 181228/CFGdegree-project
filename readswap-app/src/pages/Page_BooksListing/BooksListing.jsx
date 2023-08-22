@@ -19,7 +19,9 @@ function BookListing() {
 
   return (
     <div>
-        <h1>Book Listing</h1>
+      <br></br>
+      <br></br>
+        <h2>Book Listing</h2>
         <div className='layout'>
           <div className="container">
             <div id="bookList">

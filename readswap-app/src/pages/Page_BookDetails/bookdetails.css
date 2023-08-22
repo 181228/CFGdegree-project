@@ -1,11 +1,11 @@
-.App {
+/* .App {
     text-align: center;
     align-items: center;
     justify-content: center;
     color: rgb(0, 0, 0);
     background-color: #dda15e;
     min-height: 1200px;
-}
+} */
 
 h1 {
     column-span: all;
@@ -22,15 +22,20 @@ h1 {
 
 .book-details-01,
 .book-details-02 {
-    background-color: #ffffff;
+    background-color: rgb(255,255,255, 0.5);
     color: black;
     text-overflow: ellipsis;
     font-size: 15px;
     padding: 10px;
-    border: 2px solid rgb(0, 0, 0);
+    /* border: 2px solid rgb(0, 0, 0); */
     border-radius: 20px;
     margin-bottom: 30px;
     width: auto;
+}
+
+.book-description-api {
+    color: black;
+    font-weight: lighter;
 }
 
 

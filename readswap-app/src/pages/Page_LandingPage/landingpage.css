@@ -20,7 +20,7 @@
 .layout-books-landing {
     column-count: 3;
     column-gap: 100px;
-    margin-top: 100px;
+    margin-top: 10px;
     padding: 10px;
     margin-left: 150px;
     margin-right: 150px;
@@ -34,24 +34,24 @@
 }
 
 .bookList-landing {
-    background-color: #ffffff;
+    background-color: rgb(255,255,255, 0.5);
     color: black;
     text-overflow: ellipsis;
     font-size: 15px;
     padding: 10px;
-    border: 2px solid rgb(0, 0, 0);
+    /* border: 2px solid rgb(0, 0, 0); */
     border-radius: 20px;
     margin-bottom: 30px;
     width: auto;
 }
 
 .book-landing {
-    background-color: #ffffff;
+    background-color: rgb(255,255,255, 0.5);
     color: black;
     text-overflow: ellipsis;
     font-size: 15px;
     padding: 10px;
-    border: 2px solid rgb(0, 0, 0);
+    /* border: 2px solid rgb(0, 0, 0); */
     border-radius: 20px;
     margin-bottom: 30px;
     width: auto;
@@ -61,3 +61,37 @@
     text-decoration: none;
     color: inherit;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.landing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.p-land {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #000000;
+    font-weight: lighter;
+}
+
+.pi-land {
+    font-size: 18px;
+    color: #bc6c25;
+    line-height: 1.6;
+    font-weight: 100;
+}
+
+.searchBut {
+    background-color: #fefae0;
+    margin-right: 20px;
+}
+

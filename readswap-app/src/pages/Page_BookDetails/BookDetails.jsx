@@ -78,11 +78,13 @@ function BookDetails() {
                             </div>
                             <div className="book-details-02">
                                 <p><b>Description:</b></p>
+                                <div className="book-description-api">
                                 {book.additionalInfoFromAPI && book.additionalInfoFromAPI.results && book.additionalInfoFromAPI.results.length > 0 ? (
                                     <div dangerouslySetInnerHTML={{ __html: book.additionalInfoFromAPI.results[0].summary }} />
                                 ) : (
                                     <p>Description not found.</p>
                                 )}
+                                </div>
                                 <p>
                                     <b>Ready to swap with:</b> {bookOwner}
                                 </p>
