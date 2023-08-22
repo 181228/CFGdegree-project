@@ -17,11 +17,6 @@ function Header() {
                         <Link to="/cart" className="navCart"><ShoppingCart size={42} /></Link>
                         <Link to="/registrationlogin"><button className="navBut" id="otherLoginButton" type="button">USER</button></Link>
                     </div>
-                    <div className="navButtonContainer">
-                        <Link to="/registrationlogin">
-                            <button className="navBut" id="loginButton" type="button">USER</button>
-                        </Link>
-                    </div>
                     <input className="search-bar" type="text" placeholder="Search.." />
                     <nav className="nav">
                         <ul>
