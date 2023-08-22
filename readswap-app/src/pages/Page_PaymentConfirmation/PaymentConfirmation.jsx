@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import "./paymentconfirmation.css";
-import Header from '../Header';
-import Footer from '../Footer';
 
 function PaymentConfirmation() {
     const [paymentProcessing, setPaymentProcessing] = useState(true);
@@ -20,20 +18,18 @@ function PaymentConfirmation() {
 
     return (
         <div>
-            <Header />
-                <h1>Payment Confirmation</h1>
-                <div className='confirmation-layout'>
-                    <div className="confirmation-container">
-                        <div className="confirmation-details">
-                            <div>
-                                {paymentProcessing ? <p>Processing payment...</p> : <p>Awesome! 
-                                Payment received. 
-                                Package on the way! 📦</p>}
-                            </div>
+            <h1>Payment Confirmation</h1>
+            <div className='confirmation-layout'>
+                <div className="confirmation-container">
+                    <div className="confirmation-details">
+                        <div>
+                            {paymentProcessing ? <p>Processing payment...</p> : <p>Awesome! 
+                            Payment received. 
+                            Package on the way! 📦</p>}
                         </div>
                     </div>
                 </div>
-            <Footer />
+            </div>
         </div>
     );
 };

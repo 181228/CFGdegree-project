@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import "./paymentgateway.css";
-import Header from '../Header';
-import Footer from '../Footer';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { Navigate } from 'react-router-dom';
 
@@ -11,7 +9,6 @@ function PaymentGateway() {
     const onSuccess = () => {
         setPaymentSuccess(true);
     };
-
 
     const handlePaymentSubmit = () => {
         
@@ -37,7 +34,6 @@ function PaymentGateway() {
 
     return (
         <div>
-            <Header />
             <h1>Payment Details</h1>
                 <div className='pay-layout'>
                     <div className="pay-container">
@@ -63,7 +59,6 @@ function PaymentGateway() {
                         </form>
                     </div>
                 </div>
-            <Footer />
         </div>
     );
 }

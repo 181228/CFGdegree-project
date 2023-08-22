@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./bookslisting.css";
-import Header from '../Header';
-import Footer from '../Footer';
 
 
 function BookListing() {
@@ -21,7 +19,6 @@ function BookListing() {
 
   return (
     <div>
-      <Header />
         <h1>Book Listing</h1>
         <div className='layout'>
           <div className="container">
@@ -39,7 +36,6 @@ function BookListing() {
             </div>
           </div>
         </div>
-      <Footer />
     </div>
   );
 }

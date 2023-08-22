@@ -5,10 +5,10 @@ import Header from '../Header';
 import Footer from '../Footer';
 
 
+
 function RegistrationLogin() {
   return (
     <div>
-      <Header />
       {/* Alert Box - Displays box with "Please fill out required fields" if no details entered in to forms */}
       <div className="alert-box">
         <p className="alert" />
@@ -69,7 +69,6 @@ function RegistrationLogin() {
           </a>
         </fieldset>
       </form>
-      <Footer />
     </div>
   );
 }

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./landingpage.css";
 // import { Link } from "react-router-dom";
-import Header from '../Header';
-import Footer from '../Footer';
 
 function LandingPage() {
 
@@ -24,7 +22,6 @@ const booksToDisplay = randomBooks.slice(0, 3);
 
 return (
   <div>
-    <Header />
 
     <div className="pageContent">
       <h1>ReadSwap</h1>
@@ -59,7 +56,6 @@ return (
         </div>
     </div>
 
-    <Footer />
   </div>
 );
 }
