@@ -1,0 +1,87 @@
+.header {
+    padding: 20px;
+    text-align: center;
+    background: lightgrey;
+    color: #2f4f4f;
+    font-size: 30px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: lightgrey;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: darkslategrey;
+}
+
+#contactButton, #loginButton {
+    float: right;
+}
+
+/* Global "table" column settings */
+.book-image { float: left; width: 20%; }
+.book-name { float: left; width: 37%; }
+.book-price { float: left; width: 12%; }
+.book-quantity { float: left; width: 10%; }
+.book-removal { float: left; width: 9%; }
+.total-line-price { float: left; width: 12%; text-align: right; }
+
+
+/* This is used as the traditional .clearfix class */
+.group:before,
+.group:after {
+    content: '';
+    display: table;
+} 
+.group:after {
+    clear: both;
+}
+.group {
+    zoom: 1;
+}
+
+
+.remove-product {
+    border: 0;
+    padding: 4px 8px;
+    background-color: #c66;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+.remove-product:hover {
+    background-color: #a44;
+}
+
+.totals {
+    float: right;
+    text-align: right;
+}
+
+.checkout {
+    float: right;
+    border: 0;
+    margin-top: 20px;
+    padding: 6px 25px;
+    background-color: #dda15e;
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    border-radius: 3px;
+}

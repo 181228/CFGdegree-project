@@ -15,7 +15,7 @@ const customersDb = new sqlite3.Database(customersDbPath);
 
 
 // Serve the static files from the Page_BooksListing folder
-app.use(express.static(path.join(__dirname, '../src/Page_BooksListing')));
+app.use(express.static(path.join(__dirname, '../src/pages/Page_BooksListing')));
 
 // Serve the Cover Images folder
 app.use('/CoverImages', (req, res, next) => {
@@ -80,11 +80,11 @@ app.get('/api/customers/:u_name', (req, res) => {
 
 // Handle requests to the root URL
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../src/Page_BooksListing/BooksListing.jsx'));
+    res.sendFile(path.join(__dirname, '../src/pages/Page_BooksListing/BooksListing.jsx'));
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../src/Page_RegistrationLogin/RegistrationLogin.jsx'));
+    res.sendFile(path.join(__dirname, '../src/pages/Page_RegistrationLogin/RegistrationLogin.jsx'));
 });
 
 app.get('/api/books/:id/owner', (req, res) => {

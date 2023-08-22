@@ -1,5 +1,4 @@
 const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
 
 // Paths to files
 const dbPath = './customers.db';
