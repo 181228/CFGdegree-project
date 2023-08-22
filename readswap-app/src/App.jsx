@@ -10,6 +10,7 @@ import ShoppingCart from "./pages/Page_ShoppingCart/ShoppingCart";
 import PaymentGateway from './pages/Page_PaymentGateway/PaymentGateway';
 import PaymentConfirmation from './pages/Page_PaymentConfirmation/PaymentConfirmation';
 import RegistrationLogin from "./pages/Page_RegistrationLogin/RegistrationLogin";
+import Forum from "./pages/Page_Forum/Page_Forum"
 import {ShopContextProvider} from "./components/context/shop-context.jsx"  
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
               <Route path="/confirmation" element={<PaymentConfirmation />} />
               <Route exact path="/cart" element={<ShoppingCart />} />
               <Route exact path="/registrationlogin" element={<RegistrationLogin />}/>
+              <Route path="/forum" element={<Forum/>} />
             </Routes>
           </div>
           <Footer />

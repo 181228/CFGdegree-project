@@ -19,17 +19,17 @@ function Header() {
                     </div>
                     <input className="search-bar" type="text" placeholder="Search.." />
                     <nav className="nav">
-                        <ul>
-                            <li>
+                        <ul className='nav-but-head'>
+                            <li className='li-but-head'>
                                 <Link to="/">HOME</Link>
                             </li>
-                            <li>
+                            <li className='li-but-head'>
                                 <Link to="/bookslisting">BOOKS</Link>
                             </li>
-                            <li>
+                            <li className='li-but-head'>
                                 <Link to="/forum">FORUM</Link>
                             </li>
-                            <li>
+                            <li className='li-but-head'>
                                 <Link to="/aboutus">ABOUT US</Link>
                             </li>
                         </ul>

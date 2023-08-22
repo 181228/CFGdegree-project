@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     color: rgb(0, 0, 0);
-    background-color: #dda15e;
+    /* background-color: #dda15e; */
     min-height: 1200px;
 }
 
@@ -22,7 +22,7 @@ h1 {
 
 .book-details-01,
 .book-details-02 {
-    background-color: #ffffff;
+    background-color: rgb(255, 255, 255, 0.1);
     color: black;
     text-overflow: ellipsis;
     font-size: 15px;
