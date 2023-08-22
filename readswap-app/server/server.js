@@ -87,6 +87,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../src/pages/Page_RegistrationLogin/RegistrationLogin.jsx'));
 });
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../src/Page_LandingPage/LandingPage.jsx'));
+});
+
 app.get('/api/books/:id/owner', (req, res) => {
     const bookId = req.params.id;
 
