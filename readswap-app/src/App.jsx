@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/header/Navbar01";
+import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer"
 import LandingPage from "./pages/Page_LandingPage/LandingPage";
 import AboutUs from "./pages/Page_AboutUs/AboutUs";
@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       <ShopContextProvider> 
         <Router>
-          <Navbar />
+          <Header />
           <div className="content">
             <Routes>
               <Route exact path="/" element={<LandingPage />} />

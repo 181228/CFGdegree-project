@@ -19,24 +19,23 @@ function BookListing() {
 
   return (
     <div>
-      <br></br>
-      <br></br>
-        <h2>Book Listing</h2>
-        <div className='layout'>
-          <div className="container">
-            <div id="bookList">
-              {books.map(book => (
-                <div className="book" key={book.id}>
-                  <div>
-                    <Link to={`/book/${book.id}`}>
-                      <img src={`http://localhost:3000/CoverImages/${book.image}`} alt="Book Cover" width="150" height="200" />
-                      <p> <b>{book.title}</b> | {book.author} | {book.genre}</p>
-                    </Link>
+      <div className='bl-container'>
+            <div className='bl-book-layout'>
+            <div className="bl-book-container">
+              <div id="bookList">
+                {books.map(book => (
+                  <div className="book" key={book.id}>
+                    <div>
+                      <Link to={`/book/${book.id}`}>
+                        <img src={`http://localhost:3000/CoverImages/${book.image}`} alt="Book Cover" width="150" height="200" />
+                        <p> <b>{book.title}</b> | {book.author} | {book.genre}</p>
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+              </div>
             </div>
-          </div>
         </div>
     </div>
   );

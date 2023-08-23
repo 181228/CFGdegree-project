@@ -1,3 +1,4 @@
+import React from "react";
 import './shoppingcart.css';
 import { Cart } from '../../components/cart/Cart.jsx'
 
@@ -5,7 +6,9 @@ function ShoppingCart() {
 
     return (
         <div>
-            < Cart/>
+            <div className='sc-container'>
+                < Cart/>
+            </div>
         </div>
     );
 }

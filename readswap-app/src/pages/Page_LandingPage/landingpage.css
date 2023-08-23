@@ -1,22 +1,4 @@
 
-.headText {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 20px;
-    margin-top: 40px;
-}
-
-.headText h1 {
-    font-size: 30px;
-    margin: 0;
-}
-
-.headText h2 {
-    font-size: 15px;
-    margin: 0;
-}
-
 .layout-books-landing {
     column-count: 3;
     column-gap: 100px;
@@ -73,6 +55,7 @@ body {
 .landing-container {
     max-width: 1200px;
     margin: 0 auto;
+    margin-top: 80px !important;
     padding: 20px;
 }
 
