@@ -25,6 +25,7 @@ h1 {
     background-color: rgb(255,255,255, 0.5);
     color: black;
     text-overflow: ellipsis;
+    font-size: 15px;
     padding: 10px;
     /* border: 2px solid rgb(0, 0, 0); */
     border-radius: 20px;
@@ -34,7 +35,7 @@ h1 {
 
 .book-description-api {
     color: black;
-    font-weight: lighter !important;
+    font-weight: lighter;
 }
 
 
@@ -47,9 +48,20 @@ h1 {
 
 .book-details-01 a,
 .book-details-02 a {
-    font-size: 16px !important;
     text-decoration: none;
     color: inherit;
+}
+
+button {
+    color: black !important;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 20px;
 }
 
 
