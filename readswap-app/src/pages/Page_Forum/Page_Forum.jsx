@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./pageforum.css";
 import "./forum.css"
 
 const Forum = () => {
@@ -36,11 +35,11 @@ const Forum = () => {
             <main className='forum_home'>
             <br></br>
             <br></br>
-                <h2 className='forum_title'>Create a Thread</h2>
+                {/* <h2 className='hread-name'>Create a Thread</h2> */}
                 <form className='forum_form' onSubmit={handleSubmit}>
                     <div className='forum_container'>
-                        <label htmlFor='thread'>Title / Description</label>
-                        <input
+                        <label htmlFor='thread-name'>🔎   Book Title in Search</label>
+                        <input className="threadTab"
                             type='text'
                             name='thread'
                             required

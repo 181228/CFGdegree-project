@@ -16,12 +16,12 @@ function BookListing() {
   }, []);
 
   return (
-    <div>
+    <div className="bl-container">
       <br></br>
       <br></br>
-        <h2>Book Listing</h2>
-        <div className='layout'>
-          <div className="container">
+        {/* <h2>Book Listing</h2> */}
+        <div className='bl-book-layout'>
+          <div className="bl-book-container">
             <div id="bookList">
               {books.map(book => (
                 <div className="book" key={book.id}>
