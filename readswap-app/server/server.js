@@ -2,17 +2,14 @@ const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const port = 3000;
-const cors = require('cors'); //cuz front-end is running on other port
+const cors = require('cors'); // Because the front-end is running on another port
 
 const app = express();
-app.use(cors()); // middleware CORS
+app.use(cors()); // CORS middleware
 
-const booksDbPath = './books.db';
-const customersDbPath = './customers.db';
+const dbPath = './users-books.db';
 
-const booksDb = new sqlite3.Database(booksDbPath);
-const customersDb = new sqlite3.Database(customersDbPath);
-
+const db = new sqlite3.Database(dbPath);
 
 // Serve the static files from the Page_BooksListing folder
 app.use(express.static(path.join(__dirname, '../src/pages/Page_BooksListing')));
@@ -21,41 +18,44 @@ app.use(express.static(path.join(__dirname, '../src/pages/Page_BooksListing')));
 app.use('/CoverImages', (req, res, next) => {
     if (req.url.endsWith('.jpg')) {
         res.type('image/jpeg');
+    } else if (!req.url.includes('.')) {
+        req.url += '.jpg';
+        res.type('image/jpeg');
     }
     next();
 }, express.static(path.join(__dirname, '../src/utils/CoverImages')));
 
+
+// API endpoint for retrieving all books
 app.get('/api/books', (req, res) => {
-  // Query the database to get all books
-  booksDb.all('SELECT * FROM books', (err, rows) => {
-    if (err) {
-        res.status(500).json({ error: err.message });
-    } else {
-        res.json(rows); // Send the data as a JSON response
-    }
+    // Query the database to get all books
+    db.all('SELECT * FROM books', (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else {
+            res.json(rows); // Send the data as a JSON response
+        }
     });
 });
 
-// The route for individual book details
+// API endpoint for individual book details
 app.get('/api/books/:id', (req, res) => {
     const bookId = req.params.id;
     // Query the database to get the book details with the specified bookId
-    booksDb.get('SELECT * FROM books WHERE id = ?', [bookId], (err, row) => {
-    if (err) {
-        res.status(500).json({ error: err.message });
-    } else if (!row) {
-        res.status(404).json({ error: 'Book not found' });
-    } else {
-        res.json(row); // Send the data as a JSON response
-    }
+    db.get('SELECT * FROM books WHERE id = ?', [bookId], (err, row) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else if (!row) {
+            res.status(404).json({ error: 'Book not found' });
+        } else {
+            res.json(row); // Send the data as a JSON response
+        }
     });
 });
 
-app.get('/api/books')
-
-// API endpoint for retrieving all customers
-app.get('/api/customers', (req, res) => {
-    customersDb.all('SELECT * FROM customers', (err, rows) => {
+// API endpoint for retrieving all users
+app.get('/api/users', (req, res) => {
+    db.all('SELECT * FROM users', (err, rows) => {
         if (err) {
             res.status(500).json({ error: err.message });
         } else {
@@ -64,16 +64,32 @@ app.get('/api/customers', (req, res) => {
     });
 });
 
-// API endpoint for retrieving individual customer details
-app.get('/api/customers/:u_name', (req, res) => {
-    const u_name = req.params.u_name;
-    customersDb.get('SELECT * FROM customers WHERE u_name = ?', [u_name], (err, row) => {
+// API endpoint for individual user details
+app.get('/api/users/:id', (req, res) => {
+    const userId = req.params.id;
+    // Query the database to get the user details with the specified userId
+    db.get('SELECT * FROM users WHERE id = ?', [userId], (err, row) => {
         if (err) {
             res.status(500).json({ error: err.message });
         } else if (!row) {
             res.status(404).json({ error: 'User not found' });
         } else {
             res.json(row);
+        }
+    });
+});
+
+// API endpoint for getting book owner's username based on book_id
+app.get('/api/books/:id/owner', (req, res) => {
+    const bookId = req.params.id;
+    // Query the database to get the owner's username based on book_id
+    db.get('SELECT u.u_name AS owner FROM books b JOIN users u ON b.user_id = u.id WHERE b.id = ?', [bookId], (err, row) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else if (!row) {
+            res.status(404).json({ error: 'Owner not found' });
+        } else {
+            res.json(row); // Send the owner's username as a JSON response
         }
     });
 });
@@ -91,20 +107,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../src/Page_LandingPage/LandingPage.jsx'));
 });
 
-app.get('/api/books/:id/owner', (req, res) => {
-    const bookId = req.params.id;
-
-    // HANDLE REQUEST OF BOOKS OWNER USERNAME DATA BASED ON BOOK_ID FROM CUSTOMERS.DB
-    booksDb.get('SELECT c.u_name AS owner FROM books b JOIN customers c ON b.book_owner_id = c.id WHERE b.id = ?', [bookId], (err, row) => {
-        if (err) {
-            res.status(500).json({ error: err.message });
-        } else if (!row) {
-            res.status(404).json({ error: 'Owner not found' });
-        } else {
-            res.json(row); // SEND INFO AS JSON RESPONSE
-        }
-    });
-});
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
