@@ -22,35 +22,36 @@ function Header(){
                             <h2>Why buy when you can Swap!</h2>
                         </div>
                 <nav ref={navRef}>
-                    <div classs="textcontainer">
+                    <div className="textcontainer">
                     <a href = "/#">HOME</a>
                     <a href = "/bookslisting"> BOOKS </a>
                     <a href = "/forum"> FORUM </a>
                     <a href = "/aboutus"> ABOUT US </a>
                     </div><br></br>
-            
-                    <input placeholder='Search...' class="searchtab"></input>
+                    <div className="nav-middle-line">
+                    <input placeholder='Search...' className="searchtab"></input>
                 
-                    <button class="nav-button"> 
+                    <button className="nav-button"> 
                         <HiUserCircle size={27}/>
                     </button> 
 
-                    <button  class="nav-button-01"> 
+                    <button  className="nav-button-01"> 
                         <Link to="/cart"> <HiShoppingCart  size={27}/> </Link> 
                     </button> 
 
                     <Link to="/registrationlogin">
-                        <button class="login-button">
+                        <button className="login-button">
                         REGISTER | LOGIN
                         </button>
                     </Link>
+                    </div>
                     
-                    <button  class="button"  onClick={showNavbar}>
+                    <button  className="button"  onClick={showNavbar}>
                         <FaTimes />
                     </button>
                 
                 </nav>
-                <button  class="button" onClick={showNavbar}>
+                <button  className="button" onClick={showNavbar}>
                     <FaBars/> 
                 </button>
             </div>

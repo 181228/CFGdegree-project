@@ -21,7 +21,7 @@ function BookListing() {
     <div>
       <br></br>
       <br></br>
-        <h2>Book Listing</h2>
+        {/* <h2>Book Listing</h2> */}
         <div className='layout'>
           <div className="container">
             <div id="bookList">

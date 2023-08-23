@@ -5,6 +5,8 @@ function ShoppingCart() {
 
     return (
         <div>
+                <br></br>
+                <br></br>
             < Cart/>
         </div>
     );

@@ -18,14 +18,18 @@ function PaymentConfirmation() {
 
     return (
         <div>
-            <h1>Payment Confirmation</h1>
-            <div className='confirmation-layout'>
-                <div className="confirmation-container">
-                    <div className="confirmation-details">
-                        <div>
-                            {paymentProcessing ? <p>Processing payment...</p> : <p>Awesome! 
-                            Payment received. 
-                            Package on the way! 📦</p>}
+            <div className="pconf-container">
+                <br></br>
+                <br></br>
+                <h1>Payment Confirmation</h1>
+                <div className='confirmation-layout'>
+                    <div className="confirmation-container">
+                        <div className="confirmation-details">
+                            <div>
+                                {paymentProcessing ? <p>Processing payment...</p> : <p>Awesome! 
+                                Payment received. 
+                                Package on the way! 📦</p>}
+                            </div>
                         </div>
                     </div>
                 </div>
