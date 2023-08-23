@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+
+
+*{
+    padding :0;
+    margin:0;
+    box-sizing:border-box ;
+    font-family: 'Roboto Slab', serif;
+    font-size: large;
+    font-weight: 500;
+}
+:root{
+    --maincolor: #bc6c25;
+    --maincolorlight: #dda15e;
+    --secondarycolor: #fefae0;
+    --textcolor: #081c15;
+}
+header{
+    align-items:center;
+    justify-content: space-between;
+    height: 156px;
+    padding:0 2rem;
+    background-color: var(--maincolor);
+    color: var(--textcolor);
+}
+header .textcontainer{
+   display: inline-flex;
+    
+}
+nav a {
+    margin: 0 3rem;
+    color: var(--textcolor);
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    
+}
+nav a:hover{
+    color: var(--secondarycolor);
+}
+.logo {
+    margin-top: 10px;
+    float: left;
+    width: 150px;
+    background-color: var(--maincolorlight);
+}
+.headText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+    margin-top: 40px;
+}
+
+.headText h1 {
+    font-size: 40px;
+    margin-top: 10px;
+}
+
+.headText h2 {
+    font-size: 15px;
+    margin: 0;
+}
+header .nav-button{
+    padding:5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--textcolor);
+    float: right;
+    font-size:1. 10rem
+}
+header .login-button{
+    padding:5px;
+    cursor: pointer;
+    background: transparent;
+    float: right;
+    margin-left:10px;
+    color:var(--textcolor);
+    background-color: var(--secondarycolor);
+    font-size: small;
+    
+}
+header .searchtab{
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    width: 50vw;
+    height: 0.1vw;
+    padding: 1vw;
+    border: 1px solid #ccc;
+    border-radius: 0.5vw;
+    margin-right: 0px;
+    
+}
+
+header .button{
+    padding:5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    float: right ;
+    color: var(--textcolor);
+    visibility: hidden;
+    opacity: 0;
+    font-size: 1.9rem;
+}
+
+@media only screen and (max-width: 1024px){
+    header .button{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    header nav{
+        position: fixed;
+        top:0;
+        left:0;
+        height:100%;
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap:1.5rem;
+        transition: 1s;
+        background-color: var(--maincolor);
+        transform: translateY(-100vh);
+    }
+
+     header .responsive_nav{
+        transform: none;
+   }
+
+
+}
