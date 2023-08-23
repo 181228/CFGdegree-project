@@ -32,13 +32,13 @@ const Forum = () => {
 
     return (
         <div>
-            <main className='forum_home'>
+            <main className='forum-container'>
             <br></br>
             <br></br>
                 {/* <h2 className='hread-name'>Create a Thread</h2> */}
                 <form className='forum_form' onSubmit={handleSubmit}>
                     <div className='forum_container'>
-                        <label htmlFor='thread-name'>🔎   Book Title in Search</label>
+                        <label className='label-container' htmlFor='thread-name'>🔎   Book Title in Search</label>
                         <input className="threadTab"
                             type='text'
                             name='thread'

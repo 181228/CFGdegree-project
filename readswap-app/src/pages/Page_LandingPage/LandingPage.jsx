@@ -42,7 +42,7 @@ return (
             <div id="bookList-landing">
               {booksToDisplay.map(book => (
                 <div key={book.id} className="book-landing">
-                  <img src={`http://localhost:3000/CoverImages/${book.image}`} alt={book.title} width="150" height="200" />
+                  <img src={`http://localhost:3000/CoverImages/${book.image}.jpg`} alt={book.title} width="150" height="200" />
                   <h3>{book.title}</h3>
                   <p>Author: {book.author}</p> 
                   <p>Genre: {book.genre}</p>

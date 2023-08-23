@@ -33,11 +33,9 @@ h1 {
     width: auto;
 }
 
-.book-description-api {
+div.book-description-api {
     color: black;
-    font-weight: lighter;
 }
-
 
 .book-container {
     display: flex;
@@ -52,15 +50,16 @@ h1 {
     color: inherit;
 }
 
+.buy-button,
 button {
     color: black !important;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: normal;
     border: none;
     padding: 10px 20px;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 16px;
     margin-right: 20px;
 }
 

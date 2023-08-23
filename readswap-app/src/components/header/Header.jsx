@@ -18,8 +18,8 @@ function Header(){
             <div className="header-inner">
                 <img className="logo" alt="Logo" src={require('../../utils/Logo_small.png')} />
                         <div className="headText">
-                            <h1>ReadSwap</h1>
-                            <h2>Why buy when you can Swap!</h2>
+                            <h1 className="web-title">ReadSwap</h1>
+                            <h2 className="web-subtitle">Why buy when you can Swap!</h2>
                         </div>
                 <nav ref={navRef}>
                     <div className="textcontainer">

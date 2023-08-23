@@ -70,7 +70,7 @@ function BookDetails() {
                         <div>
                             <div className="book-details-01">
                                 <h2>{book.title}</h2>
-                                <img src={`http://localhost:3000/CoverImages/${book.image}`} alt={book.title + " cover"} width="200" />
+                                <img src={`http://localhost:3000/CoverImages/${book.image}.jpg`} alt={book.title + " cover"} width="200" />
                                 <p><b>Author:</b> {book.author}</p>
                                 <p><b>Genre:</b> {book.genre}</p>
                                 <p><b>Condition:</b> {book.condition}</p>
@@ -78,7 +78,7 @@ function BookDetails() {
                             </div>
                             <div className="book-details-02">
                                 <p><b>Description:</b></p>
-                                <div className="book-description-api">
+                                <div className="book-description-api" style={{ fontWeight: 'lighter' }}>
                                 {book.additionalInfoFromAPI && book.additionalInfoFromAPI.results && book.additionalInfoFromAPI.results.length > 0 ? (
                                     <div dangerouslySetInnerHTML={{ __html: book.additionalInfoFromAPI.results[0].summary }} />
                                 ) : (
@@ -88,7 +88,7 @@ function BookDetails() {
                                 <p>
                                     <b>Ready to swap with:</b> {bookOwner}
                                 </p>
-                                <button><Link to="/payment">BUY</Link></button>
+                                <button><Link className="buy-button" to="/payment">BUY</Link></button>
                                 <AddToCartButton
                                     id={book.id}
                                     title={book.title}
