@@ -7,7 +7,6 @@ import "./registrationlogin.css";
 function RegistrationLogin() {
   return (
     <div>
-      <div className='rl-container'>
       {/* Alert Box - Displays box with "Please fill out required fields" if no details entered in to forms */}
       <div className="alert-box">
         <p className="alert" />
@@ -68,7 +67,6 @@ function RegistrationLogin() {
           </a>
         </fieldset>
       </form>
-      </div>
     </div>
   );
 }

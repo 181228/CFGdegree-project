@@ -63,7 +63,7 @@ function BookDetails() {
 
     return (
         <div>
-            <h1>Book Details</h1>
+            {/* <h1>Book Details</h1> */}
             <div className='book-layout'>
                 <div className="book-container">
                     {book ? (

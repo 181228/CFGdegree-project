@@ -26,6 +26,7 @@ return (
     <div className="pageContent">
       <div className="landing-container">
               <h2>Welcome to ReadSwap: Where Books Find New Adventures!</h2>
+              <br></br>
               <p className="pi-land"><strong> 📚 Unlock the World of Reading</strong></p>
               <p className="p-land">In a world where digital screens dominate, there's something magical about the <b>feel of a real book in your hands</b>. At ReadSwap, we celebrate the timeless joy of flipping through the pages of beloved paper books.</p>
               <p className="pi-land"><strong> ♻️ Embrace Sustainable Reading</strong></p>

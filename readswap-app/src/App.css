@@ -14,3 +14,23 @@
       min-height: calc(100vh - 200px);
   }
 }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  color: black !important;
+  background-color: #fefae0;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 16px !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 20px;
+}
