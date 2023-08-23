@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import "./bookslisting.css";
-
+import './bookslisting.css';
 
 function BookListing() {
   const [books, setBooks] = useState([]);
@@ -10,18 +9,17 @@ function BookListing() {
     fetch('http://localhost:3000/api/books')
       .then(response => response.json())
       .then(data => {
-        console.log("Fetched data:", data);
+        console.log('Fetched data:', data);
         setBooks(data);
       })
       .catch(error => console.error('Error fetching data:', error));
-  
   }, []);
 
   return (
     <div>
       <br></br>
       <br></br>
-        {/* <h2>Book Listing</h2> */}
+        <h2>Book Listing</h2>
         <div className='layout'>
           <div className="container">
             <div id="bookList">

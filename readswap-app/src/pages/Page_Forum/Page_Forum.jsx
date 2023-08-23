@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./pageforum.css";
 import "./forum.css"
 
 const Forum = () => {
@@ -32,18 +33,14 @@ const Forum = () => {
 
     return (
         <div>
-            <br></br>
-            <br></br>
             <main className='forum_home'>
-                {/* <h2 className='forum_title'>Create a Thread</h2> */}
-                <br></br>
-                <br></br>
-                <br></br>
+            <br></br>
+            <br></br>
+                <h2 className='forum_title'>Create a Thread</h2>
                 <form className='forum_form' onSubmit={handleSubmit}>
                     <div className='forum_container'>
-                        <label className="thread-name" htmlFor='thread'>Book title in search</label>
+                        <label htmlFor='thread'>Title / Description</label>
                         <input
-                            className="threadTab"
                             type='text'
                             name='thread'
                             required
@@ -51,9 +48,6 @@ const Forum = () => {
                             onChange={(e) => setThread(e.target.value)}
                         />
                     </div>
-                    <br></br>
-                    <br></br>
-                    <br></br>
                     <button className='forum_thread'>CREATE THREAD</button>
                 </form>
             </main>
