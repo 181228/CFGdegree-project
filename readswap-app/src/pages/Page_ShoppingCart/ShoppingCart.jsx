@@ -6,7 +6,7 @@ function ShoppingCart() {
 
     return (
         <div className="sc-container">
-            < Cart/>
+            < Cart />
         </div>
     );
 }
