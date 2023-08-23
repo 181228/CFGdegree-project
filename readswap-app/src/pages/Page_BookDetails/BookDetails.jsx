@@ -63,7 +63,7 @@ function BookDetails() {
 
     return (
         <div>
-            <h1>Book Details</h1>
+            {/* <h1>Book Details</h1> */}
             <div className='book-layout'>
                 <div className="book-container">
                     {book ? (
@@ -88,7 +88,7 @@ function BookDetails() {
                                 <p>
                                     <b>Ready to swap with:</b> {bookOwner}
                                 </p>
-                                <button><Link to="/payment">BUY</Link></button>
+                                <button><Link id="button" to="/payment">BUY</Link></button>
                                 <AddToCartButton
                                     id={book.id}
                                     title={book.title}
