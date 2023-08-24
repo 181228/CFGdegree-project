@@ -3,18 +3,8 @@ import { getProductsArray } from '../ProductsStore.jsx';
 
 export const ShopContext = createContext(null);
 
-const getDefaultCart = () => {
-    let cart = {};
-    const productsArray = getProductsArray();
-    for (let i = 0; i < productsArray.length; i++) {
-        const itemId = productsArray[i].id;
-        cart[itemId] = 0;
-    }
-    return cart;
-};
-
 export const ShopContextProvider = (props) => {
-    const [cartItems, setCartItems] = useState(getDefaultCart());
+    const [cartItems, setCartItems] = useState(new Set());
     const [productsArray, setProductsArray] = useState([]);
 
     useEffect(() => {
@@ -27,31 +17,35 @@ export const ShopContextProvider = (props) => {
 
     const getTotalCartAmount = () => {
         let totalAmount = 0;
-        for (const item in cartItems) {
-            if (cartItems[item] > 0) {
-                const itemInfo = productsArray.find((product) => product.id === Number(item));
-                if (itemInfo) {
-                    totalAmount += cartItems[item] * itemInfo.price;
-                }
+        for (const itemId of cartItems) {
+            const itemInfo = productsArray.find((product) => product.id === Number(itemId));
+            if (itemInfo) {
+                totalAmount += itemInfo.price;
             }
         }
         return totalAmount;
     };
 
     const addToCart = (itemId) => {
-        setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+        console.log("Adding to cart:", itemId);
+        setCartItems((prev) => new Set(prev).add(itemId));
     };
-
+    
     const removeFromCart = (itemId) => {
-        setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
-    };
+        console.log("Removing from cart:", itemId);
+        setCartItems((prev) => {
+            const newCart = new Set(prev);
+            newCart.delete(itemId);
+            return newCart;
+        });
+    };    
 
     const updateCartItemCount = (newAmount, itemId) => {
-        setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
+        // SHALL BE EMPTY CUZ EACH ITEM AMOUNT IN SHOP IS ALWAYS 1
     };
 
     const checkout = () => {
-        setCartItems(getDefaultCart());
+        setCartItems(new Set());
     };
 
     const contextValue = {

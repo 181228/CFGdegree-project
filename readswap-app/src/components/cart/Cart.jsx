@@ -19,8 +19,11 @@ export const Cart = () => {
 
             const filteredItems = fetchedProducts.filter(product => {
                 const cartItemQuantity = cartItems[product.id];
+                console.log("cartItemQuantity:", cartItemQuantity);
                 return cartItemQuantity !== undefined ? cartItemQuantity > 0 : false;
             });
+            
+            console.log("Filtered Items:", filteredItems);
             setCartItemsWithQuantity(filteredItems);
         };
 
@@ -30,7 +33,7 @@ export const Cart = () => {
     return (
         <div className="cart">
             <div>
-                <h1>Book Cart</h1>
+                <h1 className="h1-cart">Book Cart</h1>
             </div>
             <div className="cart">
                 {cartItemsWithQuantity.map(product => (
@@ -41,7 +44,7 @@ export const Cart = () => {
             {totalAmount > 0 ? (
                 <div className="checkout">
                     <p> Subtotal: ${totalAmount} </p>
-                    <button onClick={() => navigate("/bookslisting")}> Continue Shopping </button>
+                    <button onClick={() => navigate("/bookslisting")}> Shop Onward </button>
                     <button
                         onClick={() => {
                             checkout();

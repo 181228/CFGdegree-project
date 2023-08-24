@@ -170,4 +170,4 @@ function insertData() {
 
 ///Through the terminal navigate to the directory where you have saved the users-books.db
 ///Run sqlite3 users-books.db
-///Run SELECT * FROM customers;
+///Run SELECT * FROM users;

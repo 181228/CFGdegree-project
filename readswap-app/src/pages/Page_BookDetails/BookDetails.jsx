@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import "./bookdetails.css";
 import axios from 'axios';
-import AddToCartButton from "../../components/AddToCartButton";
+import { Product } from "../../components/Product";
 import { BOOK_FINDER_API_KEY, BOOK_FINDER_API_HOST } from '../../utils/apiConfig.js';
 
 function BookDetails() {
@@ -63,7 +63,6 @@ function BookDetails() {
 
     return (
         <div>
-            {/* <h1>Book Details</h1> */}
             <div className='book-layout'>
                 <div className="book-container">
                     {book ? (
@@ -89,11 +88,12 @@ function BookDetails() {
                                     <b>Ready to swap with:</b> {bookOwner}
                                 </p>
                                 <button><Link className="buy-button" to="/payment">BUY</Link></button>
-                                <AddToCartButton
+                                <Product
                                     id={book.id}
                                     title={book.title}
                                     price={book.price}
                                     image={book.image}
+                                    showAddToCartButton={true}
                                 />
                             </div>
                         </div>
