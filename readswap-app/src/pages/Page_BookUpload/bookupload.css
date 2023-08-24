@@ -1,0 +1,29 @@
+.upload-form{
+    max-width: 5000px;
+    margin: 0 auto;
+    margin-top: 100px !important;
+    padding: 20px;
+}
+
+
+.upload-input {
+    width: 80%;
+    height: 0.1vw;
+    padding: 10px;
+    font-weight: lighter !important;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.upload-button {
+    color: black !important;
+    text-decoration: none;
+    font-weight: normal;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
