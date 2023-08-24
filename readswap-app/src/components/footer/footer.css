@@ -1,0 +1,19 @@
+    
+    .footer-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 20px;
+        /* background: #dda15e; */
+        color: #000000;
+        font-size: 30px;
+    }
+    
+    .footBut {
+        background: none;
+        color: #000;
+        text-decoration: underline;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+    }

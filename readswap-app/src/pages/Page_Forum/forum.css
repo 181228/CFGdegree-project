@@ -1,0 +1,33 @@
+.thread-name {
+    font-weight: lighter !important;
+    margin-left: 400px !important;
+}
+
+.threadTab {
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    width: 30vw;
+    height: 0.1vw;
+    padding: 0.75vw;
+    border: 1px solid rgb(255, 255, 255, 0.1);
+    border-radius: 0.5vw;
+    /* margin-left: 400px; */
+}
+
+.forum_thread {
+    margin-top: 30px;
+}
+
+.forum-container {
+    max-width: 5000px;
+    margin: 0 auto;
+    margin-top: 100px !important;
+    padding: 20px;
+}
+
+.label-container{
+    display: block;
+    margin-bottom: 5px;
+    font-weight: lighter;
+}

@@ -1,0 +1,49 @@
+h1 {
+    column-span: all;
+}
+
+.bl-container {
+    max-width: 5000px;
+    margin: 0 auto;
+    margin-top: 100px !important;
+    padding: 20px;
+}
+
+.bl-book-layout {
+    column-count: 4;
+    column-gap: 100px;
+    margin-top: 0px;
+    padding: 10px;
+    margin-left: 120px;
+    margin-right: 120px;
+    min-width: 800px;
+}
+
+.bl-book-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 80px !important;
+    margin: 10px;
+}
+
+.book {
+    background-color: rgb(255,255,255, 0.5);
+    color: black;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    padding: 10px;
+    /* border: 2px solid rgb(0, 0, 0); */
+    border-radius: 20px;
+    margin-bottom: 30px;
+    width: auto;
+}
+
+.book a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+

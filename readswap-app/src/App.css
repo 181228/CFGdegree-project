@@ -1,0 +1,36 @@
+.App {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+    /* background-color: #dda15e; */
+    background-image: url('../public/background-08.png');
+    min-height: 1200px;
+}
+
+@media screen and (min-width: 600px){
+  .pageContent {
+      padding: 20px;
+      min-height: calc(100vh - 200px);
+  }
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  color: black !important;
+  background-color: #fefae0;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 16px !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 20px;
+}

@@ -1,0 +1,50 @@
+/* Basic styling to the form */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.confirmation-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    padding: 10px;
+}
+
+.confirmation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: center;
+    max-width: 600px;
+    margin: 10px;
+    padding: 20px;
+}
+
+.confirmation-details {
+    background-color: #ffffff;
+    padding: 10px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    margin-bottom: 30px;
+    width: auto;
+}
+
+.pconf-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
