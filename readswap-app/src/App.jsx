@@ -12,6 +12,7 @@ import PaymentConfirmation from './pages/Page_PaymentConfirmation/PaymentConfirm
 import RegistrationLogin from "./pages/Page_RegistrationLogin/RegistrationLogin";
 import Forum from "./pages/Page_Forum/Page_Forum"
 import Replies from "./pages/Page_Forum/Page_Replies"
+import BookUploadForm from "./pages/Page_BookUpload/BookUpload"
 import {ShopContextProvider} from "./components/context/shop-context.jsx"  
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
               <Route exact path="/registrationlogin" element={<RegistrationLogin />}/>
               <Route path="/forum" element={<Forum/>} />
               <Route path='/:id/replies' element={<Replies />} />
+              <Route path='upload' element={<BookUploadForm/>} />
             </Routes>
           </div>
           <Footer />

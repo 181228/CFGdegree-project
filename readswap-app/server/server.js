@@ -11,6 +11,9 @@ const dbPath = './users-books.db';
 
 const db = new sqlite3.Database(dbPath);
 
+ // Parse JSON requests
+app.use(express.json());
+
 // Serve the static files from the Page_BooksListing folder
 app.use(express.static(path.join(__dirname, '../src/pages/Page_BooksListing')));
 
@@ -93,6 +96,25 @@ app.get('/api/books/:id/owner', (req, res) => {
         }
     });
 });
+
+
+app.post('/api/books', (req, res) => {
+  const bookData = req.body; // Form data sent from the React app
+
+    // Insert the book data into the database
+    db.run(
+        'INSERT INTO books (author, title, genre, condition, trade_for, price, image, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        [bookData.author, bookData.title, bookData.genre, bookData.condition, bookData.tradeFor, bookData.price, bookData.image, bookData.user_id],
+        (err) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else {
+            res.status(201).json({ message: 'Book added successfully' });
+        }
+        }
+    );
+});
+
 
 // Handle requests to the root URL
 app.get('/', (req, res) => {
