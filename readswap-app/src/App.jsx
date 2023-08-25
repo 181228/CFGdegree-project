@@ -10,10 +10,13 @@ import ShoppingCart from "./pages/Page_ShoppingCart/ShoppingCart";
 import PaymentGateway from './pages/Page_PaymentGateway/PaymentGateway';
 import PaymentConfirmation from './pages/Page_PaymentConfirmation/PaymentConfirmation';
 import RegistrationLogin from "./pages/Page_RegistrationLogin/RegistrationLogin";
+import Shipping from "./pages/Page_Shipping/Shipping";
 import Forum from "./pages/Page_Forum/Page_Forum"
 import Replies from "./pages/Page_Forum/Page_Replies"
 import BookUploadForm from "./pages/Page_BookUpload/BookUpload"
 import {ShopContextProvider} from "./components/context/shop-context.jsx"  
+import RegistrationForm from './pages/Page_RegistrationLogin/RegistrationForm';
+import LoginForm from './pages/Page_RegistrationLogin/LoginForm';  
 
 function App() {
 
@@ -31,10 +34,13 @@ function App() {
               <Route path="/payment" element={<PaymentGateway />} />
               <Route path="/confirmation" element={<PaymentConfirmation />} />
               <Route exact path="/cart" element={<ShoppingCart />} />
+              <Route exact path="/shipping" element={<Shipping/>} />
               <Route exact path="/registrationlogin" element={<RegistrationLogin />}/>
               <Route path="/forum" element={<Forum/>} />
               <Route path='/:id/replies' element={<Replies />} />
               <Route path='upload' element={<BookUploadForm/>} />
+              <Route exact path="/register" element={<RegistrationForm />} />
+              <Route exaact path="/login" element={<LoginForm />} />
             </Routes>
           </div>
           <Footer />
