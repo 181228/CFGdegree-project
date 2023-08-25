@@ -1,6 +1,7 @@
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const fs = require('fs');
 const port = 3000;
 const cors = require('cors'); // Because the front-end is running on another port
 
@@ -10,6 +11,9 @@ app.use(cors()); // CORS middleware
 const dbPath = './users-books.db';
 
 const db = new sqlite3.Database(dbPath);
+
+ // Parse JSON requests
+app.use(express.json());
 
 // Serve the static files from the Page_BooksListing folder
 app.use(express.static(path.join(__dirname, '../src/pages/Page_BooksListing')));
@@ -93,6 +97,66 @@ app.get('/api/books/:id/owner', (req, res) => {
         }
     });
 });
+
+
+app.post('/api/books', (req, res) => {
+const bookData = req.body; // Form data sent from the React app
+
+    // Insert the book data into the database
+    db.run(
+        'INSERT INTO books (author, title, genre, condition, trade_for, price, user_id) VALUES (?, ?, ?, ?, ?, ?, ?)',
+        [bookData.author, bookData.title, bookData.genre, bookData.condition, bookData.tradeFor, bookData.price, bookData.user_id],
+        (err) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else {
+            // Save the image with a new name (next available number)
+            const imagesFolderPath = path.join(__dirname, '../src/utils/CoverImages');  //Location for images to be saved
+            const existingImages = fs.readdirSync(imagesFolderPath); // List of existing images in the folder
+            const nextAvailableNumber = existingImages.length; // Next available number
+            const newImagePath = path.join(imagesFolderPath, `${nextAvailableNumber}.jpg`); // New path to image
+
+            // Assuming bookData.bookImage is the image data from the form
+            fs.writeFileSync(newImagePath, bookData.bookImage, 'base64'); // Save image in new path
+
+            res.status(201).json({ message: 'Book added successfully' });
+        }
+        }
+    );
+});
+
+
+// Register user
+app.post('/api/users', (req, res) => {
+    const userData = req.body; 
+  
+    db.run('INSERT INTO users (name, email, password) VALUES (?, ?, ?)', 
+      [registerData.name, registerData.email, registerData.password], 
+      (err) => {
+        if (err) {
+          res.status(500).json({error: err.message});
+        } else {
+          res.json({message: 'User created successfully'});  
+        }
+    });
+});
+
+// Login user
+app.post('/api/users', (req, res) => {
+    const {email, password} = req.body;
+  
+    db.get('SELECT * FROM users WHERE email = ? AND password = ?', 
+      [loginEmail, loginPassword],
+      (err, user) => {
+        if (err || !user) {
+          res.status(400).json({error: 'Invalid credentials'});
+        } else {
+          res.json({message: 'Login successful'});
+        }
+    });
+});
+
+
 
 // Handle requests to the root URL
 app.get('/', (req, res) => {

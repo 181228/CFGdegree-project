@@ -25,6 +25,7 @@ function Header(){
                     <div className="textcontainer">
                     <a href = "/#">HOME</a>
                     <a href = "/bookslisting"> BOOKS </a>
+                    <a href = "/upload"> UPLOAD </a>
                     <a href = "/forum"> FORUM </a>
                     <a href = "/aboutus"> ABOUT US </a>
                     </div><br></br>
