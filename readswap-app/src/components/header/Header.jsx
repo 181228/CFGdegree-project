@@ -40,7 +40,7 @@ function Header(){
                         <Link to="/cart"> <HiShoppingCart  size={27}/> </Link> 
                     </button> 
 
-                    <Link to="/registrationlogin">
+                    <Link to="/login">
                         <button className="login-button">
                         REGISTER | LOGIN
                         </button>

@@ -3,7 +3,7 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const fs = require('fs');
 const port = 3000;
-const cors = require('cors'); // Because the front-end is running on another port
+const cors = require('cors'); // The front-end is running on another port
 
 const app = express();
 app.use(cors()); // CORS middleware
@@ -98,7 +98,6 @@ app.get('/api/books/:id/owner', (req, res) => {
     });
 });
 
-
 app.post('/api/books', (req, res) => {
 const bookData = req.body; // Form data sent from the React app
 
@@ -117,7 +116,7 @@ const bookData = req.body; // Form data sent from the React app
             const newImagePath = path.join(imagesFolderPath, `${nextAvailableNumber}.jpg`); // New path to image
 
             // Assuming bookData.bookImage is the image data from the form
-            fs.writeFileSync(newImagePath, bookData.bookImage, 'base64'); // Save image in new path
+            fs.writeFileSync(newImagePath, bookData.bookImage, 'base64'); // Saving image in new path
 
             res.status(201).json({ message: 'Book added successfully' });
         }
@@ -125,38 +124,102 @@ const bookData = req.body; // Form data sent from the React app
     );
 });
 
-
 // Register user
-app.post('/api/users', (req, res) => {
-    const userData = req.body; 
-  
-    db.run('INSERT INTO users (name, email, password) VALUES (?, ?, ?)', 
-      [registerData.name, registerData.email, registerData.password], 
-      (err) => {
+app.post('/api/register', (req, res) => {
+    const register = req.body;
+
+    // Check if user with the same email or username exists
+    db.get('SELECT * FROM users WHERE email = ? OR u_name = ?', [register.email, register.u_name], (err, existingUser) => {
         if (err) {
-          res.status(500).json({error: err.message});
+        res.status(500).json({ error: err.message });
+        } else if (existingUser) {
+        res.status(400).json({ error: 'User with the same email or username already exists' });
         } else {
-          res.json({message: 'User created successfully'});  
+        // Calculate age based on year of birth
+        const currentYear = new Date().getFullYear();
+        const userAge = currentYear - register.y_birth;
+
+        if (userAge < 18) {
+            res.status(400).json({ error: 'Underage users cannot register' });
+        } else {
+            // Insert the user data into the database
+            db.run('INSERT INTO users (f_name, l_name, u_name, email, city, password, y_birth) VALUES (?, ?, ?, ?, ?, ?, ?)',
+            [register.f_name, register.l_name, register.u_name, register.email, register.city, register.password, register.y_birth],
+            (err) => {
+                if (err) {
+                res.status(500).json({ error: err.message });
+                } else {
+                res.status(201).json({ message: 'User registered successfully' });
+                }
+            });
+        }
         }
     });
 });
 
 // Login user
-app.post('/api/users', (req, res) => {
-    const {email, password} = req.body;
-  
-    db.get('SELECT * FROM users WHERE email = ? AND password = ?', 
-      [loginEmail, loginPassword],
-      (err, user) => {
-        if (err || !user) {
-          res.status(400).json({error: 'Invalid credentials'});
-        } else {
-          res.json({message: 'Login successful'});
-        }
+app.post('/api/login', (req, res) => {
+    const { u_name, password } = req.body;
+
+    db.get('SELECT * FROM users WHERE u_name = ? AND password = ?', 
+        [u_name, password],
+        (err, user) => {
+            if (err) {
+                res.status(500).json({ error: err.message });
+            } else if (!user) {
+                res.status(400).json({ error: 'Invalid credentials' });
+            } else {
+                res.status(200).json({ message: 'Login successful' });
+            }
     });
 });
 
 
+// PASSWORD RECOVERY
+app.post('/api/recover-password', (req, res) => {
+    const { full_name, email } = req.body;
+
+    db.get('SELECT * FROM users WHERE f_name = ? AND email = ?', [full_name, email], (err, user) => {
+        if (err) {
+        res.status(500).json({ error: err.message });
+        } else if (!user) {
+        res.status(400).json({ error: 'User not found' });
+        } else {
+        // SENDING PASSWORD RECOVERY EMAIL
+        
+        const recoveryEmail = 'readswap.contact@gmail.com';
+        const recoverySubject = 'Password Recovery';
+        const recoveryMessage = `Hello ${user.f_name},\n\nYour password: ${user.password}\n\nSincerely,\nThe ReadSwap Team`;
+        
+        
+        const nodemailer = require('nodemailer');
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+            user: 'readswap.contact@gmail.com',
+            pass: 'kurko5-nupfec-movkEj'
+            }
+        });
+
+        const mailOptions = {
+            from: recoveryEmail,
+            to: user.email,
+            subject: recoverySubject,
+            text: recoveryMessage
+        };
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+            console.log(error);
+            } else {
+            console.log('Email sent: ' + info.response);
+            }
+        });
+
+        res.status(200).json({ message: 'Password recovery email sent' });
+        }
+    });
+});
 
 // Handle requests to the root URL
 app.get('/', (req, res) => {
@@ -170,7 +233,6 @@ app.get('/', (req, res) => {
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../src/Page_LandingPage/LandingPage.jsx'));
 });
-
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
