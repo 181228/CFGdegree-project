@@ -126,6 +126,38 @@ const bookData = req.body; // Form data sent from the React app
 });
 
 
+// Register user
+app.post('/api/users', (req, res) => {
+    const userData = req.body; 
+  
+    db.run('INSERT INTO users (name, email, password) VALUES (?, ?, ?)', 
+      [registerData.name, registerData.email, registerData.password], 
+      (err) => {
+        if (err) {
+          res.status(500).json({error: err.message});
+        } else {
+          res.json({message: 'User created successfully'});  
+        }
+    });
+});
+
+// Login user
+app.post('/api/users', (req, res) => {
+    const {email, password} = req.body;
+  
+    db.get('SELECT * FROM users WHERE email = ? AND password = ?', 
+      [loginEmail, loginPassword],
+      (err, user) => {
+        if (err || !user) {
+          res.status(400).json({error: 'Invalid credentials'});
+        } else {
+          res.json({message: 'Login successful'});
+        }
+    });
+});
+
+
+
 // Handle requests to the root URL
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../src/pages/Page_BooksListing/BooksListing.jsx'));
