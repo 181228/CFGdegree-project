@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./bookupload.css";
 
 const BookUploadForm = () => {
     const [formData, setFormData] = useState({
@@ -61,10 +62,11 @@ const BookUploadForm = () => {
         <br />
         <br />
         <br />
-        <h2>Upload a Book</h2>
+        <div className="upload-details">
+        <h2 className="upload-h2">Upload a Book</h2>
         <form onSubmit={handleSubmit}>
             {/* Owner's Email */}
-            <label>User ID:</label>
+            <label className="upload-label">User ID:</label>
             <input
                 className="upload-input"
                 type="number"
@@ -75,7 +77,7 @@ const BookUploadForm = () => {
             />
 
             {/* Book Title */}
-            <label>Book Title:</label>
+            <label className="upload-label">Book Title:</label>
             <input
                 className="upload-input"
                 type="text"
@@ -86,18 +88,18 @@ const BookUploadForm = () => {
             />
 
             {/* Book Author */}
-            <label>Book Author:</label>
+            <label className="upload-label">Book Author:</label>
             <input
                 className="upload-input"
-                type="author"
-                name="bookAuthor"
-                value={formData.bookAuthor}
+                type="text"
+                name="author"
+                value={formData.author}
                 onChange={handleInputChange}
                 required
             />
 
             {/* Book Genre */}
-            <label>Book Genre:</label>
+            <label className="upload-label">Book Genre:</label>
             <input
                 className="upload-input"
                 type="text"
@@ -108,7 +110,7 @@ const BookUploadForm = () => {
             />
 
             {/* Book Condition */}
-            <label>Book Condition:</label>
+            <label className="upload-label">Book Condition:</label>
             <input
                 className="upload-input"
                 type="text"
@@ -119,7 +121,7 @@ const BookUploadForm = () => {
             />
 
             {/* Trade for */}
-            <label>Trade for:</label>
+            <label className="upload-label">Trade for:</label>
             <input
                 className="upload-input"
                 type="text"
@@ -130,7 +132,7 @@ const BookUploadForm = () => {
             />
 
             {/* Book Price */}
-            <label>Book Price:</label>
+            <label className="upload-label">Book Price:</label>
             <input
                 className="upload-input"
                 type="number"
@@ -141,7 +143,7 @@ const BookUploadForm = () => {
             />
 
             {/* Book Image */}
-            <label>Book Image:</label>
+            <label className="upload-label">Book Image:</label>
             <input
                 className="upload-button"
                 type="file"
@@ -154,6 +156,7 @@ const BookUploadForm = () => {
             {/* Submit button */}
             <button type="submit">Upload Book</button>
         </form>
+        </div>
         </div>
     );
 };
