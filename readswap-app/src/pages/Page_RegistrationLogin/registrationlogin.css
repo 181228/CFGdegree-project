@@ -7,26 +7,26 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1); 
-  }
-  
+}
+
   /* Form header */
-  .form-header {
+.form-header {
     text-align: center; 
     margin-bottom: 20px;
-  }
+}
   
   /* Form input */
-  .form-input {
+.form-input {
     display: block;
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-  } 
+} 
   
   /* Form button */
-  .form-button {
+.form-button {
     display: block;
     width: 100%;
     padding: 10px;
@@ -35,10 +35,10 @@
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
-  }
+}
   
   /* Form link */
-  .form-link {
+.form-link {
     display: block;
     text-align: center;
     font-size: 0.9em;

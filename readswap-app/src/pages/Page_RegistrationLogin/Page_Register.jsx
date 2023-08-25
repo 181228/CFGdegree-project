@@ -1,6 +1,5 @@
-// RegistrationForm.jsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Use useNavigate for navigation
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import "./registrationlogin.css";
 
@@ -18,14 +17,16 @@ function RegistrationForm() {
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setRegisterData((prevData) => ({
-        ...prevData,
-        [name]: value,
+            ...prevData,
+            [name]: value,
         }));
-    };
+    };  
 
     const [registerMessage, setRegisterMessage] = useState('');
 
     const history = useNavigate(); // Get the history object for navigation
+    
+    const userAge = new Date().getFullYear() - parseInt(registerData.y_birth);
 
     const handleRegisterSubmit = async (e) => {
         e.preventDefault();
@@ -45,8 +46,11 @@ function RegistrationForm() {
             setRegisterMessage(data.message);
             history.push('/login'); // Navigate to login page on successful registration
         } else {
-            setRegisterMessage(data.error);
-        }
+            if (userAge < 18) {
+                setRegisterMessage("You are underage and cannot register.");
+            } else {
+                setRegisterMessage(data.error);
+            }};
 
         } catch (err) {
         console.error(err);
@@ -102,15 +106,15 @@ function RegistrationForm() {
             <input
             className="form-input"
             placeholder="Year of birth"
-            type="number" // Use type "number" for year of birth
-            name="y_birth" // Set the name attribute
-            value={registerData.y_birth} // Use registerData.y_birth
+            type="number"
+            name="y_birth"
+            value={registerData.y_birth}
             onChange={handleInputChange} // Use the common input change handler
             />
 
             <button className="form-button" type="submit">Register</button>
             <Link to="/login">
-              Already have an account? Login here
+                Already have an account? Login here
             </Link>
         </form>
         </div>
