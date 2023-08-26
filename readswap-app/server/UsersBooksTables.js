@@ -18,27 +18,28 @@ const custData = [
 
 // Book data
 const booksData = [
-    ['Tom Hindle', 'The Murder Game', 'Thriller', 'Excellent', 'Any book', 8.99, 10],
-    ['George Orwell', '1984', 'Dystopian', 'Good', 'Classic literature', 12.50, 9],
-    ['Karen M.McManus', 'One of us is back: Exclusive Edition - One of Us is Lying', 'Young Adult', 'Good', 'Crime', 12.00, 8],
-    ['Harper Lee', 'To Kill a Mockingbird', 'Classic', 'Very Good', 'Mystery', 10.00, 7],
-    ['Agatha Christie', 'Murder on the Orient Express', 'Mystery', 'Like New', 'Another Mystery book', 8.75, 6],
-    ['Claire Douglas', 'The woman who lied', 'Crime', 'Acceptable', 'Romance', 6.59, 5],
-    ['Graham Smith', 'Abolish the Monarchy: Why we should and how we will', 'Politics', 'Excellent', 'Sci-Fi', 16.99, 4],
-    ['Gabriel Garcia Marquez', 'One Hundred Years of Solitude', 'Magical Realism', 'Very Good', 'Literary Fiction', 14.95, 3],
-    ['Gillian Flynn', 'Gone Girl', 'Thriller', 'Excellent', 'Mystery', 9.99, 2],
-    ['Taylor JenkinsReid', 'The seven husbands of Evelyn Hugo', 'Romance', 'Good', 'Politics', 7.99, 1],
-    ['F. Scott Fitzgerald', 'The Great Gatsby', 'Classic', 'Acceptable', 'Classic literature', 7.50, 10],
-    ['Colleen Hoover', 'Ugly Love', 'Romance', 'Poor', 'Any book', 5.00, 9],
-    ['Stephen King', 'The Shining', 'Horror', 'Like New', 'Another Horror book', 11.25, 8],
-    ['Emma Torzas', 'Ink Blood Sister Scribe: Signed Exclusive Edition', 'Fantasy', 'Like New', 'Thriller', 18.00, 7],
-    ['Chimamanda Ngozi Adichie', 'Americanah', 'Contemporary Fiction', 'Very Good', 'Social Commentary', 13.50, 6],
-    ['Robert Louis Stevenson', 'Dr Jekyll and Mr Hyde - The Penguin English Library', 'Horror', 'Poor', 'Any book', 6.50, 5],
-    ['Douglas Adams', 'The Hitchhiker\'s Guide to the Galaxy', 'Science Fiction', 'Good', 'Comedy', 8.99, 4],
-    ['Vex King', 'Good Vibes, Good Life', 'Self Help', 'Acceptable', 'Classic literature', 10.00, 3],
-    ['Brian Bilston', 'Days like these:An Alternative Guide to the year in 366 poems', 'Humour', 'Poor', 'Crime', 5.00, 2],
-    ['J.R.R. Tolkien', 'The Lord of the Rings', 'Fantasy', 'Excellent', 'Sci-Fi', 20.50, 1]
+    ['Tom Hindle', 'The Murder Game', 'Thriller', 'Excellent', 'Any book', 8.99,'0.jpg', 10],
+    ['George Orwell', '1984', 'Dystopian', 'Good', 'Classic literature', 12.50,'1.jpg', 9],
+    ['Karen M.McManus', 'One of us is back: Exclusive Edition - One of Us is Lying', 'Young Adult', 'Good', 'Crime','2.jpg', 12.00, 8],
+    ['Harper Lee', 'To Kill a Mockingbird', 'Classic', 'Very Good', 'Mystery', 10.00,'3.jpg', 7],
+    ['Agatha Christie', 'Murder on the Orient Express', 'Mystery', 'Like New', 'Another Mystery book', 8.75,'4.jpg', 6],
+    ['Claire Douglas', 'The woman who lied', 'Crime', 'Acceptable', 'Romance', 6.59,'5.jpg', 5],
+    ['Graham Smith', 'Abolish the Monarchy: Why we should and how we will', 'Politics', 'Excellent', 'Sci-Fi', 16.99,'6.jpg', 4],
+    ['Gabriel Garcia Marquez', 'One Hundred Years of Solitude', 'Magical Realism', 'Very Good', 'Literary Fiction', 14.95,'7.jpg', 3],
+    ['Gillian Flynn', 'Gone Girl', 'Thriller', 'Excellent', 'Mystery', 9.99,'8.jpg', 2],
+    ['Taylor JenkinsReid', 'The seven husbands of Evelyn Hugo', 'Romance', 'Good', 'Politics', 7.99,'9.jpg', 1],
+    ['F. Scott Fitzgerald', 'The Great Gatsby', 'Classic', 'Acceptable', 'Classic literature', 7.50,'10.jpg', 10],
+    ['Colleen Hoover', 'Ugly Love', 'Romance', 'Poor', 'Any book', 5.00,'11.jpg', 9],
+    ['Stephen King', 'The Shining', 'Horror', 'Like New', 'Another Horror book', 11.25,'12.jpg', 8],
+    ['Emma Torzas', 'Ink Blood Sister Scribe: Signed Exclusive Edition', 'Fantasy', 'Like New', 'Thriller', 18.00,'13.jpg', 7],
+    ['Chimamanda Ngozi Adichie', 'Americanah', 'Contemporary Fiction', 'Very Good', 'Social Commentary', 13.50,'14.jpg', 6],
+    ['Robert Louis Stevenson', 'Dr Jekyll and Mr Hyde - The Penguin English Library', 'Horror', 'Poor', 'Any book', 6.50,'15.jpg', 5],
+    ['Douglas Adams', 'The Hitchhiker\'s Guide to the Galaxy', 'Science Fiction', 'Good', 'Comedy', 8.99,'16.jpg', 4],
+    ['Vex King', 'Good Vibes, Good Life', 'Self Help', 'Acceptable', 'Classic literature', 10.00,'17.jpg', 3],
+    ['Brian Bilston', 'Days like these:An Alternative Guide to the year in 366 poems', 'Humour', 'Poor', 'Crime', 5.00,'18.jpg', 2],
+    ['J.R.R. Tolkien', 'The Lord of the Rings', 'Fantasy', 'Excellent', 'Sci-Fi', 20.50,'19.jpg', 1]
 ];
+
 
 // Create a connection to the database
 const db = new sqlite3.Database(dbPath, (err) => {
@@ -86,19 +87,20 @@ function createTablesAndInsertData() {
             console.error('Error creating users table:', err);
         } else {
             console.log('Users table created.');
-
-            db.run(createBooksTableQuery, (err) => {
-                if (err) {
-                    console.error('Error creating books table:', err);
-                } else {
-                    console.log('Books table created.');
-
-                    // Insert data into the tables
-                    insertData();
-                }
-            });
         }
     });
+
+    db.run(createBooksTableQuery, (err) => {
+        if (err) {
+            console.error('Error creating books table:', err);
+        } else {
+            console.log('Books table created.');
+
+            // Insert data into the tables
+            insertData();
+        }
+    });
+        
 }
 
 function insertData() {
@@ -156,12 +158,12 @@ function insertData() {
             }
         });
     });
-    
+
 }
 
 //STEPS FOR CREATING .DB FILE:
 
-///Through the terminal navigate to the directory where you have saved the UsersBooksTable.js
+///Through the terminal navigate to the directory where you have saved the UsersBooksTables.js
 ///*** Fix permissions if the following steps is throwing errors: sudo chown -R 501:20 "/Users/{USERNAME}/.npm"
 ///Run in the terminal: npm install sqlite3
 ///Run in the terminal : node UsersBooksTables.js

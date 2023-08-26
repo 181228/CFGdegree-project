@@ -69,7 +69,7 @@ function BookDetails() {
                         <div>
                             <div className="book-details-01">
                                 <h2>{book.title}</h2>
-                                <img src={`http://localhost:3000/CoverImages/${book.image}.jpg`} alt={book.title + " cover"} width="200" />
+                                <img src={`http://localhost:3000/CoverImages/${book.image}`} alt={book.title + " cover"} width="200" />
                                 <p><b>Author:</b> {book.author}</p>
                                 <p><b>Genre:</b> {book.genre}</p>
                                 <p><b>Condition:</b> {book.condition}</p>

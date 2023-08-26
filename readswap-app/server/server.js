@@ -99,27 +99,37 @@ app.get('/api/books/:id/owner', (req, res) => {
 });
 
 app.post('/api/books', (req, res) => {
-const bookData = req.body; // Form data sent from the React app
+    const bookData = req.body; // Form data sent from the React app
 
     // Insert the book data into the database
     db.run(
-        'INSERT INTO books (author, title, genre, condition, trade_for, price, user_id) VALUES (?, ?, ?, ?, ?, ?, ?)',
-        [bookData.author, bookData.title, bookData.genre, bookData.condition, bookData.tradeFor, bookData.price, bookData.user_id],
-        (err) => {
-        if (err) {
-            res.status(500).json({ error: err.message });
-        } else {
-            // Save the image with a new name (next available number)
-            const imagesFolderPath = path.join(__dirname, '../src/utils/CoverImages');  //Location for images to be saved
-            const existingImages = fs.readdirSync(imagesFolderPath); // List of existing images in the folder
-            const nextAvailableNumber = existingImages.length; // Next available number
-            const newImagePath = path.join(imagesFolderPath, `${nextAvailableNumber}.jpg`); // New path to image
+        'INSERT INTO books (author, title, genre, condition, trade_for, price, user_id, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        [bookData.author, bookData.title, bookData.genre, bookData.condition, bookData.tradeFor, bookData.price, bookData.user_id, bookData.bookImage],
+        function(err) {
+            if (err) {
+                res.status(500).json({ error: err.message });
+            } else {
+                const insertedBookId = this.lastID; // Get the ID of the inserted book
 
-            // Assuming bookData.bookImage is the image data from the form
-            fs.writeFileSync(newImagePath, bookData.bookImage, 'base64'); // Saving image in new path
+                // Save the image with the book's ID as the name
+                const imagesFolderPath = path.join(__dirname, '../src/utils/CoverImages');
+                const newImagePath = path.join(imagesFolderPath, `${insertedBookId}.jpg`);
 
-            res.status(201).json({ message: 'Book added successfully' });
-        }
+                fs.writeFileSync(newImagePath, bookData.bookImage, 'base64');
+
+                // Update the image path in the database
+                db.run(
+                    'UPDATE books SET image = ? WHERE id = ?',
+                    [`${insertedBookId}.jpg`, insertedBookId],
+                    updateErr => {
+                        if (updateErr) {
+                            console.error('Error updating image path in database:', updateErr);
+                        }
+                    }
+                );
+
+                res.status(201).json({ message: 'Book added successfully' });
+            }
         }
     );
 });

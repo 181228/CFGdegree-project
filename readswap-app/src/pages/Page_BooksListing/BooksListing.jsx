@@ -27,7 +27,7 @@ function BookListing() {
                 <div className="book" key={book.id}>
                   <div>
                     <Link to={`/book/${book.id}`}>
-                      <img src={`http://localhost:3000/CoverImages/${book.image}.jpg`} alt="Book Cover" width="150" height="200" />
+                      <img src={`http://localhost:3000/CoverImages/${book.image}`} alt="Book Cover" width="150" height="200" />
                       <p> <b>{book.title}</b> | {book.author} | {book.genre}</p>
                     </Link>
                   </div>
