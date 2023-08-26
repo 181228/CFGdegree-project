@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const port = 3000;
 const cors = require('cors'); // The front-end is running on another port
-
+const jwt = require('jsonwebtoken');
 const app = express();
 app.use(cors()); // CORS middleware
 
@@ -179,7 +179,8 @@ app.post('/api/login', (req, res) => {
             } else if (!user) {
                 res.status(400).json({ error: 'Invalid credentials' });
             } else {
-                res.status(200).json({ message: 'Login successful' });
+                const token = jwt.sign({ username: u_name }, 'secret_key', { expiresIn: '1h' });
+                res.status(200).json({ message: 'Login successful', token: token });
             }
     });
 });
@@ -232,7 +233,7 @@ app.post('/api/recover-password', (req, res) => {
 });
 
 // API endpoint for creating a new thread
-app.post('/api/create/thread', (req, res) => {
+app.post('/api/create/thread', verifyToken , (req, res) => {
     const { thread, userId } = req.body;
 
     db.run(
@@ -247,6 +248,25 @@ app.post('/api/create/thread', (req, res) => {
         }
     );
 });
+
+// Middleware for token verification
+function verifyToken(req, res, next) {
+    const bearerHeader = req.headers['authorization'];
+
+    if (typeof bearerHeader !== 'undefined') {
+        const bearerToken = bearerHeader.split(' ')[1];
+        jwt.verify(bearerToken, 'secret_key', (err, decoded) => {
+            if (err) {
+                res.status(403).json({ error: 'Invalid token' });
+            } else {
+                req.decoded = decoded;
+                next();
+            }
+        });
+    } else {
+        res.status(401).json({ error: 'Unauthorized' });
+    }
+}
 
 // API endpoint for creating a new reply
 app.post('/api/create/reply', (req, res) => {

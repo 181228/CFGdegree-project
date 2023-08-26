@@ -5,43 +5,45 @@ import "./registrationlogin.css";
 
 
 function LoginForm() {
-  const [loginUname, setLoginEmail] = useState('');
+  const [loginUname, setLoginUname] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
 
   const [loginMsg, setLoginMsg] = useState('');
   const navigate = useNavigate();
 
   const handleLoginSubmit = async (e) => {
-    e.preventDefault();
+      e.preventDefault();
 
-    const loginData = {
-        u_name: loginUname,
-        password: loginPassword    
-    };
+      const loginData = {
+          u_name: loginUname,
+          password: loginPassword    
+      };
 
-    try {
-        const response = await fetch('http://localhost:3000/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(loginData)
-        });
+      try {
+          const response = await fetch('http://localhost:3000/api/login', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(loginData)
+          });
 
-        const data = await response.json();
+          const data = await response.json();
 
-        if (response.ok) {
-            // Login successful
-            setLoginMsg(data.message);
-            navigate('/'); // Redirect to main app page
-        } else {
-            setLoginMsg(data.error);
-        }
+          if (response.ok) {
+              // Login successful
+              localStorage.setItem("token", data.token); // Zapisanie tokenu w localStorage
+              setLoginMsg(data.message);
+              navigate('/'); // Redirect to main app page
+          } else {
+              setLoginMsg(data.error);
+          }
 
-    } catch(err) {
-        console.error('Error during login:', err);
-    }
-}
+      } catch(err) {
+          console.error('Error during login:', err);
+      }
+};
+
     return (
       <div>
       <div className="form-container">
@@ -54,7 +56,7 @@ function LoginForm() {
             placeholder="Username"
             type="text"
             value={loginUname}
-            onChange={(e) => setLoginEmail(e.target.value)}
+            onChange={(e) => setLoginUname(e.target.value)}
           />
   
           <input
