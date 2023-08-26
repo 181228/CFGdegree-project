@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer"
+import Footer from "./components/footer/Footer";
 import LandingPage from "./pages/Page_LandingPage/LandingPage";
 import AboutUs from "./pages/Page_AboutUs/AboutUs";
 import BooksListing from "./pages/Page_BooksListing/BooksListing";
@@ -12,10 +12,10 @@ import PaymentConfirmation from './pages/Page_PaymentConfirmation/PaymentConfirm
 import Register from "./pages/Page_RegistrationLogin/Page_Register";
 import Login from "./pages/Page_RegistrationLogin/Page_Login";
 import Shipping from "./pages/Page_Shipping/Shipping";
-import Forum from "./pages/Page_Forum/Page_Forum"
-import Replies from "./pages/Page_Forum/Page_Replies"
-import BookUploadForm from "./pages/Page_BookUpload/BookUpload"
-import {ShopContextProvider} from "./components/context/shop-context.jsx"  
+import Forum from "./pages/Page_Forum/Page_Forum";
+import Replies from "./pages/Page_Forum/Replies";
+import BookUploadForm from "./pages/Page_BookUpload/BookUpload";
+import {ShopContextProvider} from "./components/context/shop-context.jsx";  
 import RegistrationForm from './pages/Page_RegistrationLogin/Page_Register';
 import LoginForm from './pages/Page_RegistrationLogin/Page_Login';  
 
