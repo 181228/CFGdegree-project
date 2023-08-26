@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import './forum.css'
 
-const Replies = ({ threadId }) => {
+const Replies = ({ threadId, expanded, content }) => {
     const [replies, setReplies] = useState([]);
     const [reply, setReply] = useState("");
+    const [username, setUsername] = useState("");
+    const token = localStorage.getItem("token");
 
     // Fetch existing replies when the component mounts
     useEffect(() => {
@@ -18,16 +20,28 @@ const Replies = ({ threadId }) => {
     const handleSubmitReply = async (e) => {
         e.preventDefault();
 
+        if (!token) {
+            alert("You need to be logged in to post a reply.");
+            return;
+        }
+
+        if (!username) {
+            alert("Please enter your username.");
+            return;
+        }
+
         try {
             const response = await fetch("http://localhost:3000/api/create/reply", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`,
                 },
                 body: JSON.stringify({
                     reply,
                     userId: localStorage.getItem("_id"),
                     threadId: threadId,
+                    username,
                 }),
             });
 
@@ -49,18 +63,29 @@ const Replies = ({ threadId }) => {
                 {replies.map((reply) => (
                     <div key={reply.id} className="reply">
                         <p className="content">{reply.content}</p>
-                        <span className="username">{reply.username}</span> {/* Correct property name */}
+                        <span className="username">{reply.username}</span>
                     </div>
                 ))}
             <form className='modal__content' onSubmit={handleSubmitReply}>
                 <label htmlFor='reply'><h5 className="h5-forum">Reply to the thread ⬇️</h5></label>
+                <input
+                    type='text'
+                    name='username'
+                    required
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Your username"
+                    className='userTab'
+                />
                 <textarea
                     rows={6}
                     value={reply}
                     onChange={(e) => setReply(e.target.value)}
                     type='text'
                     name='reply'
-                    className='modalInput'
+                    required
+                    placeholder="Your reply"
+                    className='contentTab'
                 />
                 <br />
                 <br />
