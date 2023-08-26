@@ -1,6 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 
-const dbPath = './users-books.db';
+const dbPath = './users-books-threads.db';
 
 // Cust data
 const custData = [
@@ -20,7 +20,7 @@ const custData = [
 const booksData = [
     ['Tom Hindle', 'The Murder Game', 'Thriller', 'Excellent', 'Any book', 8.99,'0.jpg', 10],
     ['George Orwell', '1984', 'Dystopian', 'Good', 'Classic literature', 12.50,'1.jpg', 9],
-    ['Karen M.McManus', 'One of us is back: Exclusive Edition - One of Us is Lying', 'Young Adult', 'Good', 'Crime','2.jpg', 12.00, 8],
+    ['Karen M.McManus', 'One of us is back: Exclusive Edition - One of Us is Lying', 'Young Adult', 'Good', 'Crime', 12.00,'2.jpg', 8],
     ['Harper Lee', 'To Kill a Mockingbird', 'Classic', 'Very Good', 'Mystery', 10.00,'3.jpg', 7],
     ['Agatha Christie', 'Murder on the Orient Express', 'Mystery', 'Like New', 'Another Mystery book', 8.75,'4.jpg', 6],
     ['Claire Douglas', 'The woman who lied', 'Crime', 'Acceptable', 'Romance', 6.59,'5.jpg', 5],
@@ -40,6 +40,60 @@ const booksData = [
     ['J.R.R. Tolkien', 'The Lord of the Rings', 'Fantasy', 'Excellent', 'Sci-Fi', 20.50,'19.jpg', 1]
 ];
 
+//Forum data
+const threads = [
+    {
+        id: 1,
+        user_id: 8,
+        title: `Looking for "Cards as Weapons" Book"`,
+        content: `Hello everyone, I'm on the hunt for the book "Cards as Weapons" by Ricky Jay. 
+        If anyone has a copy they're willing to part with or trade for a similar themed book, 
+        please let me know. I'm eager to explore the world of card throwing and manipulation. Thanks in advance!`,
+        replies: [
+            {
+                id: 1,
+                user_id: 1,
+                content: `Sure thing! I have a copy of "Cards as Weapons" that I'm willing to send your way. 
+                Let's connect and arrange the details.`,
+            }
+        ],
+    },
+    {
+        id: 2,
+        user_id: 7,
+        title: `ISO "The Making of Star Trek" Book`,
+        content: `Hi there,
+        I'm in search of a copy of "The Making of Star Trek" by Stephen E. Whitfield and Gene Roddenberry. 
+        If anyone in the community has an extra copy or is open to swapping it for another sci-fi or TV 
+        production related book, please send me a message. Live long and prosper!`,
+        replies: [
+            {
+                id: 2,
+                user_id: 9,
+                content: `Hi, I've got a spare copy of "The Making of Star Trek" that I'd be happy to trade. 
+                I'm interested in other behind-the-scenes books or classic sci-fi novels. Let me know what you have in mind!`,
+            },
+        ],
+    },
+    {
+        id: 3,
+        user_id: 3,
+        title: `WTB: "Buckminster Fuller: I Seem to be a Verb"`,
+        content: `Hey folks,
+        I'm looking to buy a copy of "Buckminster Fuller: I Seem to be a Verb" either in paperback or hardcover. 
+        If anyone no longer needs their copy and is interested in selling it, or if you're up for a trade with 
+        another book on innovative thinkers and creators, please reach out. Eager to dive into Fuller's visionary ideas!`,
+        replies: [
+            {
+                id: 3,
+                user_id: 4,
+                content: `Hello, I've been meaning to find a new home for my copy of "Buckminster Fuller: I Seem to be a Verb." 
+                I'm open to selling it, or if you have any books about architecture, design, or visionary thinkers, I'm open to a trade. 
+                Just let me know your preference.`,
+            },
+        ],
+    },
+];
 
 // Create a connection to the database
 const db = new sqlite3.Database(dbPath, (err) => {
@@ -82,6 +136,29 @@ function createTablesAndInsertData() {
         )
     `;
 
+    // Create the 'threads' table
+    const createThreadsTableQuery = `
+        CREATE TABLE IF NOT EXISTS threads (
+            id INTEGER PRIMARY KEY,
+            user_id INTEGER,
+            title TEXT,
+            content TEXT,
+            FOREIGN KEY (user_id) REFERENCES users (id)
+        )
+    `;
+
+    // Create the replies table
+    const createRepliesTableQuery = `
+        CREATE TABLE IF NOT EXISTS replies (
+            id INTEGER PRIMARY KEY,
+            thread_id INTEGER,
+            user_id INTEGER,
+            content TEXT,
+            FOREIGN KEY (thread_id) REFERENCES threads (id),
+            FOREIGN KEY (user_id) REFERENCES users (id)
+        )
+    `;
+
     db.run(createUsersTableQuery, (err) => {
         if (err) {
             console.error('Error creating users table:', err);
@@ -95,12 +172,25 @@ function createTablesAndInsertData() {
             console.error('Error creating books table:', err);
         } else {
             console.log('Books table created.');
-
-            // Insert data into the tables
-            insertData();
         }
     });
-        
+
+    db.run(createThreadsTableQuery, (err) => {
+        if (err) {
+            console.error('Error creating threads table:', err);
+        } else {
+            console.log('Threads table created.');
+
+            db.run(createRepliesTableQuery, (err) => {
+                if (err) {
+                    console.error('Error creating replies table:', err);
+                } else {
+                    console.log('Replies table created.');
+                    insertData();
+                }
+            });
+        }
+    });
 }
 
 function insertData() {
@@ -159,17 +249,51 @@ function insertData() {
         });
     });
 
+    // Insert threads data with user_id and replies
+    const threadsInsertQuery = `
+    INSERT INTO threads (user_id, title, content)
+    VALUES (?, ?, ?)
+    `;
+
+    const repliesInsertQuery = `
+    INSERT INTO replies (thread_id, user_id, content)
+    VALUES (?, ?, ?)
+    `;
+
+    threads.forEach(thread => {
+        db.run(threadsInsertQuery, [thread.user_id, thread.title, thread.content], function(err) {
+            if (err) {
+                console.error('Error inserting thread data:', err);
+            } else {
+                console.log(`Thread "${thread.title}" inserted successfully.`);
+                const threadId = this.lastID;
+
+                if (thread.replies && thread.replies.length > 0) {
+                    thread.replies.forEach(reply => {
+                        db.run(repliesInsertQuery, [threadId, reply.user_id, reply.content], err => {
+                            if (err) {
+                                console.error('Error inserting reply data:', err);
+                            } else {
+                                console.log(`Reply added to thread "${thread.title}"`);
+                            }
+                        });
+                    });
+                }
+            }
+        });
+    });
+
 }
 
 //STEPS FOR CREATING .DB FILE:
 
-///Through the terminal navigate to the directory where you have saved the UsersBooksTables.js
+///Through the terminal navigate to the directory where you have saved the UsersBooksThreadsTables.js
 ///*** Fix permissions if the following steps is throwing errors: sudo chown -R 501:20 "/Users/{USERNAME}/.npm"
 ///Run in the terminal: npm install sqlite3
-///Run in the terminal : node UsersBooksTables.js
+///Run in the terminal : node UsersBooksForumData.js
 
 //STEPS FOR VIEWING .DB FILE IN TERMINAL:
 
-///Through the terminal navigate to the directory where you have saved the users-books.db
-///Run sqlite3 users-books.db
-///Run SELECT * FROM users;
+///Through the terminal navigate to the directory where you have saved the users-books-threads.db
+///Run sqlite3 users-books-threads.db
+///Run SELECT * FROM books;

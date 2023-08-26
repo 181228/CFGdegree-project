@@ -8,7 +8,7 @@ const cors = require('cors'); // The front-end is running on another port
 const app = express();
 app.use(cors()); // CORS middleware
 
-const dbPath = './users-books.db';
+const dbPath = './users-books-threads.db';
 
 const db = new sqlite3.Database(dbPath);
 
@@ -231,6 +231,56 @@ app.post('/api/recover-password', (req, res) => {
     });
 });
 
+// API endpoint for creating a new thread
+app.post('/api/create/thread', (req, res) => {
+    const { thread, userId } = req.body;
+
+    db.run(
+        'INSERT INTO threads (user_id, title, content) VALUES (?, ?, ?)',
+        [userId, thread, ''], // Assuming content is empty initially
+        function (err) {
+            if (err) {
+                res.status(500).json({ error: err.message });
+            } else {
+                res.status(201).json({ message: 'Thread created successfully', threadId: this.lastID });
+            }
+        }
+    );
+});
+
+// API endpoint for creating a new reply
+app.post('/api/create/reply', (req, res) => {
+    const { reply, userId, threadId } = req.body;
+
+    db.run(
+        'INSERT INTO replies (thread_id, user_id, content) VALUES (?, ?, ?)',
+        [threadId, userId, reply],
+        function (err) {
+            if (err) {
+                res.status(500).json({ error: err.message });
+            } else {
+                res.status(201).json({ message: 'Reply posted successfully' });
+            }
+        }
+    );
+});
+
+app.get('/api/get/replies/:threadId', (req, res) => {
+    const threadId = req.params.threadId;
+    db.all(`
+        SELECT r.id, r.thread_id, r.content, u.u_name AS username
+        FROM replies r
+        INNER JOIN users u ON r.user_id = u.id
+        WHERE r.thread_id = ?
+    `, [threadId], (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else {
+            res.status(200).json(rows);
+        }
+    });
+});
+
 // Handle requests to the root URL
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../src/pages/Page_BooksListing/BooksListing.jsx'));
@@ -242,6 +292,36 @@ app.get('/', (req, res) => {
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../src/Page_LandingPage/LandingPage.jsx'));
+});
+
+app.get('/api/get/threads', (req, res) => {
+    db.all(`
+        SELECT t.id, t.title, t.content, u.u_name AS username
+        FROM threads t
+        INNER JOIN users u ON t.user_id = u.id
+    `, (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else {
+            res.status(200).json(rows);
+        }
+    });
+});
+
+app.post('/api/create/thread', (req, res) => {
+    const { thread, userId } = req.body;
+
+    db.run(
+        'INSERT INTO threads (user_id, title, content) VALUES (?, ?, ?)',
+        [userId, thread, ''], // Assuming content is empty initially
+        function (err) {
+            if (err) {
+                res.status(500).json({ error: err.message });
+            } else {
+                res.status(201).json({ message: 'Thread created successfully', threadId: this.lastID });
+            }
+        }
+    );
 });
 
 app.listen(port, () => {
