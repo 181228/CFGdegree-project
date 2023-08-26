@@ -42,7 +42,7 @@ function Header(){
 
                     <Link to="/login">
                         <button className="login-button">
-                        REGISTER | LOGIN
+                            LOGIN
                         </button>
                     </Link>
                     </div>

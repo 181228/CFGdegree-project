@@ -11,7 +11,7 @@ function RegistrationForm() {
         email: '',
         city: '',
         password: '',
-        y_birth: '',
+        y_birth: ''
     });
 
     const handleInputChange = (event) => {
@@ -24,7 +24,7 @@ function RegistrationForm() {
 
     const [registerMessage, setRegisterMessage] = useState('');
 
-    const history = useNavigate(); // Get the history object for navigation
+    const navigate = useNavigate(); // Get the navigate object for navigation
     
     const userAge = new Date().getFullYear() - parseInt(registerData.y_birth);
 
@@ -32,7 +32,7 @@ function RegistrationForm() {
         e.preventDefault();
 
         try {
-        const response = await fetch('/api/register', {
+        const response = await fetch('http://localhost:3000/api/register', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ function RegistrationForm() {
 
         if (response.status === 201) {
             setRegisterMessage(data.message);
-            history.push('/login'); // Navigate to login page on successful registration
+            navigate('/login'); // Navigate to login page on successful registration
         } else {
             if (userAge < 18) {
                 setRegisterMessage("You are underage and cannot register.");
@@ -67,6 +67,7 @@ function RegistrationForm() {
             className="form-input" 
             placeholder="First name"
             type="text"
+            name="f_name"
             value={registerData.f_name}
             onChange={handleInputChange}
             />
@@ -75,6 +76,7 @@ function RegistrationForm() {
             className="form-input" 
             placeholder="Last name"
             type="text"
+            name="l_name"
             value={registerData.l_name}
             onChange={handleInputChange}
             />
@@ -83,7 +85,17 @@ function RegistrationForm() {
             className="form-input" 
             placeholder="Username"
             type="text"
+            name="u_name"
             value={registerData.u_name}
+            onChange={handleInputChange} 
+            />
+
+            <input
+            className="form-input" 
+            placeholder="Email"
+            type="email"
+            name="email"
+            value={registerData.email}
             onChange={handleInputChange} 
             />
 
@@ -91,6 +103,7 @@ function RegistrationForm() {
             className="form-input"
             placeholder="City"
             type="text"
+            name="city"
             value={registerData.city}
             onChange={handleInputChange}
             />
@@ -99,6 +112,7 @@ function RegistrationForm() {
             className="form-input"
             placeholder="Password"
             type="password"
+            name="password"
             value={registerData.password}
             onChange={handleInputChange}
             />
@@ -109,7 +123,7 @@ function RegistrationForm() {
             type="number"
             name="y_birth"
             value={registerData.y_birth}
-            onChange={handleInputChange} // Use the common input change handler
+            onChange={handleInputChange}
             />
 
             <button className="form-button" type="submit">Register</button>
