@@ -29,9 +29,10 @@ function Header(){
                     <a href = "/forum"> FORUM </a>
                     <a href = "/aboutus"> ABOUT US </a>
                     </div><br></br>
-                    <div className="nav-middle-line">
+
+                    <div className="Secondline">
                     <input placeholder='Search...' className="searchtab"></input>
-                
+                    <div className="nav-middle-line">
                     <button className="nav-button"> 
                         <HiUserCircle size={27}/>
                     </button> 
@@ -46,6 +47,8 @@ function Header(){
                         </button>
                     </Link>
                     </div>
+                    </div>
+                    
                     
                     <button  className="button"  onClick={showNavbar}>
                         <FaTimes />

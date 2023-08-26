@@ -3,6 +3,7 @@
 
 *{
     padding :0;
+    margin: 0;
     box-sizing:border-box ;
     font-family: 'Roboto Slab', serif;
 }
@@ -10,7 +11,7 @@
 :root{
     --maincolor: #bc6c25;
     --maincolorlight: #dda15e;
-    --secondarycolor: #606c38;
+    --secondarycolor: #525937;
     --textcolor: #081c15;
 }
 
@@ -23,10 +24,11 @@
 header{
     align-items:center;
     justify-content: space-between;
-    height: 156px;
     padding:0 0rem;
+    height: 160;
     color: var(--textcolor);
-    background-color: none;
+    background-color:transparent;
+    overflow:hidden;
 }
 header .textcontainer{
     display: inline-flex;
@@ -60,7 +62,7 @@ nav a:hover{
 .header-inner {
     margin: 0px !important;
     margin-top: -40px ! important;
-    height: 12vw;
+    height: 1vw;
     box-shadow: 0px 1px 50px rgba(0, 0, 0, 0.1);
 }
 
@@ -76,7 +78,7 @@ nav a:hover{
 }
 header .nav-button,
 header .nav-button-01{
-    padding:0px;
+    padding: 5px;
     cursor: pointer;
     background: transparent;
     border: none;
@@ -102,17 +104,24 @@ header .login-button{
 header .searchtab{
     align-items: center;
     justify-content: center;
-    margin-top: 0px;
     width: 30vw;
-    height: 0.1vw;
-    padding: 0.75vw;
+    height: 20px;
+    padding: 5px;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 0.5vw;
-    margin-left: 400px; 
+    margin-right:150px; 
+}
+.Secondline{
+    display:inline-flexbox;
+    margin-top: 20px;
+}
+.nav-middle-line{
+    margin-top: 20px;
 }
 
+
 header .button{
-    padding:5px;
+    padding:10px;
     cursor: pointer;
     background: transparent;
     border: none;
@@ -124,9 +133,7 @@ header .button{
     font-size: 1.9rem;
 }
 
-.nav-middle-line {
-    margin-top: 30px;
-}
+
 
 @media only screen and (max-width: 1024px){
     header .button{
@@ -146,7 +153,7 @@ header nav{
     justify-content: center;
     gap:1.5rem;
     transition: 1s;
-    background-color: var(--secondarycolor);
+    background-color: rgb(195, 195, 161);
     transform: translateY(-100vh);
 }
 

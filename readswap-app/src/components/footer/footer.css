@@ -1,19 +1,43 @@
-    
-    .footer-container {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        padding: 20px;
-        /* background: #dda15e; */
-        color: #000000;
-        font-size: 30px;
-    }
-    
-    .footBut {
-        background: none;
-        color: #000;
-        text-decoration: underline;
-        border: none;
-        cursor: pointer;
-        font-size: 20px;
-    }
+
+.Footerbar{
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    font-size: 20px;
+    overflow: hidden;
+}
+footer{
+   margin-top: auto;
+   position:fixed;
+   bottom:0;
+   width:100%;
+   height: 90px;
+   background-color: rgb(248, 248, 209);
+}
+.Contact {
+    text-align: center;
+    text-decoration: none;
+}
+.Contact :hover  {
+    color: rgb(79, 117, 79);
+    cursor: pointer;
+}
+.media-icons{
+    font-size:1.20rem;
+    margin-left: 20px;
+}
+.below{
+    text-align: center;
+}
+#facebook{
+    margin-right: 15px;
+}
+#twitter{
+    margin-right: 15px;
+}
+#Instagram{
+    margin-right: 15px;
+}
