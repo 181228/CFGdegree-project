@@ -118,95 +118,97 @@ const BookUploadForm = () => {
         {tokenMissing && <p className="error-message">Token is missing. Please log in.</p>}
         <form onSubmit={handleSubmit}>
             {/* Owner's Username */}
-            <label className="upload-label">Username:</label>
             <input
                 className="upload-input"
                 type="text"
                 name="username"
                 value={formData.username}
                 onChange={handleInputChange}
+                placeholder="Username"
                 required
             />
 
             {/* Book Title */}
-            <label className="upload-label">Book Title:</label>
             <input
                 className="upload-input"
                 type="text"
                 name="title"
                 value={formData.title}
                 onChange={handleInputChange}
+                placeholder="Book Title"
                 required
             />
 
             {/* Book Author */}
-            <label className="upload-label">Book Author:</label>
             <input
                 className="upload-input"
                 type="text"
                 name="author"
                 value={formData.author}
                 onChange={handleInputChange}
+                placeholder="Book Author"
                 required
             />
 
             {/* Book Genre */}
-            <label className="upload-label">Book Genre:</label>
             <input
                 className="upload-input"
                 type="text"
                 name="genre"
                 value={formData.genre}
                 onChange={handleInputChange}
+                placeholder="Book Genre"
                 required
             />
 
             {/* Book Condition */}
-            <label className="upload-label">Book Condition:</label>
             <input
                 className="upload-input"
                 type="text"
                 name="condition"
                 value={formData.condition}
                 onChange={handleInputChange}
+                placeholder="Book Condition"
                 required
             />
 
             {/* Trade for */}
-            <label className="upload-label">Trade for:</label>
             <input
                 className="upload-input"
                 type="text"
                 name="trade_for"
                 value={formData.trade_for}
                 onChange={handleInputChange}
+                placeholder="Trade For"
                 required
             />
 
             {/* Book Price */}
-            <label className="upload-label">Book Price:</label>
             <input
                 className="upload-input"
                 type="number"
                 name="price"
                 value={formData.price}
                 onChange={handleInputChange}
+                placeholder="Book Price"
                 required
             />
 
             {/* Book Image */}
             <label className="upload-label">Book Image:</label>
+            <br />
             <input
                 className="upload-button"
                 type="file"
                 accept="image/*"
                 name="image"
                 onChange={handleInputChange}
+                placeholder="Book Image"
                 required
             />
 
             {/* Submit button */}
-            <button type="submit">Upload Book</button>
+            <button type="submit">UPLOAD</button>
         </form>
         </div>
         </div>
