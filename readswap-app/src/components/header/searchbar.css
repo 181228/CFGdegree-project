@@ -1,0 +1,27 @@
+.search-button {
+    padding:5px;
+    cursor: pointer;
+    background: transparent;
+    float: right;
+    margin-left: 10px;
+    color:var(--textcolor);
+    background-color: #fefae0;
+    font-size: small;
+}
+
+
+.searchtab{
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+    height: 0.1vw;
+    padding: 0.75vw;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 0.5vw;
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}

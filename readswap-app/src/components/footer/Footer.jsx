@@ -3,15 +3,21 @@ import{FaTwitterSquare} from "react-icons/fa";
 import{FaInstagramSquare} from "react-icons/fa";
 import "./footer.css";
 
-function Footer(){
+
+function Footer() {
+
+  const recipientEmail = "readswap.contact@gmail.com";
+  const subject = "Contact request";
+
+  const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}`;
 
     return(
         
         <div className="Footerbar">
           <footer >
 
-          <div className="Contact">
-           <a id="contactUslink">Contact Us</a>
+          <div>
+                <a className="Contact"  href={mailtoLink}>CONTACT US </a>
           </div>
           <div className="media-icons">
             <FaFacebookSquare id="facebook"  alt="Facebook"/>

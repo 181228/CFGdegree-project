@@ -1,16 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
-
-
-/* Basic styling to the form */
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    box-shadow:#606c38;
-  }
-
-.ShippingContainer {
+.ship-layout {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +11,7 @@ body {
   font-weight:bolder;
 }
 
-.inputcontanier{
+.ship-container{
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -33,23 +21,18 @@ body {
   padding: 20px;
 }
 
-.details {
+.ship-details {
   background-color: #ffffff;
   padding: 10px;
-  border: 1px solid rgb(255, 255, 255);
+  /* border: 1px solid rgb(255, 255, 255); */
   border-radius: 20px;
   margin-bottom: 30px;
   width: auto;
 }
 
-h1 {
+.ship-h2{
   margin-bottom: 30px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+  font-style: lighter !important;
 }
 
 .shipping-label{
@@ -63,27 +46,30 @@ label {
   border-color: rgb(255, 255, 255, 0.1);
 }
 
-input:read-only {
+.ship-input {
+  width: 80%;
+  height: 0.1vw;
+  padding: 10px;
+  font-weight: lighter !important;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: rgb(255, 255, 255, 0.1);
+}
+
+.ship-input:read-only {
   color: #999;
 }
 
-/* Custom styles to indicate invalid input */
-input:invalid {
+.ship-input:invalid {
   border-color: #283618;
   border-width: 1px;
 }
 
-input:invalid + span {
+.ship-input:invalid + span {
   display: block;
   color: #606c38;
   font-size: 12px;
-}
-
-/* Styling for the buttons container */
-button{
- background-color: #606c38;
- font-weight: 400;
- font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 

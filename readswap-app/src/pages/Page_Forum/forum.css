@@ -3,26 +3,35 @@
     margin-left: 400px !important;
 }
 
-.threadTab {
+.contentTab,
+.threadTab,
+.userTab {
     align-items: center;
     justify-content: center;
     margin-top: 30px;
     width: 30vw;
-    height: 0.1vw;
     padding: 0.75vw;
     border: 1px solid rgb(255, 255, 255, 0.1);
     border-radius: 0.5vw;
-    /* margin-left: 400px; */
+}
+
+.threadTab,
+.userTab {
+    height: 0.1vw;
+}
+
+.contentTab {
+    height: 5vw;
 }
 
 .forum_thread {
     margin-top: 30px;
 }
 
+.thread-inputs-container,
 .thread-container {
     max-width: 1000px;
     margin: 0 auto;
-    margin-top: 100px !important;
     padding: 20px;
 }
 
@@ -32,11 +41,12 @@
     font-weight: lighter;
 }
 
+.inputs-list,
 .forum-threads {
     background-color: rgb(255, 255, 255, 0.5);
     padding: 10px;
-    /* border: 1px solid rgb(255, 255, 255); */
     border-radius: 20px;
+    margin-top: 30px;
     margin-bottom: 30px;
     width: auto;
 }

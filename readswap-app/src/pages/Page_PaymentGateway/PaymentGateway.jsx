@@ -37,7 +37,7 @@ function PaymentGateway() {
             <div className='pay-layout'>
                 <br></br>
                 <br></br>
-                <h1>Payment Details</h1>
+                <h2 className='pay-h2'>Payment Details</h2>
                 <div className="pay-container">
                     <form className="pay-details">
                         <br></br>

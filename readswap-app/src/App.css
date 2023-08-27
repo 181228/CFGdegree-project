@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+
+*{
+  padding :0;
+  box-sizing:border-box ;
+  font-family: 'Roboto Slab', serif;
+}
+
 .App {
     text-align: center;
     align-items: center;
     justify-content: center;
     color: rgb(0, 0, 0);
-    /* background-color: #dda15e; */
     background-image: url('../public/background-08.png');
     min-height: 1200px;
 }
@@ -16,7 +23,6 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -33,4 +39,43 @@ button {
   cursor: pointer;
   font-size: 20px;
   margin-right: 20px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: lightgrey;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: darkslategrey;
+}
+
+input:read-only {
+  color: #999;
+}
+
+input:invalid {
+  border-color: #283618;
+  border-width: 1px;
+}
+
+input:invalid + span {
+  display: block;
+  color: #606c38;
+  font-size: 12px;
 }

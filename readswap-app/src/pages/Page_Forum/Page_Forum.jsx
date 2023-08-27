@@ -1,39 +1,67 @@
 import React, { useState, useEffect } from "react";
-import Replies from "./Replies"
+import Replies from "./Replies";
 import "./forum.css";
 
 const Forum = () => {
+    const [username, setUsername] = useState("");
     const [thread, setThread] = useState("");
+    const [content, setContent] = useState("");
     const [threadList, setThreadList] = useState([]);
     const [expandedThreads, setExpandedThreads] = useState([]);
     const [expandedReplies, setExpandedReplies] = useState([]);
+    const token = localStorage.getItem("token");
 
-
-    // Fetch existing threads when the component mounts
+    // FETCH EXISTING THREADS WHEN THE COMPONENT MOUNTS
     useEffect(() => {
-        fetch("http://localhost:3000/api/get/threads")
-        .then((res) => res.json())
+        fetch("http://localhost:3000/api/get/threads", {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
+        .then((res) => {
+            if (res.status === 200) {
+                return res.json(); // Return the JSON data
+            } else {
+                throw new Error("Error fetching threads");
+            }
+        })
         .then((data) => {
             console.log(data);
-            setThreadList(data); // Set the received threads in the state
+            setThreadList(data);
         })
         .catch((err) => console.error(err));
-    }, []);
+    }, [token]);
 
     const createThread = () => {
+        if (!token) {
+            alert("You need to be logged in to create a thread.");
+            return;
+        }
+
         fetch("http://localhost:3000/api/create/thread", {
-        method: "POST",
-        body: JSON.stringify({
-            thread,
-            userId: localStorage.getItem("_id"),
-        }),
-        headers: {
-            "Content-Type": "application/json",
-        },
+            method: "POST",
+            body: JSON.stringify({
+                thread,
+                content,
+                userId: localStorage.getItem("_id"),
+                username,
+            }),
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`,
+            },
         })
         .then((res) => res.json())
         .then((data) => {
             console.log(data);
+            setThreadList([...threadList, {
+                id: data.threadId,
+                title: thread,
+                content: '',
+                username: username,
+            }]);
+            window.location.reload();
         })
         .catch((err) => console.error(err));
     };
@@ -47,8 +75,8 @@ const Forum = () => {
     const toggleExpanded = (threadId) => {
         if (expandedThreads.includes(threadId)) {
             // HIDE REPLIES IF VISIBLE
-            setExpandedThreads(expandedThreads.filter(id => id !== threadId));
-            setExpandedReplies(expandedReplies.filter(id => id !== threadId));
+            setExpandedThreads(expandedThreads.filter((id) => id !== threadId));
+            setExpandedReplies(expandedReplies.filter((id) => id !== threadId));
         } else {
             // UNHIDE REPLIES IF HIDDEN
             setExpandedThreads([...expandedThreads, threadId]);
@@ -65,16 +93,39 @@ const Forum = () => {
             <div className="forum_container">
                 <br />
                 <label className="label-container" htmlFor="thread-name">
-                    <h2 className="h2-forum">🔎 Book Title in Search</h2>
+                    <h2 className="h2-forum">🔎 Which book are you looking for?</h2>
                 </label>
-                <input
-                className="threadTab"
-                type="text"
-                name="thread"
-                required
-                value={thread}
-                onChange={(e) => setThread(e.target.value)}
-                />
+                <div className="thread-inputs-container">
+                    <div className="inputs-list">
+                        <input
+                        className="userTab"
+                        type="text"
+                        name="username"
+                        required
+                        value={thread.username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="Username"
+                        />
+                        <input
+                        className="threadTab"
+                        type="text"
+                        name="thread"
+                        required
+                        value={thread.title}
+                        onChange={(e) => setThread(e.target.value)}
+                        placeholder="Thread name"
+                        />
+                        <input
+                        className="contentTab"
+                        type="text"
+                        name="content"
+                        required
+                        value={content}
+                        onChange={(e) => setContent(e.target.value)}
+                        placeholder="Message content"
+                    />
+                    </div>
+                </div>
             </div>
             <button className="forum_thread">CREATE THREAD</button>
             </form>
@@ -97,6 +148,7 @@ const Forum = () => {
                                     <Replies
                                         threadId={thread.id}
                                         expanded={expandedReplies.includes(thread.id)}
+                                        content={thread.content}
                                     />
                                 </div>
                             )}

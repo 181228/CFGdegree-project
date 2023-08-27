@@ -3,10 +3,16 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const fs = require('fs');
 const port = 3000;
-const cors = require('cors'); // The front-end is running on another port
-
+const jwt = require('jsonwebtoken');
 const app = express();
-app.use(cors()); // CORS middleware
+
+// FRONT-END - BACK-END CONNECTION
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:3001"); // FRONT-END PORT
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    next();
+});
 
 const dbPath = './users-books-threads.db';
 
@@ -57,6 +63,18 @@ app.get('/api/books/:id', (req, res) => {
     });
 });
 
+app.get('/api/search-results', (req, res) => {
+    const searchQuery = req.query.query;
+
+    db.all('SELECT * FROM books WHERE title LIKE ?', [`%${searchQuery}%`], (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
 // API endpoint for retrieving all users
 app.get('/api/users', (req, res) => {
     db.all('SELECT * FROM users', (err, rows) => {
@@ -64,6 +82,21 @@ app.get('/api/users', (req, res) => {
             res.status(500).json({ error: err.message });
         } else {
             res.json(rows);
+        }
+    });
+});
+
+// Search user_id based on username
+app.get('/api/user-id/:username', (req, res) => {
+    const username = req.params.username;
+
+    db.get('SELECT id FROM users WHERE u_name = ?', [username], (err, row) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else if (!row) {
+            res.status(404).json({ error: 'User not found' });
+        } else {
+            res.json(row);
         }
     });
 });
@@ -98,7 +131,7 @@ app.get('/api/books/:id/owner', (req, res) => {
     });
 });
 
-app.post('/api/books', (req, res) => {
+app.post('/api/books', verifyToken, (req, res) => {
     const bookData = req.body; // Form data sent from the React app
 
     // Insert the book data into the database
@@ -179,11 +212,11 @@ app.post('/api/login', (req, res) => {
             } else if (!user) {
                 res.status(400).json({ error: 'Invalid credentials' });
             } else {
-                res.status(200).json({ message: 'Login successful' });
+                const token = jwt.sign({ username: u_name }, 'secret_key', { expiresIn: '1h' });
+                res.status(200).json({ message: 'Login successful', token: token });
             }
     });
 });
-
 
 // PASSWORD RECOVERY
 app.post('/api/recover-password', (req, res) => {
@@ -195,8 +228,8 @@ app.post('/api/recover-password', (req, res) => {
         } else if (!user) {
         res.status(400).json({ error: 'User not found' });
         } else {
+
         // SENDING PASSWORD RECOVERY EMAIL
-        
         const recoveryEmail = 'readswap.contact@gmail.com';
         const recoverySubject = 'Password Recovery';
         const recoveryMessage = `Hello ${user.f_name},\n\nYour password: ${user.password}\n\nSincerely,\nThe ReadSwap Team`;
@@ -232,7 +265,7 @@ app.post('/api/recover-password', (req, res) => {
 });
 
 // API endpoint for creating a new thread
-app.post('/api/create/thread', (req, res) => {
+app.post('/api/create/thread', verifyToken , (req, res) => {
     const { thread, userId } = req.body;
 
     db.run(
@@ -247,6 +280,25 @@ app.post('/api/create/thread', (req, res) => {
         }
     );
 });
+
+// Middleware for token verification
+function verifyToken(req, res, next) {
+    const bearerHeader = req.headers['authorization'];
+
+    if (typeof bearerHeader !== 'undefined') {
+        const bearerToken = bearerHeader.split(' ')[1];
+        jwt.verify(bearerToken, 'secret_key', (err, decoded) => {
+            if (err) {
+                res.status(403).json({ error: 'Invalid token' });
+            } else {
+                req.decoded = decoded;
+                next();
+            }
+        });
+    } else {
+        res.status(401).json({ error: 'Unauthorized' });
+    }
+}
 
 // API endpoint for creating a new reply
 app.post('/api/create/reply', (req, res) => {
