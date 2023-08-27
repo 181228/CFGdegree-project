@@ -25,36 +25,61 @@ const BookUploadForm = () => {
         event.preventDefault();
         
         try {
-        const response = await fetch('http://localhost:3000/api/books', {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        });
+            // GET USER_ID BASED ON USERNAME
+            const username = formData.username;
+            
+            const userIdResponse = await fetch(`http://localhost:3000/api/user-id/${username}`);
     
-        if (response.ok) {
-            // RESET FORM FIELDS
-            setFormData({
-                user_id: '',
-                title: '',
-                author: '',
-                genre: '',
-                condition: '',
-                trade_for: '',
-                price: '',
-                image: '',
+            if (!userIdResponse.ok) {
+                throw new Error('User not found');
+            }
+    
+            const userIdData = await userIdResponse.json();
+    
+            // Check if all required fields are filled
+            const requiredFields = ['title', 'author', 'genre', 'condition', 'tradeFor', 'price', 'image'];
+            const missingFields = requiredFields.filter(field => !formData[field]);
+    
+            if (missingFields.length > 0) {
+                throw new Error('Please fill in all required fields');
+            }
+    
+            // SET USER_ID IN FORMDATA BASED ON RESULT OF A QUERY
+            setFormData((prevData) => ({
+                ...prevData,
+                user_id: userIdData.id,
+            }));
+    
+            const response = await fetch('http://localhost:3000/api/books', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+    
+            if (response.ok) {
+                // RESET FORM FIELDS
+                setFormData({
+                    user_id: '',
+                    title: '',
+                    author: '',
+                    genre: '',
+                    condition: '',
+                    trade_for: '',
+                    price: '',
+                    image: '',
                 });
-                
                 // DISPLAY SUCCESS MESSAGE
                 window.alert('Book posted!');
             } else {
                 // PLACE FOR HANDLING ERRORS
+                throw new Error('Error posting book');
             }
-            } catch (error) {
-            console.error('Error sending data to server:', error);
+        } catch (error) {
+            console.error('Error during form submission:', error);
         }
-    };
+    };    
     
 
     return (
@@ -66,12 +91,12 @@ const BookUploadForm = () => {
         <h2 className="upload-h2">Upload a Book</h2>
         <form onSubmit={handleSubmit}>
             {/* Owner's Email */}
-            <label className="upload-label">User ID:</label>
+            <label className="upload-label">Username:</label>
             <input
                 className="upload-input"
-                type="number"
-                name="user_id"
-                value={formData.ownerMail}
+                type="text"
+                name="username"
+                value={formData.username}
                 onChange={handleInputChange}
                 required
             />

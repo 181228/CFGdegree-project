@@ -68,6 +68,21 @@ app.get('/api/users', (req, res) => {
     });
 });
 
+// Search user_id based on username
+app.get('/api/user-id/:username', (req, res) => {
+    const username = req.params.username;
+
+    db.get('SELECT id FROM users WHERE u_name = ?', [username], (err, row) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else if (!row) {
+            res.status(404).json({ error: 'User not found' });
+        } else {
+            res.json(row);
+        }
+    });
+});
+
 // API endpoint for individual user details
 app.get('/api/users/:id', (req, res) => {
     const userId = req.params.id;
@@ -185,7 +200,6 @@ app.post('/api/login', (req, res) => {
     });
 });
 
-
 // PASSWORD RECOVERY
 app.post('/api/recover-password', (req, res) => {
     const { full_name, email } = req.body;
@@ -196,8 +210,8 @@ app.post('/api/recover-password', (req, res) => {
         } else if (!user) {
         res.status(400).json({ error: 'User not found' });
         } else {
+
         // SENDING PASSWORD RECOVERY EMAIL
-        
         const recoveryEmail = 'readswap.contact@gmail.com';
         const recoverySubject = 'Password Recovery';
         const recoveryMessage = `Hello ${user.f_name},\n\nYour password: ${user.password}\n\nSincerely,\nThe ReadSwap Team`;
