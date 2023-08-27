@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import "./registrationlogin.css";
+import "./register.css";
 
-function RegistrationForm() {
+function Register() {
     const [registerData, setRegisterData] = useState({
         f_name: '',
         l_name: '',
@@ -58,13 +58,13 @@ function RegistrationForm() {
     }
 
     return (
-        <div className="form-container">
-        <h2 className="form-header">Register</h2>
+        <div className="register-details">
+        <h2 className="register-h2">Register</h2>
         <p>{registerMessage}</p>
 
         <form onSubmit={handleRegisterSubmit}>
                 <input
-            className="form-input" 
+            className="register-input" 
             placeholder="First name"
             type="text"
             name="f_name"
@@ -73,7 +73,7 @@ function RegistrationForm() {
             />
 
             <input
-            className="form-input" 
+            className="register-input" 
             placeholder="Last name"
             type="text"
             name="l_name"
@@ -82,7 +82,7 @@ function RegistrationForm() {
             />
 
             <input
-            className="form-input" 
+            className="register-input" 
             placeholder="Username"
             type="text"
             name="u_name"
@@ -91,7 +91,7 @@ function RegistrationForm() {
             />
 
             <input
-            className="form-input" 
+            className="register-input" 
             placeholder="Email"
             type="email"
             name="email"
@@ -100,7 +100,7 @@ function RegistrationForm() {
             />
 
             <input
-            className="form-input"
+            className="register-input"
             placeholder="City"
             type="text"
             name="city"
@@ -109,7 +109,7 @@ function RegistrationForm() {
             />
 
             <input
-            className="form-input"
+            className="register-input"
             placeholder="Password"
             type="password"
             name="password"
@@ -118,21 +118,22 @@ function RegistrationForm() {
             />
             
             <input
-            className="form-input"
+            className="register-input"
             placeholder="Year of birth"
             type="number"
             name="y_birth"
             value={registerData.y_birth}
             onChange={handleInputChange}
             />
-
+            <div className='reg-buttons-container'>
             <button className="form-button" type="submit">Register</button>
-            <Link to="/login">
+            <Link className='register-link' to="/login">
                 Already have an account? Login here
             </Link>
+            </div>
         </form>
         </div>
     );
 }
 
-export default RegistrationForm;
+export default Register;
