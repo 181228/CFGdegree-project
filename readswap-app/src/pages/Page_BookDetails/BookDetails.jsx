@@ -87,6 +87,7 @@ function BookDetails() {
                                 <p>
                                     <b>Ready to swap with:</b> {bookOwner}
                                 </p>
+                                <div className="buy-product-wrapper">
                                 <button><Link className="buy-button" to="/payment">BUY</Link></button>
                                 <Product
                                     id={book.id}
@@ -95,6 +96,7 @@ function BookDetails() {
                                     image={book.image}
                                     showAddToCartButton={true}
                                 />
+                                </div>
                             </div>
                         </div>
                     ) : (

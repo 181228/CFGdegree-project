@@ -74,7 +74,7 @@ nav a:hover{
     font-size: 15px;
     margin: 0;
 }
-header .nav-button,
+
 header .nav-button-01{
     padding:0px;
     cursor: pointer;
@@ -99,17 +99,6 @@ header .login-button{
     font-size: small;
     
 }
-header .searchtab{
-    align-items: center;
-    justify-content: center;
-    margin-top: 0px;
-    width: 30vw;
-    height: 0.1vw;
-    padding: 0.75vw;
-    border: 1px solid rgb(255, 255, 255);
-    border-radius: 0.5vw;
-    margin-left: 400px; 
-}
 
 header .button{
     padding:5px;
@@ -125,7 +114,16 @@ header .button{
 }
 
 .nav-middle-line {
+    display: flex;
+    align-items: center;
     margin-top: 30px;
+    justify-content: flex-end;
+}
+
+.searchItems {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
 }
 
 @media only screen and (max-width: 1024px){

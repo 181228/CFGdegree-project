@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./landingpage.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function LandingPage() {
 
@@ -42,10 +42,12 @@ return (
             <div id="bookList-landing">
               {booksToDisplay.map(book => (
                 <div key={book.id} className="book-landing">
+                  <Link to={`/book/${book.id}`}>
                   <img src={`http://localhost:3000/CoverImages/${book.image}`} alt={book.title} width="150" height="200" />
                   <h3>{book.title}</h3>
                   <p>Author: {book.author}</p> 
                   <p>Genre: {book.genre}</p>
+                  </Link>
                 </div>
               ))}
             </div>
@@ -54,9 +56,6 @@ return (
       <br></br>
 
       <div className="buttonContainer">
-        <p className="pi-land"><strong>Search by :</strong></p>
-        <button className="searchBut" id="bestsellersButton">BESTSELLERS</button>
-        <button className="searchBut" id="genresButton">GENRES</button>
       </div>
       <br></br>
     </div>

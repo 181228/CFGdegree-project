@@ -54,6 +54,13 @@ button {
     margin-right: 20px;
 }
 
+.buy-product-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 120px;
+    gap: 20px;
+}
+
 
 
 
