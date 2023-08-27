@@ -63,6 +63,18 @@ app.get('/api/books/:id', (req, res) => {
     });
 });
 
+app.get('/api/search-results', (req, res) => {
+    const searchQuery = req.query.query;
+
+    db.all('SELECT * FROM books WHERE title LIKE ?', [`%${searchQuery}%`], (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
 // API endpoint for retrieving all users
 app.get('/api/users', (req, res) => {
     db.all('SELECT * FROM users', (err, rows) => {
