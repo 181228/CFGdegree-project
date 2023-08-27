@@ -88,7 +88,7 @@ function BookDetails() {
                                     <b>Ready to swap with:</b> {bookOwner}
                                 </p>
                                 <div className="buy-product-wrapper">
-                                <button><Link className="buy-button" to="/payment">BUY</Link></button>
+                                <button><Link className="buy-button" to="/shipping">BUY</Link></button>
                                 <Product
                                     id={book.id}
                                     title={book.title}
