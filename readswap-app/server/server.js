@@ -3,20 +3,16 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const fs = require('fs');
 const port = 3000;
-const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const app = express();
 
-app.use(cors()); // CORS middleware
-
-const corsOptions = {
-    origin: 'http://localhost:3001/', // FRONT-END DOMAIN
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-};
-
-app.use(cors(corsOptions));
-
+// FRONT-END - BACK-END CONNECTION
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:3001"); // FRONT-END PORT
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    next();
+});
 
 const dbPath = './users-books-threads.db';
 
