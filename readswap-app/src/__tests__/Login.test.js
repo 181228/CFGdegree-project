@@ -20,7 +20,7 @@ test('performs login on form submission and redirects on success', async () => {
     
     const usernameInput = screen.getByPlaceholderText('Username');
     const passwordInput = screen.getByPlaceholderText('Password');
-    const submitButton = screen.getByText('Login');
+    const submitButton = screen.getByRole('button', { name: 'Login' });
 
     fireEvent.change(usernameInput, { target: { value: 'aginsideout' } });
     fireEvent.change(passwordInput, { target: { value: '0404789' } });

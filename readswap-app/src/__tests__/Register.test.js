@@ -1,10 +1,9 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
 import Register from '../pages/Page_Register/Register';
 
 test('displays error message for underage user', async () => {
-    render(<Register />, { wrapper: MemoryRouter });
+    render(<Register />);
 
     const firstNameInput = screen.getByPlaceholderText('First name');
     const lastNameInput = screen.getByPlaceholderText('Last name');
@@ -13,7 +12,9 @@ test('displays error message for underage user', async () => {
     const cityInput = screen.getByPlaceholderText('City');
     const passwordInput = screen.getByPlaceholderText('Password');
     const yearOfBirthInput = screen.getByPlaceholderText('Year of birth');
-    const submitButton = screen.getByText('Register');
+    const submitButtons = screen.getAllByText('Register');
+
+    const submitButton = submitButtons[0];
 
     fireEvent.change(firstNameInput, { target: { value: 'Sophie' } });
     fireEvent.change(lastNameInput, { target: { value: 'Queens' } });
