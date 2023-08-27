@@ -1,11 +1,12 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import AboutUs from '../pages/Page_AboutUs/AboutUs';
+import { render, screen } from '@testing-library/react'; // Dodano screen
 
-test('renders the AboutUs component', () => {
+import AboutUs from '../pages/Page_AboutUs/AboutUs'; // Sprawdź, czy to jest prawidłowa ścieżka do pliku AboutUs.js
+
+test('renders AboutUs component', () => {
     render(<AboutUs />);
-    
-    // SEARCHING FOR TEXT WITHIN ELEMENT TO CONFIRM RENDERING
-    const aboutUsElement = screen.getByText(/About Us/i);
-    expect(aboutUsElement).toBeInTheDocument();
+
+    // Check that the text from the 'About Us' section exists in the component
+    const aboutUsTitle = screen.getByText('About Us');
+    expect(aboutUsTitle).toBeInTheDocument();
 });

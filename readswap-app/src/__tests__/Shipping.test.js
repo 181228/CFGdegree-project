@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Shipping from '../pages/Shipping/Shipping';
+import Shipping from '../pages/Page_Shipping/Shipping';
 
 test('displays error message for missing fields on form submission', async () => {
     render(<Shipping />, { wrapper: MemoryRouter });

@@ -1,11 +1,11 @@
 import React from 'react';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
-import BookUploadForm from '../pages/Page_BookUpload/BookUploadForm';
+import BookUploadForm from '../pages/Page_BookUpload/BookUpload';
 
 test('displays success message when book is posted', async () => {
     render(<BookUploadForm />);
 
-    const usernameInput = screen.getByLabelText('Username');
+    const usernameInput = screen.getByRole('textbox', { name: 'Username' });
     const titleInput = screen.getByLabelText('Book Title');
     const authorInput = screen.getByLabelText('Book Author');
     const genreInput = screen.getByLabelText('Book Genre');

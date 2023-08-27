@@ -53,5 +53,13 @@
   "devDependencies": {
     "react-scripts": "^5.0.1",
     "@babel/plugin-proposal-private-property-in-object": "8.19.4"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "^axios$": "<rootDir>/node_modules/axios"
+    }
   }
 }
