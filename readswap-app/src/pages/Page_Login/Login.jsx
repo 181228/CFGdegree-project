@@ -32,7 +32,7 @@ function Login() {
 
           if (response.ok) {
               // Login successful
-              localStorage.setItem("token", data.token); // Zapisanie tokenu w localStorage
+              localStorage.setItem("token", data.token);
               setLoginMsg(data.message);
               navigate('/'); // Redirect to main app page
           } else {
