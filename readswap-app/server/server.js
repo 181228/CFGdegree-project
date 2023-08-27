@@ -3,10 +3,20 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const fs = require('fs');
 const port = 3000;
-const cors = require('cors'); // The front-end is running on another port
+const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const app = express();
+
 app.use(cors()); // CORS middleware
+
+const corsOptions = {
+    origin: 'http://localhost:3001/', // FRONT-END DOMAIN
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
+
 
 const dbPath = './users-books-threads.db';
 
@@ -113,7 +123,7 @@ app.get('/api/books/:id/owner', (req, res) => {
     });
 });
 
-app.post('/api/books', (req, res) => {
+app.post('/api/books', verifyToken, (req, res) => {
     const bookData = req.body; // Form data sent from the React app
 
     // Insert the book data into the database
