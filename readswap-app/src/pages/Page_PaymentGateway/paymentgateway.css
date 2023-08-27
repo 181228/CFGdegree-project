@@ -9,6 +9,9 @@
 
 .pay-label {
   font-weight: lighter;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .pay-container {
@@ -30,14 +33,9 @@
   width: auto;
 }
 
-h1 {
+.pay-h2 {
   margin-bottom: 30px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+  font-style: lighter !important;
 }
 
 .pay-input {
@@ -51,17 +49,16 @@ label {
   border-color: rgb(255, 255, 255, 0.1);
 }
 
-input:read-only {
+.pay-input:read-only {
   color: #999;
 }
 
-/* Custom styles to indicate invalid input */
-input:invalid {
+.pay-input:invalid {
   border-color: #283618;
   border-width: 1px;
 }
 
-input:invalid + span {
+.pay-input:invalid + span {
   display: block;
   color: #606c38;
   font-size: 12px;

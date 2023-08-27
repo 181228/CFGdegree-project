@@ -32,12 +32,7 @@
     padding: 20px;
 }
 
-h1 {
+.pconf-h2 {
     margin-bottom: 30px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    font-style: lighter !important;
 }

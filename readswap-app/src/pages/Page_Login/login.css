@@ -23,7 +23,21 @@
   margin-bottom: 15px;
   border-radius: 10px;
 } 
-  
+
+.login-input:read-only {
+  color: #999;
+}
+
+.login-input:invalid {
+  border-color: #283618;
+  border-width: 1px;
+}
+
+.login-input:invalid + span {
+  display: block;
+  color: #606c38;
+  font-size: 12px;
+}
   /* Form button */
 .login-button {
   color: black !important;

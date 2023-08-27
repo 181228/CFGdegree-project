@@ -48,7 +48,7 @@ export const Cart = () => {
                     <button
                         onClick={() => {
                             checkout();
-                            navigate("/payment");
+                            navigate("/shipping");
                         }}
                     >
                         {" "}

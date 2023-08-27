@@ -21,7 +21,7 @@ function PaymentConfirmation() {
             <div className="pconf-container">
                 <br></br>
                 <br></br>
-                <h1>Payment Confirmation</h1>
+                <h2 className='pconf-h2'>Payment Confirmation</h2>
                 <div className='confirmation-layout'>
                     <div className="confirmation-container">
                         <div className="confirmation-details">
