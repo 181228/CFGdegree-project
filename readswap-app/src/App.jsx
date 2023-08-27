@@ -17,7 +17,8 @@ import Replies from "./pages/Page_Forum/Replies";
 import BookUploadForm from "./pages/Page_BookUpload/BookUpload";
 import {ShopContextProvider} from "./components/context/shop-context.jsx";  
 import RegistrationForm from './pages/Page_RegistrationLogin/Page_Register';
-import LoginForm from './pages/Page_RegistrationLogin/Page_Login';  
+import LoginForm from './pages/Page_RegistrationLogin/Page_Login';
+import ContactUs from "./pages/Page_ContactUs/ContactUs";
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
               <Route path='upload' element={<BookUploadForm/>} />
               <Route exact path="/register" element={<RegistrationForm />} />
               <Route exaact path="/login" element={<LoginForm />} />
+              <Route path="/contactus" element={<ContactUs />} />
             </Routes>
           </div>
           <Footer />
