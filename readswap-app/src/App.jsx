@@ -9,15 +9,13 @@ import BookDetails from "./pages/Page_BookDetails/BookDetails";
 import ShoppingCart from "./pages/Page_ShoppingCart/ShoppingCart";
 import PaymentGateway from './pages/Page_PaymentGateway/PaymentGateway';
 import PaymentConfirmation from './pages/Page_PaymentConfirmation/PaymentConfirmation';
-import Register from "./pages/Page_RegistrationLogin/Page_Register";
-import Login from "./pages/Page_RegistrationLogin/Page_Login";
+import Register from "./pages/Page_Register/Page_Register";
+import Login from "./pages/Page_Login/Page_Login";
 import Shipping from "./pages/Page_Shipping/Shipping";
 import Forum from "./pages/Page_Forum/Page_Forum";
 import Replies from "./pages/Page_Forum/Replies";
 import BookUploadForm from "./pages/Page_BookUpload/BookUpload";
 import {ShopContextProvider} from "./components/context/shop-context.jsx";  
-import RegistrationForm from './pages/Page_RegistrationLogin/Page_Register';
-import LoginForm from './pages/Page_RegistrationLogin/Page_Login';  
 import SearchResults from './components/SearchResults';
 
 function App() {
@@ -42,8 +40,8 @@ function App() {
               <Route path="/forum" element={<Forum/>} />
               <Route path='/:id/replies' element={<Replies />} />
               <Route path='upload' element={<BookUploadForm/>} />
-              <Route exact path="/register" element={<RegistrationForm />} />
-              <Route exaact path="/login" element={<LoginForm />} />
+              <Route exact path="/register" element={<Register />} />
+              <Route exaact path="/login" element={<Login />} />
               <Route path="/search-results" element={<SearchResults />} />
             </Routes>
           </div>

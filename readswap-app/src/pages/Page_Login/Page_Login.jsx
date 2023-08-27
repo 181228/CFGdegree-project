@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import "./registrationlogin.css";
+import "./login.css";
 
 
-function LoginForm() {
+function Login() {
   const [loginUname, setLoginUname] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
 
@@ -46,13 +46,13 @@ function LoginForm() {
 
     return (
       <div>
-      <div className="form-container">
-        <h2 className="form-header">Login</h2>
+      <div className="login-details">
+        <h2 className="login-h2">Login</h2>
         <p>{loginMsg}</p>
   
         <form onSubmit={handleLoginSubmit}>
           <input
-            className="form-input"
+            className="login-input"
             placeholder="Username"
             type="text"
             value={loginUname}
@@ -60,22 +60,23 @@ function LoginForm() {
           />
   
           <input
-            className="form-input"
+            className="login-input"
             placeholder="Password"
             type="password"
             value={loginPassword}
             onChange={(e) => setLoginPassword(e.target.value)}
           />
-  
-          <button className="form-button" type="submit">Login</button>
+          <div className='log-buttons-container'>
+            <button className="login-button" type="submit">Login</button>
 
-          <Link to="/register">
-              Don't have an account? Register here
-          </Link>
+            <Link to="/register" className='login-link'>
+                Don't have an account? Register here
+            </Link>
+          </div>
         </form> 
       </div>
       </div>
     );
   }
 
-export default LoginForm
+export default Login;
