@@ -27,7 +27,7 @@ function Header(){
                     <a href = "/bookslisting"> BOOKS </a>
                     <a href = "/upload"> UPLOAD </a>
                     <a href = "/forum"> FORUM </a>
-                    <a href = "/aboutus"> ABOUT US </a>
+                    <a href = "/about"> ABOUT US </a>
                     </div><br></br>
                     <div className="nav-middle-line">
                     <input placeholder='Search...' className="searchtab"></input>
